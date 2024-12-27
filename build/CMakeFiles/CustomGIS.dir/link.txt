@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o CMakeFiles/CustomGIS.dir/src/main.cpp.o -o CustomGIS  -lSDL2 -lSDL2_image -lSDL2 -lcurl -lpthread -lSDL2_image -lcurl -lpthread 

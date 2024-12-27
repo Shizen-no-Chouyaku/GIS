@@ -1,0 +1,3 @@
+/home/linux/LeapCore/GIS/build/CMakeFiles/CustomGIS.dir
+/home/linux/LeapCore/GIS/build/CMakeFiles/edit_cache.dir
+/home/linux/LeapCore/GIS/build/CMakeFiles/rebuild_cache.dir
