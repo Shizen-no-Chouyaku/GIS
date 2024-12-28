@@ -1,5 +1,6 @@
 CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /home/linux/LeapCore/GIS/src/main.cpp /usr/include/stdc-predef.h \
+ /home/linux/LeapCore/GIS/src/Utils/SDLUtils.h \
  /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
  /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
@@ -227,26 +228,46 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
  /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/begin_code.h \
- /usr/include/SDL2/close_code.h \
- /home/linux/LeapCore/GIS/src/Rendering/TileRenderer.h \
- /usr/include/c++/12/vector /usr/include/c++/12/bits/allocator.h \
+ /usr/include/SDL2/close_code.h /usr/include/c++/12/string \
+ /usr/include/c++/12/bits/stringfwd.h \
+ /usr/include/c++/12/bits/memoryfwd.h \
+ /usr/include/c++/12/bits/char_traits.h \
+ /usr/include/c++/12/bits/postypes.h /usr/include/c++/12/cwchar \
+ /usr/include/c++/12/cstdint /usr/include/c++/12/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
  /usr/include/c++/12/bits/new_allocator.h /usr/include/c++/12/new \
  /usr/include/c++/12/bits/exception.h \
- /usr/include/c++/12/bits/memoryfwd.h \
- /usr/include/c++/12/bits/stl_construct.h \
- /usr/include/c++/12/bits/stl_uninitialized.h \
- /usr/include/c++/12/ext/alloc_traits.h \
- /usr/include/c++/12/bits/alloc_traits.h \
- /usr/include/c++/12/bits/stl_vector.h \
- /usr/include/c++/12/initializer_list \
- /usr/include/c++/12/bits/stl_bvector.h \
- /usr/include/c++/12/bits/functional_hash.h \
- /usr/include/c++/12/bits/hash_bytes.h /usr/include/c++/12/bits/refwrap.h \
- /usr/include/c++/12/bits/invoke.h \
+ /usr/include/c++/12/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
+ /usr/include/c++/12/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/12/iosfwd \
+ /usr/include/c++/12/cctype /usr/include/c++/12/bits/ostream_insert.h \
+ /usr/include/c++/12/bits/cxxabi_forced.h \
  /usr/include/c++/12/bits/stl_function.h \
  /usr/include/c++/12/backward/binders.h \
+ /usr/include/c++/12/bits/refwrap.h /usr/include/c++/12/bits/invoke.h \
  /usr/include/c++/12/bits/range_access.h \
+ /usr/include/c++/12/initializer_list \
+ /usr/include/c++/12/bits/basic_string.h \
+ /usr/include/c++/12/ext/alloc_traits.h \
+ /usr/include/c++/12/bits/alloc_traits.h \
+ /usr/include/c++/12/bits/stl_construct.h /usr/include/c++/12/string_view \
+ /usr/include/c++/12/bits/functional_hash.h \
+ /usr/include/c++/12/bits/hash_bytes.h \
+ /usr/include/c++/12/bits/string_view.tcc \
+ /usr/include/c++/12/ext/string_conversions.h /usr/include/c++/12/cstdio \
+ /usr/include/c++/12/cerrno /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+ /usr/include/c++/12/bits/charconv.h \
+ /usr/include/c++/12/bits/basic_string.tcc \
+ /home/linux/LeapCore/GIS/src/Utils/MainLoop.h \
+ /home/linux/LeapCore/GIS/src/Utils/../Rendering/TileRenderer.h \
+ /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_uninitialized.h \
+ /usr/include/c++/12/bits/stl_vector.h \
+ /usr/include/c++/12/bits/stl_bvector.h \
  /usr/include/c++/12/bits/vector.tcc /usr/include/c++/12/mutex \
  /usr/include/c++/12/tuple /usr/include/c++/12/bits/uses_allocator.h \
  /usr/include/c++/12/exception /usr/include/c++/12/bits/exception_ptr.h \
@@ -254,28 +275,8 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /usr/include/c++/12/typeinfo /usr/include/c++/12/bits/nested_exception.h \
  /usr/include/c++/12/system_error \
  /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
- /usr/include/c++/12/cerrno /usr/include/errno.h \
- /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/x86_64-linux-gnu/asm/errno.h \
- /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /usr/include/c++/12/iosfwd /usr/include/c++/12/bits/stringfwd.h \
- /usr/include/c++/12/bits/postypes.h /usr/include/c++/12/cwchar \
- /usr/include/c++/12/stdexcept /usr/include/c++/12/string \
- /usr/include/c++/12/bits/char_traits.h /usr/include/c++/12/cstdint \
- /usr/include/c++/12/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
- /usr/include/c++/12/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/12/cctype \
- /usr/include/c++/12/bits/ostream_insert.h \
- /usr/include/c++/12/bits/cxxabi_forced.h \
- /usr/include/c++/12/bits/basic_string.h /usr/include/c++/12/string_view \
- /usr/include/c++/12/bits/string_view.tcc \
- /usr/include/c++/12/ext/string_conversions.h /usr/include/c++/12/cstdio \
- /usr/include/c++/12/bits/charconv.h \
- /usr/include/c++/12/bits/basic_string.tcc \
- /usr/include/c++/12/bits/chrono.h /usr/include/c++/12/ratio \
- /usr/include/c++/12/ctime /usr/include/time.h \
+ /usr/include/c++/12/stdexcept /usr/include/c++/12/bits/chrono.h \
+ /usr/include/c++/12/ratio /usr/include/c++/12/ctime /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/bits/timex.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
@@ -315,8 +316,8 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/std_function.h \
  /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/shared_mutex \
  /usr/include/c++/12/utility /usr/include/c++/12/bits/stl_relops.h \
- /home/linux/LeapCore/GIS/src/Rendering/../Networking/TileKey.h \
- /home/linux/LeapCore/GIS/src/Rendering/../Networking/TileFetcher.h \
+ /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/TileKey.h \
+ /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/TileFetcher.h \
  /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \
  /usr/include/c++/12/bits/list.tcc /usr/include/c++/12/functional \
  /usr/include/c++/12/array /usr/include/c++/12/compare \
@@ -351,13 +352,16 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/istream.tcc \
  /usr/include/c++/12/bits/sstream.tcc /usr/include/c++/12/codecvt \
  /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h \
- /home/linux/LeapCore/GIS/src/Rendering/../Networking/../Utils/ThreadPool.h \
+ /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/../Utils/ThreadPool.h \
  /usr/include/c++/12/thread /usr/include/c++/12/bits/this_thread_sleep.h \
  /usr/include/c++/12/queue /usr/include/c++/12/deque \
  /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
- /usr/include/c++/12/bits/stl_queue.h \
- /home/linux/LeapCore/GIS/src/Rendering/../Networking/TileKey.h \
- /home/linux/LeapCore/GIS/src/Rendering/Viewport.h \
- /home/linux/LeapCore/GIS/src/UI/InputHandler.h \
- /home/linux/LeapCore/GIS/src/UI/../Rendering/TileRenderer.h \
- /home/linux/LeapCore/GIS/src/Utils/Utils.h /usr/include/c++/12/iostream
+ /usr/include/c++/12/bits/stl_queue.h /usr/include/c++/12/iostream \
+ /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/TileKey.h \
+ /usr/include/c++/12/unordered_set \
+ /usr/include/c++/12/bits/unordered_set.h \
+ /home/linux/LeapCore/GIS/src/Utils/../Rendering/Viewport.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/InputHandler.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/TileRenderer.h \
+ /home/linux/LeapCore/GIS/src/Rendering/TileRenderer.h \
+ /home/linux/LeapCore/GIS/src/UI/InputHandler.h

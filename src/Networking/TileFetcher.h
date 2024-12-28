@@ -14,6 +14,7 @@
 #include <filesystem>
 #include "../Utils/ThreadPool.h"
 #include "TileKey.h" // Shared TileKey definitions
+#include <unordered_set>
 
 class TileFetcher {
 public:
@@ -35,6 +36,7 @@ private:
     std::list<TileKey> lruList; // Stores keys in order of usage
     std::unordered_map<TileKey, SDL_Texture*, TileKeyHash> tileCache;
     std::unordered_map<TileKey, std::list<TileKey>::iterator, TileKeyHash> cacheIterators;
+    std::unordered_set<TileKey, TileKeyHash> inProgressTiles;
     
     mutable std::shared_mutex cacheMutex; // For concurrent reads
 
@@ -45,9 +47,10 @@ private:
 
     // Fetch tile task
     SDL_Texture* fetchTileTask(int z, int x, int y);
+    SDL_Texture* createPlaceholderTexture();
 
     // Helper method to move a key to the front of the LRU list
-    void touchTile(const TileKey& key);
+    void touchTile(const TileKey& key, std::unique_lock<std::shared_mutex>& lock);
 
     // Evict least recently used tile
     void evictIfNeeded();

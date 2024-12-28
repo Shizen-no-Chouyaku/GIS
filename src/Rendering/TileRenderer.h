@@ -25,6 +25,7 @@ public:
     // Additional public methods if necessary
     bool needsRedraw() const;
     void resetRedrawFlag();
+    void updateTiles();
 
     Viewport viewport; // Made public for easy access
 

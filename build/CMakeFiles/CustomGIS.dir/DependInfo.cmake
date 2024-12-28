@@ -11,6 +11,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/linux/LeapCore/GIS/src/Networking/TileFetcher.cpp" "CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/Rendering/TileRenderer.cpp" "CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/UI/InputHandler.cpp" "CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o.d"
+  "/home/linux/LeapCore/GIS/src/UI/MapWindow.cpp" "CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o.d"
+  "/home/linux/LeapCore/GIS/src/Utils/MainLoop.cpp" "CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o.d"
+  "/home/linux/LeapCore/GIS/src/Utils/SDLUtils.cpp" "CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/Utils/Utils.cpp" "CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/main.cpp" "CMakeFiles/CustomGIS.dir/src/main.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/main.cpp.o.d"
   )

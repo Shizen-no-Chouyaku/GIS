@@ -201,6 +201,78 @@ src/UI/InputHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.s
 .PHONY : src/UI/InputHandler.cpp.s
 
+src/UI/MapWindow.o: src/UI/MapWindow.cpp.o
+.PHONY : src/UI/MapWindow.o
+
+# target to build an object file
+src/UI/MapWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o
+.PHONY : src/UI/MapWindow.cpp.o
+
+src/UI/MapWindow.i: src/UI/MapWindow.cpp.i
+.PHONY : src/UI/MapWindow.i
+
+# target to preprocess a source file
+src/UI/MapWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.i
+.PHONY : src/UI/MapWindow.cpp.i
+
+src/UI/MapWindow.s: src/UI/MapWindow.cpp.s
+.PHONY : src/UI/MapWindow.s
+
+# target to generate assembly for a file
+src/UI/MapWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.s
+.PHONY : src/UI/MapWindow.cpp.s
+
+src/Utils/MainLoop.o: src/Utils/MainLoop.cpp.o
+.PHONY : src/Utils/MainLoop.o
+
+# target to build an object file
+src/Utils/MainLoop.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o
+.PHONY : src/Utils/MainLoop.cpp.o
+
+src/Utils/MainLoop.i: src/Utils/MainLoop.cpp.i
+.PHONY : src/Utils/MainLoop.i
+
+# target to preprocess a source file
+src/Utils/MainLoop.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.i
+.PHONY : src/Utils/MainLoop.cpp.i
+
+src/Utils/MainLoop.s: src/Utils/MainLoop.cpp.s
+.PHONY : src/Utils/MainLoop.s
+
+# target to generate assembly for a file
+src/Utils/MainLoop.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.s
+.PHONY : src/Utils/MainLoop.cpp.s
+
+src/Utils/SDLUtils.o: src/Utils/SDLUtils.cpp.o
+.PHONY : src/Utils/SDLUtils.o
+
+# target to build an object file
+src/Utils/SDLUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o
+.PHONY : src/Utils/SDLUtils.cpp.o
+
+src/Utils/SDLUtils.i: src/Utils/SDLUtils.cpp.i
+.PHONY : src/Utils/SDLUtils.i
+
+# target to preprocess a source file
+src/Utils/SDLUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.i
+.PHONY : src/Utils/SDLUtils.cpp.i
+
+src/Utils/SDLUtils.s: src/Utils/SDLUtils.cpp.s
+.PHONY : src/Utils/SDLUtils.s
+
+# target to generate assembly for a file
+src/Utils/SDLUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.s
+.PHONY : src/Utils/SDLUtils.cpp.s
+
 src/Utils/Utils.o: src/Utils/Utils.cpp.o
 .PHONY : src/Utils/Utils.o
 
@@ -267,6 +339,15 @@ help:
 	@echo "... src/UI/InputHandler.o"
 	@echo "... src/UI/InputHandler.i"
 	@echo "... src/UI/InputHandler.s"
+	@echo "... src/UI/MapWindow.o"
+	@echo "... src/UI/MapWindow.i"
+	@echo "... src/UI/MapWindow.s"
+	@echo "... src/Utils/MainLoop.o"
+	@echo "... src/Utils/MainLoop.i"
+	@echo "... src/Utils/MainLoop.s"
+	@echo "... src/Utils/SDLUtils.o"
+	@echo "... src/Utils/SDLUtils.i"
+	@echo "... src/Utils/SDLUtils.s"
 	@echo "... src/Utils/Utils.o"
 	@echo "... src/Utils/Utils.i"
 	@echo "... src/Utils/Utils.s"
