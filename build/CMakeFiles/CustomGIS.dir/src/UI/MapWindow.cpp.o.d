@@ -1,7 +1,6 @@
 CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: \
  /home/linux/LeapCore/GIS/src/UI/MapWindow.cpp /usr/include/stdc-predef.h \
  /home/linux/LeapCore/GIS/src/UI/MapWindow.h \
- /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
  /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
  /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
@@ -227,6 +226,8 @@ CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
+ /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
+ /usr/local/include/SDL2/SDL.h \
  /home/linux/LeapCore/GIS/src/UI/../Rendering/TileRenderer.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
@@ -312,7 +313,7 @@ CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: \
  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
  /usr/include/c++/12/bits/atomic_futex.h /usr/include/c++/12/atomic \
  /usr/include/c++/12/bits/std_function.h \
- /usr/include/c++/12/bits/std_thread.h /usr/local/include/SDL2/SDL.h \
+ /usr/include/c++/12/bits/std_thread.h \
  /home/linux/LeapCore/GIS/src/UI/../Rendering/../Networking/TileKey.h \
  /home/linux/LeapCore/GIS/src/UI/../Rendering/../Networking/TileFetcher.h \
  /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \

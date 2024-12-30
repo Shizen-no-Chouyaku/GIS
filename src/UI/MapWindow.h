@@ -1,6 +1,8 @@
+// MapWindow.h
 #ifndef MAPWINDOW_H
 #define MAPWINDOW_H
 
+#include <SDL2/SDL.h>
 #include "UIComponent.h"
 #include "../Rendering/TileRenderer.h"
 #include "InputHandler.h"
@@ -14,10 +16,12 @@ public:
     void update() override;
     void render(SDL_Renderer* renderer) override;
 
-    void setPosition(int x, int y) override;
-    void setSize(int width, int height) override;
+    void setPosition(int x, int y);
+    void setSize(int width, int height);
 
-    bool needsRedraw() const override; // Add this line
+    bool needsRedraw() const override;
+
+    const SDL_Rect& getMapArea() const; // Modified getter to return a const reference
 
 private:
     TileRenderer& tileRenderer;
@@ -25,6 +29,5 @@ private:
     SDL_Renderer* renderer;
     SDL_Rect mapArea;
 };
-
 
 #endif // MAPWINDOW_H

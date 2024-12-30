@@ -1,6 +1,7 @@
+// MainLoop.cpp
 #include "MainLoop.h"
 
-void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, UIManager& uiManager) {
+void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, UIManager& uiManager, MapWindow& mapWindow) {
     bool running = true;
     SDL_Event event;
 
@@ -18,16 +19,26 @@ void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, UIManager& uiManage
                 running = false;
             }
             uiManager.handleEvent(event);
+            mapWindow.handleEvent(event); // Handle events for MapWindow
         }
 
         uiManager.update();
+        mapWindow.update();
 
-        if (uiManager.needsRedraw()) { // Use UIManager's needsRedraw method
-            SDL_Log("Screen cleared for redraw");
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White background
-            SDL_RenderClear(renderer);
+        // Determine if either UIManager or MapWindow needs redraw
+        bool needsRedraw = uiManager.needsRedraw() || mapWindow.needsRedraw();
+
+        if (needsRedraw) { // Use combined needsRedraw flag
+            // Clear only the map area
+            SDL_Log("Clearing map area for redraw");
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White background for map area
+            SDL_RenderFillRect(renderer, &mapWindow.getMapArea()); // Clear only the map area
         }
 
+        // Render MapWindow first
+        mapWindow.render(renderer);
+
+        // Then render UI components
         uiManager.render();
 
         SDL_RenderPresent(renderer);

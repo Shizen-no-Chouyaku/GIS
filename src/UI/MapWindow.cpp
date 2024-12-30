@@ -1,3 +1,4 @@
+// MapWindow.cpp
 #include "MapWindow.h"
 
 MapWindow::MapWindow(TileRenderer& tileRenderer, InputHandler& inputHandler, SDL_Renderer* renderer)
@@ -32,4 +33,8 @@ void MapWindow::setSize(int width, int height) {
 
 bool MapWindow::needsRedraw() const {
     return tileRenderer.needsRedraw();
+}
+
+const SDL_Rect& MapWindow::getMapArea() const { // Modified to return a const reference
+    return mapArea;
 }
