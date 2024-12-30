@@ -1,7 +1,9 @@
 CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: \
  /home/linux/LeapCore/GIS/src/UI/Toolbar.cpp /usr/include/stdc-predef.h \
- /home/linux/LeapCore/GIS/src/UI/Toolbar.h /usr/local/include/SDL2/SDL.h \
- /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h \
+ /home/linux/LeapCore/GIS/src/UI/Toolbar.h \
+ /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
+ /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
+ /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
  /usr/local/include/SDL2/SDL_platform.h \
  /usr/local/include/SDL2/begin_code.h \
@@ -224,42 +226,4 @@ CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: \
  /usr/local/include/SDL2/SDL_render.h /usr/local/include/SDL2/SDL_shape.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
- /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
- /usr/include/c++/12/vector /usr/include/c++/12/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
- /usr/include/c++/12/bits/new_allocator.h /usr/include/c++/12/new \
- /usr/include/c++/12/bits/exception.h \
- /usr/include/c++/12/bits/memoryfwd.h \
- /usr/include/c++/12/bits/stl_construct.h \
- /usr/include/c++/12/bits/stl_uninitialized.h \
- /usr/include/c++/12/ext/alloc_traits.h \
- /usr/include/c++/12/bits/alloc_traits.h \
- /usr/include/c++/12/bits/stl_vector.h \
- /usr/include/c++/12/initializer_list \
- /usr/include/c++/12/bits/stl_bvector.h \
- /usr/include/c++/12/bits/functional_hash.h \
- /usr/include/c++/12/bits/hash_bytes.h /usr/include/c++/12/bits/refwrap.h \
- /usr/include/c++/12/bits/invoke.h \
- /usr/include/c++/12/bits/stl_function.h \
- /usr/include/c++/12/backward/binders.h \
- /usr/include/c++/12/bits/range_access.h \
- /usr/include/c++/12/bits/vector.tcc /usr/include/c++/12/string \
- /usr/include/c++/12/bits/stringfwd.h \
- /usr/include/c++/12/bits/char_traits.h \
- /usr/include/c++/12/bits/postypes.h /usr/include/c++/12/cwchar \
- /usr/include/c++/12/cstdint /usr/include/c++/12/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
- /usr/include/c++/12/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/12/iosfwd \
- /usr/include/c++/12/cctype /usr/include/c++/12/bits/ostream_insert.h \
- /usr/include/c++/12/bits/cxxabi_forced.h \
- /usr/include/c++/12/bits/basic_string.h /usr/include/c++/12/string_view \
- /usr/include/c++/12/bits/string_view.tcc \
- /usr/include/c++/12/ext/string_conversions.h /usr/include/c++/12/cstdio \
- /usr/include/c++/12/cerrno /usr/include/errno.h \
- /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/x86_64-linux-gnu/asm/errno.h \
- /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /usr/include/c++/12/bits/charconv.h \
- /usr/include/c++/12/bits/basic_string.tcc
+ /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h

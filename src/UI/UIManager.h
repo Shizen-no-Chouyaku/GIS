@@ -1,8 +1,10 @@
+// UIManager.h
 #ifndef UIMANAGER_H
 #define UIMANAGER_H
 
-#include <SDL2/SDL.h>
-#include "Toolbar.h" // Include the Toolbar header
+#include "UIComponent.h"
+#include <vector>
+#include <memory>
 
 class UIManager {
 public:
@@ -10,11 +12,14 @@ public:
     ~UIManager();
 
     void handleEvent(const SDL_Event& event);
+    void update();
     void render();
+
+    void addComponent(std::shared_ptr<UIComponent> component);
 
 private:
     SDL_Renderer* renderer;
-    Toolbar* toolbar;
+    std::vector<std::shared_ptr<UIComponent>> components;
 };
 
 #endif // UIMANAGER_H

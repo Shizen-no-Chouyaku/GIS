@@ -1,25 +1,25 @@
+// Toolbar.h
 #ifndef TOOLBAR_H
 #define TOOLBAR_H
 
-#include <SDL2/SDL.h>
-#include <vector>
-#include <string>
+#include "UIComponent.h"
 
-class Toolbar {
+class Toolbar : public UIComponent {
 public:
     Toolbar(SDL_Renderer* renderer);
     ~Toolbar();
 
-    void handleEvent(const SDL_Event& event);
-    void render();
+    void handleEvent(const SDL_Event& event) override;
+    void update() override;
+    void render(SDL_Renderer* renderer) override;
+
+    void setPosition(int x, int y) override;
+    void setSize(int width, int height) override;
 
 private:
     SDL_Renderer* renderer;
-    SDL_Texture* toolbarTexture; // Off-screen texture for the toolbar
-    bool needsRedraw;            // Track if the toolbar needs to be redrawn
-
-    void drawToTexture();        // Internal function to draw to the texture
+    SDL_Rect position;
+    // Add toolbar-specific members here
 };
-
 
 #endif // TOOLBAR_H

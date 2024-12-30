@@ -1,6 +1,7 @@
 CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: \
  /home/linux/LeapCore/GIS/src/UI/UIManager.cpp /usr/include/stdc-predef.h \
  /home/linux/LeapCore/GIS/src/UI/UIManager.h \
+ /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
  /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
  /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
@@ -226,8 +227,7 @@ CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
- /home/linux/LeapCore/GIS/src/UI/Toolbar.h /usr/include/c++/12/vector \
- /usr/include/c++/12/bits/allocator.h \
+ /usr/include/c++/12/vector /usr/include/c++/12/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
  /usr/include/c++/12/bits/new_allocator.h /usr/include/c++/12/new \
  /usr/include/c++/12/bits/exception.h \
@@ -245,23 +245,40 @@ CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: \
  /usr/include/c++/12/bits/stl_function.h \
  /usr/include/c++/12/backward/binders.h \
  /usr/include/c++/12/bits/range_access.h \
- /usr/include/c++/12/bits/vector.tcc /usr/include/c++/12/string \
- /usr/include/c++/12/bits/stringfwd.h \
- /usr/include/c++/12/bits/char_traits.h \
- /usr/include/c++/12/bits/postypes.h /usr/include/c++/12/cwchar \
- /usr/include/c++/12/cstdint /usr/include/c++/12/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
- /usr/include/c++/12/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/12/iosfwd \
- /usr/include/c++/12/cctype /usr/include/c++/12/bits/ostream_insert.h \
- /usr/include/c++/12/bits/cxxabi_forced.h \
- /usr/include/c++/12/bits/basic_string.h /usr/include/c++/12/string_view \
- /usr/include/c++/12/bits/string_view.tcc \
- /usr/include/c++/12/ext/string_conversions.h /usr/include/c++/12/cstdio \
- /usr/include/c++/12/cerrno /usr/include/errno.h \
- /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/x86_64-linux-gnu/asm/errno.h \
- /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /usr/include/c++/12/bits/charconv.h \
- /usr/include/c++/12/bits/basic_string.tcc
+ /usr/include/c++/12/bits/vector.tcc /usr/include/c++/12/memory \
+ /usr/include/c++/12/bits/stl_tempbuf.h \
+ /usr/include/c++/12/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/12/bits/align.h /usr/include/c++/12/bit \
+ /usr/include/c++/12/bits/uses_allocator.h \
+ /usr/include/c++/12/bits/unique_ptr.h /usr/include/c++/12/tuple \
+ /usr/include/c++/12/bits/shared_ptr.h /usr/include/c++/12/iosfwd \
+ /usr/include/c++/12/bits/stringfwd.h /usr/include/c++/12/bits/postypes.h \
+ /usr/include/c++/12/cwchar /usr/include/c++/12/bits/shared_ptr_base.h \
+ /usr/include/c++/12/typeinfo /usr/include/c++/12/bits/allocated_ptr.h \
+ /usr/include/c++/12/ext/aligned_buffer.h \
+ /usr/include/c++/12/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+ /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+ /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/atomic_word.h \
+ /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+ /usr/include/c++/12/ext/concurrence.h /usr/include/c++/12/exception \
+ /usr/include/c++/12/bits/exception_ptr.h \
+ /usr/include/c++/12/bits/cxxabi_init_exception.h \
+ /usr/include/c++/12/bits/nested_exception.h \
+ /usr/include/c++/12/bits/shared_ptr_atomic.h \
+ /usr/include/c++/12/bits/atomic_base.h \
+ /usr/include/c++/12/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/12/backward/auto_ptr.h \
+ /usr/include/c++/12/pstl/glue_memory_defs.h \
+ /usr/include/c++/12/pstl/execution_defs.h

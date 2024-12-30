@@ -1,6 +1,6 @@
 #include "MainLoop.h"
 
-void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, MapWindow& mapWindow) {
+void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, UIManager& uiManager) {
     bool running = true;
     SDL_Event event;
 
@@ -17,11 +17,16 @@ void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, MapWindow& mapWindo
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            mapWindow.handleEvent(event); // Delegate event handling to MapWindow
+            uiManager.handleEvent(event); // Delegate event handling to UIManager
         }
 
-        mapWindow.update();   // Delegate updating to MapWindow
-        mapWindow.render();   // Delegate rendering to MapWindow
+        uiManager.update();   // Delegate updating to UIManager
+
+        // Clear the screen
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White background
+        SDL_RenderClear(renderer);
+
+        uiManager.render();   // Delegate rendering to UIManager
 
         SDL_RenderPresent(renderer);
 

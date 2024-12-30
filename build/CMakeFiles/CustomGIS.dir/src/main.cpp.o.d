@@ -264,41 +264,56 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/charconv.h \
  /usr/include/c++/12/bits/basic_string.tcc \
  /home/linux/LeapCore/GIS/src/Utils/MainLoop.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/MapWindow.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/TileRenderer.h \
- /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_uninitialized.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/UIManager.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/UIComponent.h \
+ /usr/local/include/SDL2/SDL.h /usr/include/c++/12/vector \
+ /usr/include/c++/12/bits/stl_uninitialized.h \
  /usr/include/c++/12/bits/stl_vector.h \
  /usr/include/c++/12/bits/stl_bvector.h \
- /usr/include/c++/12/bits/vector.tcc /usr/include/c++/12/mutex \
- /usr/include/c++/12/tuple /usr/include/c++/12/bits/uses_allocator.h \
- /usr/include/c++/12/exception /usr/include/c++/12/bits/exception_ptr.h \
- /usr/include/c++/12/bits/cxxabi_init_exception.h \
- /usr/include/c++/12/typeinfo /usr/include/c++/12/bits/nested_exception.h \
- /usr/include/c++/12/system_error \
- /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
- /usr/include/c++/12/stdexcept /usr/include/c++/12/bits/chrono.h \
- /usr/include/c++/12/ratio /usr/include/c++/12/ctime /usr/include/time.h \
- /usr/include/x86_64-linux-gnu/bits/time.h \
- /usr/include/x86_64-linux-gnu/bits/timex.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /usr/include/c++/12/bits/parse_numbers.h \
- /usr/include/c++/12/bits/std_mutex.h \
+ /usr/include/c++/12/bits/vector.tcc /usr/include/c++/12/memory \
+ /usr/include/c++/12/bits/stl_tempbuf.h \
+ /usr/include/c++/12/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/12/bits/align.h /usr/include/c++/12/bit \
+ /usr/include/c++/12/bits/uses_allocator.h \
+ /usr/include/c++/12/bits/unique_ptr.h /usr/include/c++/12/tuple \
+ /usr/include/c++/12/bits/shared_ptr.h \
+ /usr/include/c++/12/bits/shared_ptr_base.h /usr/include/c++/12/typeinfo \
+ /usr/include/c++/12/bits/allocated_ptr.h \
+ /usr/include/c++/12/ext/aligned_buffer.h \
+ /usr/include/c++/12/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
  /usr/include/x86_64-linux-gnu/bits/sched.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
- /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+ /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
- /usr/include/c++/12/bits/unique_lock.h \
- /usr/include/c++/12/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/atomic_word.h \
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
- /usr/include/c++/12/unordered_map \
- /usr/include/c++/12/ext/aligned_buffer.h \
+ /usr/include/c++/12/ext/concurrence.h /usr/include/c++/12/exception \
+ /usr/include/c++/12/bits/exception_ptr.h \
+ /usr/include/c++/12/bits/cxxabi_init_exception.h \
+ /usr/include/c++/12/bits/nested_exception.h \
+ /usr/include/c++/12/bits/shared_ptr_atomic.h \
+ /usr/include/c++/12/bits/atomic_base.h \
+ /usr/include/c++/12/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/12/backward/auto_ptr.h \
+ /usr/include/c++/12/pstl/glue_memory_defs.h \
+ /usr/include/c++/12/pstl/execution_defs.h \
+ /home/linux/LeapCore/GIS/src/Rendering/TileRenderer.h \
+ /usr/include/c++/12/mutex /usr/include/c++/12/system_error \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
+ /usr/include/c++/12/stdexcept /usr/include/c++/12/bits/chrono.h \
+ /usr/include/c++/12/ratio /usr/include/c++/12/ctime \
+ /usr/include/c++/12/bits/parse_numbers.h \
+ /usr/include/c++/12/bits/std_mutex.h \
+ /usr/include/c++/12/bits/unique_lock.h /usr/include/c++/12/unordered_map \
  /usr/include/c++/12/bits/hashtable.h \
  /usr/include/c++/12/bits/hashtable_policy.h \
  /usr/include/c++/12/bits/enable_special_members.h \
@@ -306,26 +321,18 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/unordered_map.h \
  /usr/include/c++/12/bits/erase_if.h /usr/include/c++/12/future \
  /usr/include/c++/12/condition_variable \
- /usr/include/c++/12/bits/shared_ptr.h \
- /usr/include/c++/12/bits/shared_ptr_base.h \
- /usr/include/c++/12/bits/allocated_ptr.h \
- /usr/include/c++/12/bits/unique_ptr.h \
- /usr/include/c++/12/ext/concurrence.h \
- /usr/include/c++/12/bits/atomic_base.h \
- /usr/include/c++/12/bits/atomic_lockfree_defines.h \
  /usr/include/c++/12/bits/atomic_futex.h /usr/include/c++/12/atomic \
  /usr/include/c++/12/bits/std_function.h \
  /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/shared_mutex \
  /usr/include/c++/12/utility /usr/include/c++/12/bits/stl_relops.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileKey.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileFetcher.h \
+ /home/linux/LeapCore/GIS/src/Rendering/../Networking/TileKey.h \
+ /home/linux/LeapCore/GIS/src/Rendering/../Networking/TileFetcher.h \
  /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \
  /usr/include/c++/12/bits/list.tcc /usr/include/c++/12/functional \
  /usr/include/c++/12/array /usr/include/c++/12/compare \
  /usr/include/c++/12/bits/stl_algo.h \
  /usr/include/c++/12/bits/algorithmfwd.h \
  /usr/include/c++/12/bits/stl_heap.h \
- /usr/include/c++/12/bits/stl_tempbuf.h \
  /usr/include/c++/12/bits/uniform_int_dist.h \
  /usr/include/c++/12/filesystem /usr/include/c++/12/bits/fs_fwd.h \
  /usr/include/c++/12/bits/fs_path.h /usr/include/c++/12/locale \
@@ -353,20 +360,20 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/istream.tcc \
  /usr/include/c++/12/bits/sstream.tcc /usr/include/c++/12/codecvt \
  /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/../Utils/ThreadPool.h \
+ /home/linux/LeapCore/GIS/src/Rendering/../Networking/../Utils/ThreadPool.h \
  /usr/include/c++/12/thread /usr/include/c++/12/bits/this_thread_sleep.h \
  /usr/include/c++/12/queue /usr/include/c++/12/deque \
  /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
  /usr/include/c++/12/bits/stl_queue.h /usr/include/c++/12/iostream \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileKey.h \
+ /home/linux/LeapCore/GIS/src/Rendering/../Networking/TileKey.h \
  /usr/include/c++/12/unordered_set \
  /usr/include/c++/12/bits/unordered_set.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/Viewport.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../UI/InputHandler.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../UI/../Rendering/TileRenderer.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/UIManager.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/Toolbar.h \
- /home/linux/LeapCore/GIS/src/Rendering/TileRenderer.h \
+ /home/linux/LeapCore/GIS/src/Rendering/Viewport.h \
  /home/linux/LeapCore/GIS/src/UI/InputHandler.h \
+ /home/linux/LeapCore/GIS/src/UI/../Rendering/TileRenderer.h \
  /home/linux/LeapCore/GIS/src/UI/MapWindow.h \
+ /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
+ /home/linux/LeapCore/GIS/src/UI/InputHandler.h \
+ /home/linux/LeapCore/GIS/src/UI/UIManager.h \
+ /home/linux/LeapCore/GIS/src/UI/Toolbar.h \
  /home/linux/LeapCore/GIS/src/Utils/Utils.h

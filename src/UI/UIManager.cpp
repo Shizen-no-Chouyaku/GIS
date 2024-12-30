@@ -1,19 +1,29 @@
+// UIManager.cpp
 #include "UIManager.h"
 
 UIManager::UIManager(SDL_Renderer* renderer)
-    : renderer(renderer), toolbar(new Toolbar(renderer)) {
-        //printf("UIManager initialized.\n");
-    }
+    : renderer(renderer) {}
 
-UIManager::~UIManager() {
-    delete toolbar;
-}
+UIManager::~UIManager() {}
 
 void UIManager::handleEvent(const SDL_Event& event) {
-    toolbar->handleEvent(event);
+    for (auto& component : components) {
+        component->handleEvent(event);
+    }
+}
+
+void UIManager::update() {
+    for (auto& component : components) {
+        component->update();
+    }
 }
 
 void UIManager::render() {
-    //printf("Rendering UIManager! \n");
-    toolbar->render();
+    for (auto& component : components) {
+        component->render(renderer);
+    }
+}
+
+void UIManager::addComponent(std::shared_ptr<UIComponent> component) {
+    components.push_back(component);
 }
