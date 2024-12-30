@@ -312,17 +312,16 @@ CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: \
  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
  /usr/include/c++/12/bits/atomic_futex.h /usr/include/c++/12/atomic \
  /usr/include/c++/12/bits/std_function.h \
- /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/shared_mutex \
- /usr/include/c++/12/utility /usr/include/c++/12/bits/stl_relops.h \
- /usr/local/include/SDL2/SDL.h \
+ /usr/include/c++/12/bits/std_thread.h /usr/local/include/SDL2/SDL.h \
  /home/linux/LeapCore/GIS/src/UI/../Rendering/../Networking/TileKey.h \
  /home/linux/LeapCore/GIS/src/UI/../Rendering/../Networking/TileFetcher.h \
  /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \
  /usr/include/c++/12/bits/list.tcc /usr/include/SDL2/SDL_image.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/c++/12/functional /usr/include/c++/12/array \
- /usr/include/c++/12/compare /usr/include/c++/12/bits/stl_algo.h \
+ /usr/include/c++/12/shared_mutex /usr/include/c++/12/functional \
+ /usr/include/c++/12/array /usr/include/c++/12/compare \
+ /usr/include/c++/12/bits/stl_algo.h \
  /usr/include/c++/12/bits/algorithmfwd.h \
  /usr/include/c++/12/bits/stl_heap.h \
  /usr/include/c++/12/bits/stl_tempbuf.h \

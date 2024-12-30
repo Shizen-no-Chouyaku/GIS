@@ -17,16 +17,18 @@ void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, UIManager& uiManage
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            uiManager.handleEvent(event); // Delegate event handling to UIManager
+            uiManager.handleEvent(event);
         }
 
-        uiManager.update();   // Delegate updating to UIManager
+        uiManager.update();
 
-        // Clear the screen
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White background
-        SDL_RenderClear(renderer);
+        if (uiManager.needsRedraw()) { // Use UIManager's needsRedraw method
+            SDL_Log("Screen cleared for redraw");
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White background
+            SDL_RenderClear(renderer);
+        }
 
-        uiManager.render();   // Delegate rendering to UIManager
+        uiManager.render();
 
         SDL_RenderPresent(renderer);
 

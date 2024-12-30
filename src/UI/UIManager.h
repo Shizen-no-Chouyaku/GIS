@@ -16,6 +16,8 @@ public:
     void render();
 
     void addComponent(std::shared_ptr<UIComponent> component);
+    bool needsRedraw() const;
+
 
 private:
     SDL_Renderer* renderer;

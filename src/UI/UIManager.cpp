@@ -27,3 +27,12 @@ void UIManager::render() {
 void UIManager::addComponent(std::shared_ptr<UIComponent> component) {
     components.push_back(component);
 }
+
+bool UIManager::needsRedraw() const {
+    for (const auto& component : components) {
+        if (component->needsRedraw()) { // Assuming UIComponent has a needsRedraw method
+            return true;
+        }
+    }
+    return false;
+}

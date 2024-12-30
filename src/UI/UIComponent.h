@@ -14,6 +14,9 @@ public:
     // Optional: Methods for setting position and size
     virtual void setPosition(int x, int y) = 0;
     virtual void setSize(int width, int height) = 0;
+
+    virtual bool needsRedraw() const { return false; }
+
 };
 
 #endif // UICOMPONENT_H

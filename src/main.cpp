@@ -33,13 +33,13 @@ int main(int argc, char* argv[]) {
     // Initialize UIManager
     UIManager uiManager(renderer);
 
-    // Create and add Toolbar
-    std::shared_ptr<UIComponent> toolbar = std::make_shared<Toolbar>(renderer);
-    uiManager.addComponent(toolbar);
-
-    // Initialize and add MapWindow
     std::shared_ptr<UIComponent> mapWindow = std::make_shared<MapWindow>(tileRenderer, inputHandler, renderer);
     uiManager.addComponent(mapWindow);
+
+
+    // Create and add Toolbar next (overlay)
+    std::shared_ptr<UIComponent> toolbar = std::make_shared<Toolbar>(renderer);
+    uiManager.addComponent(toolbar);
 
     // Initialize and add other UI components as needed
     // e.g., Sidebar, StatusBar, etc.

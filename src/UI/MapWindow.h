@@ -1,4 +1,3 @@
-// MapWindow.h
 #ifndef MAPWINDOW_H
 #define MAPWINDOW_H
 
@@ -18,11 +17,14 @@ public:
     void setPosition(int x, int y) override;
     void setSize(int width, int height) override;
 
+    bool needsRedraw() const override; // Add this line
+
 private:
     TileRenderer& tileRenderer;
     InputHandler& inputHandler;
     SDL_Renderer* renderer;
     SDL_Rect mapArea;
 };
+
 
 #endif // MAPWINDOW_H
