@@ -134,20 +134,23 @@ void TileRenderer::precomputeTilePositions() {
     }
 }
 
-void TileRenderer::render() {
+void TileRenderer::render(const SDL_Rect& mapArea) {
     std::lock_guard<std::mutex> lock(renderMutex);
-    if(!needsRedrawFlag) {
+
+    if (!needsRedrawFlag) {
         return;
     }
+
     needsRedrawFlag = false;
 
-    // Clear background
-    SDL_SetRenderDrawColor(renderer, 255,255,255,255);
+    // Clear the map area only (do not touch the UI area)
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderSetViewport(renderer, &mapArea);
     SDL_RenderClear(renderer);
 
+    // Map rendering logic (unchanged)
     processTileFutures();
 
-    // Collect tiles to render
     std::vector<std::pair<SDL_Texture*, SDL_Rect>> tilesToRender;
     for (auto& [key, dstRect] : precomputedTiles) {
         int z = key.z, x = key.x, y = key.y;
@@ -166,22 +169,11 @@ void TileRenderer::render() {
         }
     }
 
-    // Draw what we have
     for (auto& tile : tilesToRender) {
         SDL_Rect& dst = tile.second;
         SDL_RenderCopy(renderer, tile.first, nullptr, &dst);
     }
 
-    // Optionally fill placeholders for missing tiles
-    for(auto& [key, dstRect] : precomputedTiles) {
-        if(!tileFetcher.isTileCached(key.z, key.x, key.y)
-           && tileFutures.find(key) == tileFutures.end()) 
-        {
-            SDL_SetRenderDrawColor(renderer, 200,200,200,255);
-            SDL_RenderFillRect(renderer, &dstRect);
-        }
-    }
-
+    SDL_RenderSetViewport(renderer, nullptr); // Reset to full window
     SDL_RenderPresent(renderer);
-    Utils::logInfo("Render completed");
 }

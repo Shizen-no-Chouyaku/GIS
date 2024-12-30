@@ -359,4 +359,6 @@ CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: \
  /usr/include/c++/12/bits/unordered_set.h \
  /home/linux/LeapCore/GIS/src/UI/../Rendering/Viewport.h \
  /home/linux/LeapCore/GIS/src/UI/../UI/InputHandler.h \
- /home/linux/LeapCore/GIS/src/UI/../UI/../Rendering/TileRenderer.h
+ /home/linux/LeapCore/GIS/src/UI/../UI/../Rendering/TileRenderer.h \
+ /home/linux/LeapCore/GIS/src/UI/UIManager.h \
+ /home/linux/LeapCore/GIS/src/UI/Toolbar.h

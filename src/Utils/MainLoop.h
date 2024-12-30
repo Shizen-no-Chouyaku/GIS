@@ -2,9 +2,8 @@
 #define MAINLOOP_H
 
 #include <SDL2/SDL.h>
-#include "../Rendering/TileRenderer.h"
-#include "../UI/InputHandler.h"
+#include "../UI/MapWindow.h" // Include the MapWindow header
 
-void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, TileRenderer& tileRenderer, InputHandler& inputHandler);
+void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, MapWindow& mapWindow);
 
 #endif // MAINLOOP_H

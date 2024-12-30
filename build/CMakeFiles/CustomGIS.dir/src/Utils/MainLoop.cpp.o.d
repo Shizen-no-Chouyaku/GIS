@@ -226,7 +226,8 @@ CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
- /home/linux/LeapCore/GIS/src/Utils/../Rendering/TileRenderer.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/MapWindow.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/TileRenderer.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
  /usr/include/c++/12/bits/new_allocator.h /usr/include/c++/12/new \
@@ -313,8 +314,8 @@ CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: \
  /usr/include/c++/12/bits/std_function.h \
  /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/shared_mutex \
  /usr/include/c++/12/utility /usr/include/c++/12/bits/stl_relops.h \
- /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/TileKey.h \
- /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/TileFetcher.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileKey.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileFetcher.h \
  /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \
  /usr/include/c++/12/bits/list.tcc /usr/include/SDL2/SDL_image.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_version.h \
@@ -351,14 +352,16 @@ CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: \
  /usr/include/c++/12/bits/istream.tcc \
  /usr/include/c++/12/bits/sstream.tcc /usr/include/c++/12/codecvt \
  /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h \
- /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/../Utils/ThreadPool.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/../Utils/ThreadPool.h \
  /usr/include/c++/12/thread /usr/include/c++/12/bits/this_thread_sleep.h \
  /usr/include/c++/12/queue /usr/include/c++/12/deque \
  /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
  /usr/include/c++/12/bits/stl_queue.h /usr/include/c++/12/iostream \
- /home/linux/LeapCore/GIS/src/Utils/../Rendering/../Networking/TileKey.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileKey.h \
  /usr/include/c++/12/unordered_set \
  /usr/include/c++/12/bits/unordered_set.h \
- /home/linux/LeapCore/GIS/src/Utils/../Rendering/Viewport.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/InputHandler.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/TileRenderer.h
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/Viewport.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../UI/InputHandler.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../UI/../Rendering/TileRenderer.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/UIManager.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/Toolbar.h

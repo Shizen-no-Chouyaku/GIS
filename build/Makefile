@@ -225,6 +225,54 @@ src/UI/MapWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.s
 .PHONY : src/UI/MapWindow.cpp.s
 
+src/UI/Toolbar.o: src/UI/Toolbar.cpp.o
+.PHONY : src/UI/Toolbar.o
+
+# target to build an object file
+src/UI/Toolbar.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o
+.PHONY : src/UI/Toolbar.cpp.o
+
+src/UI/Toolbar.i: src/UI/Toolbar.cpp.i
+.PHONY : src/UI/Toolbar.i
+
+# target to preprocess a source file
+src/UI/Toolbar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.i
+.PHONY : src/UI/Toolbar.cpp.i
+
+src/UI/Toolbar.s: src/UI/Toolbar.cpp.s
+.PHONY : src/UI/Toolbar.s
+
+# target to generate assembly for a file
+src/UI/Toolbar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.s
+.PHONY : src/UI/Toolbar.cpp.s
+
+src/UI/UIManager.o: src/UI/UIManager.cpp.o
+.PHONY : src/UI/UIManager.o
+
+# target to build an object file
+src/UI/UIManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o
+.PHONY : src/UI/UIManager.cpp.o
+
+src/UI/UIManager.i: src/UI/UIManager.cpp.i
+.PHONY : src/UI/UIManager.i
+
+# target to preprocess a source file
+src/UI/UIManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.i
+.PHONY : src/UI/UIManager.cpp.i
+
+src/UI/UIManager.s: src/UI/UIManager.cpp.s
+.PHONY : src/UI/UIManager.s
+
+# target to generate assembly for a file
+src/UI/UIManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.s
+.PHONY : src/UI/UIManager.cpp.s
+
 src/Utils/MainLoop.o: src/Utils/MainLoop.cpp.o
 .PHONY : src/Utils/MainLoop.o
 
@@ -342,6 +390,12 @@ help:
 	@echo "... src/UI/MapWindow.o"
 	@echo "... src/UI/MapWindow.i"
 	@echo "... src/UI/MapWindow.s"
+	@echo "... src/UI/Toolbar.o"
+	@echo "... src/UI/Toolbar.i"
+	@echo "... src/UI/Toolbar.s"
+	@echo "... src/UI/UIManager.o"
+	@echo "... src/UI/UIManager.i"
+	@echo "... src/UI/UIManager.s"
 	@echo "... src/Utils/MainLoop.o"
 	@echo "... src/Utils/MainLoop.i"
 	@echo "... src/Utils/MainLoop.s"

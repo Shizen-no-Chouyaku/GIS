@@ -20,7 +20,7 @@ public:
     ~TileRenderer();
 
     void setViewport(const Viewport& vp);
-    void render();
+    void render(const SDL_Rect& mapArea);
 
     // Additional public methods if necessary
     bool needsRedraw() const;

@@ -1,6 +1,6 @@
 #include "MainLoop.h"
 
-void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, TileRenderer& tileRenderer, InputHandler& inputHandler) {
+void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, MapWindow& mapWindow) {
     bool running = true;
     SDL_Event event;
 
@@ -17,12 +17,13 @@ void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, TileRenderer& tileR
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            inputHandler.handleEvent(event);
+            mapWindow.handleEvent(event); // Delegate event handling to MapWindow
         }
 
-        inputHandler.update();
-        tileRenderer.updateTiles();
-        tileRenderer.render();
+        mapWindow.update();   // Delegate updating to MapWindow
+        mapWindow.render();   // Delegate rendering to MapWindow
+
+        SDL_RenderPresent(renderer);
 
         frameTime = SDL_GetTicks() - frameStart;
         if (frameDelay > frameTime) {
