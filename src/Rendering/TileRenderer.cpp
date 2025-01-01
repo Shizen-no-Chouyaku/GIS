@@ -136,8 +136,22 @@ void TileRenderer::precomputeTilePositions() {
 
     for (int dx = 0; dx < tilesX; dx++) {
         for (int dy = 0; dy < tilesY; dy++) {
-            int tileX = startTileX + dx;
-            int tileY = startTileY + dy;
+            int rawTileX = startTileX + dx;
+            int rawTileY = startTileY + dy;
+
+            // Normalize tileX by wrapping around
+            int tileX = rawTileX % static_cast<int>(n);
+            if (tileX < 0) {
+                tileX += static_cast<int>(n);
+            }
+
+            // Clamp tileY between 0 and (n - 1)
+            int tileY = rawTileY;
+            if (tileY < 0) {
+                tileY = 0;
+            } else if (tileY >= static_cast<int>(n)) {
+                tileY = static_cast<int>(n) - 1;
+            }
 
             TileKey key = {z, tileX, tileY};
 
