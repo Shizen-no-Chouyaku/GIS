@@ -1,4 +1,4 @@
-// MainLoop.h
+// src/Utils/MainLoop.h
 #ifndef MAINLOOP_H
 #define MAINLOOP_H
 

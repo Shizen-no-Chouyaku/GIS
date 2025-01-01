@@ -1,3 +1,4 @@
+// src/main.cpp
 #include "Utils/SDLUtils.h"
 #include "Utils/MainLoop.h"
 #include "Rendering/TileRenderer.h"
@@ -8,7 +9,7 @@
 #include "Utils/Utils.h"
 
 int main(int argc, char* argv[]) {
-    // Initialize SDL
+    // Initialize SDL and SDL_image
     if (!SDLUtils::initializeSDL()) {
         return 1;
     }
@@ -32,10 +33,6 @@ int main(int argc, char* argv[]) {
 
     // Initialize UIManager
     UIManager uiManager(renderer);
-
-    // Remove MapWindow from UIManager
-    // std::shared_ptr<UIComponent> mapWindow = std::make_shared<MapWindow>(tileRenderer, inputHandler, renderer);
-    // uiManager.addComponent(mapWindow);
 
     // Create MapWindow separately
     MapWindow mapWindow(tileRenderer, inputHandler, renderer);

@@ -5,36 +5,34 @@
 #include <string>
 #include <unordered_map>
 #include <list>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <shared_mutex>
-#include <functional>
 #include <future>
-#include <tuple>
 #include <filesystem>
+#include <mutex>
+#include <shared_mutex>
+#include <unordered_set>
 #include "../Utils/ThreadPool.h"
 #include "TileKey.h" // Shared TileKey definitions
-#include <unordered_set>
 
 class TileFetcher {
 public:
-    TileFetcher(SDL_Renderer* renderer, size_t numThreads = 4, size_t maxCacheSize = 200);
+    TileFetcher(size_t numThreads = 4, size_t maxCacheSize = 200);
     ~TileFetcher();
 
-    // Fetches a tile asynchronously; returns a future to the SDL_Texture*
-    std::future<SDL_Texture*> fetchTile(int z, int x, int y);
+    // Fetches a tile asynchronously; returns a future indicating success or failure
+    std::future<bool> fetchTile(int z, int x, int y);
 
-    // Public methods to check cache and retrieve tiles
+    // Public methods to check cache
     bool isTileCached(int z, int x, int y);
-    SDL_Texture* getTile(int z, int x, int y);
+    
+    // Retrieves the file path of the cached tile
+    std::filesystem::path getTilePath(int z, int x, int y);
 
 private:
-    SDL_Renderer* renderer;
     size_t maxCacheSize;
 
     // LRU Cache using list and unordered_map
     std::list<TileKey> lruList; // Stores keys in order of usage
-    std::unordered_map<TileKey, SDL_Texture*, TileKeyHash> tileCache;
+    std::unordered_map<TileKey, std::filesystem::path, TileKeyHash> tileCache;
     std::unordered_map<TileKey, std::list<TileKey>::iterator, TileKeyHash> cacheIterators;
     std::unordered_set<TileKey, TileKeyHash> inProgressTiles;
     
@@ -46,8 +44,7 @@ private:
     std::string getTileURL(int z, int x, int y);
 
     // Fetch tile task
-    SDL_Texture* fetchTileTask(int z, int x, int y);
-    SDL_Texture* createPlaceholderTexture();
+    bool fetchTileTask(int z, int x, int y);
 
     // Helper method to move a key to the front of the LRU list
     void touchTile(const TileKey& key, std::unique_lock<std::shared_mutex>& lock);

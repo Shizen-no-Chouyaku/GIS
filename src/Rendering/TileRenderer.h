@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <future>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include "../Networking/TileKey.h"
 #include "../Networking/TileFetcher.h"
 #include "Viewport.h"
@@ -28,14 +29,16 @@ private:
     SDL_Renderer* renderer;
     TileFetcher tileFetcher;
     std::mutex renderMutex;
-    std::unordered_map<TileKey, std::future<SDL_Texture*>, TileKeyHash> tileFutures;
+    std::unordered_map<TileKey, SDL_Texture*, TileKeyHash> tileTextures;
+    std::unordered_map<TileKey, std::future<bool>, TileKeyHash> tileFutures;
     bool needsRedrawFlag;
     std::vector<std::pair<TileKey, SDL_Rect>> precomputedTiles;
 
-    std::pair<int, int> latLonToTile(double lat, double lon, int zoom);
-    std::pair<double, double> tileToLatLon(int x, int y, int zoom);
     void processTileFutures();
     void precomputeTilePositions();
+    void loadTexture(const TileKey& key);
+    SDL_Texture* createPlaceholderTexture();
+    void evictIfNeeded();
 };
 
 #endif // TILERENDERER_H

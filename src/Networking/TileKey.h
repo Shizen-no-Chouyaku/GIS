@@ -2,6 +2,8 @@
 #ifndef TILEKEY_H
 #define TILEKEY_H
 
+#include <functional>
+
 struct TileKey {
     int z;
     int x;

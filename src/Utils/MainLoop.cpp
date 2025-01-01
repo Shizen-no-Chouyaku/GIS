@@ -1,5 +1,10 @@
-// MainLoop.cpp
+// src/Utils/MainLoop.cpp
 #include "MainLoop.h"
+#include "../Rendering/TileRenderer.h"
+#include "../UI/UIManager.h"
+#include "../UI/MapWindow.h"
+#include "../Utils/Utils.h"
+#include <SDL2/SDL.h>
 
 void runMainLoop(SDL_Window* window, SDL_Renderer* renderer, UIManager& uiManager, MapWindow& mapWindow) {
     bool running = true;

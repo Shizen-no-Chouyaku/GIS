@@ -319,22 +319,20 @@ CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: \
  /usr/include/c++/12/condition_variable \
  /usr/include/c++/12/bits/atomic_futex.h /usr/include/c++/12/atomic \
  /usr/include/c++/12/bits/std_function.h \
- /usr/include/c++/12/bits/std_thread.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileKey.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileFetcher.h \
- /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \
- /usr/include/c++/12/bits/list.tcc /usr/include/SDL2/SDL_image.h \
+ /usr/include/c++/12/bits/std_thread.h /usr/include/SDL2/SDL_image.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/c++/12/shared_mutex /usr/include/c++/12/functional \
- /usr/include/c++/12/array /usr/include/c++/12/compare \
- /usr/include/c++/12/bits/stl_algo.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileKey.h \
+ /usr/include/c++/12/functional /usr/include/c++/12/array \
+ /usr/include/c++/12/compare /usr/include/c++/12/bits/stl_algo.h \
  /usr/include/c++/12/bits/algorithmfwd.h \
  /usr/include/c++/12/bits/stl_heap.h \
  /usr/include/c++/12/bits/uniform_int_dist.h \
- /usr/include/c++/12/filesystem /usr/include/c++/12/bits/fs_fwd.h \
- /usr/include/c++/12/bits/fs_path.h /usr/include/c++/12/locale \
- /usr/include/c++/12/bits/locale_classes.h \
+ /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileFetcher.h \
+ /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \
+ /usr/include/c++/12/bits/list.tcc /usr/include/c++/12/filesystem \
+ /usr/include/c++/12/bits/fs_fwd.h /usr/include/c++/12/bits/fs_path.h \
+ /usr/include/c++/12/locale /usr/include/c++/12/bits/locale_classes.h \
  /usr/include/c++/12/bits/locale_classes.tcc \
  /usr/include/c++/12/bits/locale_facets.h /usr/include/c++/12/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
@@ -358,13 +356,16 @@ CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: \
  /usr/include/c++/12/bits/istream.tcc \
  /usr/include/c++/12/bits/sstream.tcc /usr/include/c++/12/codecvt \
  /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h \
+ /usr/include/c++/12/shared_mutex /usr/include/c++/12/unordered_set \
+ /usr/include/c++/12/bits/unordered_set.h \
  /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/../Utils/ThreadPool.h \
  /usr/include/c++/12/thread /usr/include/c++/12/bits/this_thread_sleep.h \
  /usr/include/c++/12/queue /usr/include/c++/12/deque \
  /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
- /usr/include/c++/12/bits/stl_queue.h /usr/include/c++/12/iostream \
+ /usr/include/c++/12/bits/stl_queue.h \
  /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/../Networking/TileKey.h \
- /usr/include/c++/12/unordered_set \
- /usr/include/c++/12/bits/unordered_set.h \
  /home/linux/LeapCore/GIS/src/Utils/../UI/../Rendering/Viewport.h \
- /home/linux/LeapCore/GIS/src/Utils/../UI/InputHandler.h
+ /home/linux/LeapCore/GIS/src/Utils/../UI/InputHandler.h \
+ /home/linux/LeapCore/GIS/src/Utils/../Rendering/TileRenderer.h \
+ /home/linux/LeapCore/GIS/src/Utils/../Utils/Utils.h \
+ /usr/include/c++/12/iostream
