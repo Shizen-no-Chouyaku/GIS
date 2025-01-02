@@ -33,19 +33,25 @@ int main(int argc, char* argv[]) {
 
     // Initialize UIManager
     UIManager uiManager(renderer);
+    uiManager.setWindow(window); // Set the window pointer
 
-    // Create MapWindow separately
-    MapWindow mapWindow(tileRenderer, inputHandler, renderer);
+    // Create MapWindow
+    std::shared_ptr<MapWindow> mapWindow = std::make_shared<MapWindow>(tileRenderer, inputHandler, renderer);
 
-    // Create and add Toolbar next (overlay)
+    // Create and add Toolbar
     std::shared_ptr<UIComponent> toolbar = std::make_shared<Toolbar>(renderer);
-    uiManager.addComponent(toolbar);
+
+    // Add MapWindow first
+    uiManager.addComponent(mapWindow);
+
+    // Add Toolbar after
+    uiManager.addComponent(toolbar); // Toolbar renders on top
 
     // Initialize and add other UI components as needed
     // e.g., Sidebar, StatusBar, etc.
 
-    // Run the main loop, passing both UIManager and MapWindow
-    runMainLoop(window, renderer, uiManager, mapWindow);
+    // Run the main loop
+    runMainLoop(window, renderer, uiManager, *mapWindow);
 
     // Cleanup and exit
     SDLUtils::cleanup(window, renderer);

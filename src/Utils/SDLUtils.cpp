@@ -21,11 +21,13 @@ bool SDLUtils::initializeSDL() {
 }
 
 SDL_Window* SDLUtils::createWindow(const std::string& title, int width, int height) {
+    Uint32 windowFlags = SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED;
+
     SDL_Window* window = SDL_CreateWindow(title.c_str(),
                                           SDL_WINDOWPOS_CENTERED,
                                           SDL_WINDOWPOS_CENTERED,
                                           width, height,
-                                          SDL_WINDOW_SHOWN);
+                                          windowFlags);
     if (!window) {
         Utils::logError("SDL_CreateWindow Error: " + std::string(SDL_GetError()));
     }

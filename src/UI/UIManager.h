@@ -18,9 +18,11 @@ public:
     void addComponent(std::shared_ptr<UIComponent> component);
     bool needsRedraw() const;
 
+    void setWindow(SDL_Window* window);
 
 private:
     SDL_Renderer* renderer;
+    SDL_Window* window;
     std::vector<std::shared_ptr<UIComponent>> components;
 };
 

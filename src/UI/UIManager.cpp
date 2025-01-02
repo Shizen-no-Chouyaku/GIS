@@ -1,12 +1,30 @@
-// UIManager.cpp
+// src/UI/UIManager.cpp
 #include "UIManager.h"
 
 UIManager::UIManager(SDL_Renderer* renderer)
-    : renderer(renderer) {}
+    : renderer(renderer), window(nullptr) {}
 
 UIManager::~UIManager() {}
 
+void UIManager::setWindow(SDL_Window* window) {
+    this->window = window;
+}
+
 void UIManager::handleEvent(const SDL_Event& event) {
+    // Handle window resize events
+    if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED) {
+        if (window) {
+            int newWidth, newHeight;
+            SDL_GetWindowSize(window, &newWidth, &newHeight);
+
+            // Notify all components about the window resize
+            for (auto& component : components) {
+                component->onWindowResize(newWidth, newHeight);
+            }
+        }
+    }
+
+    // Pass the event to all UI components
     for (auto& component : components) {
         component->handleEvent(event);
     }

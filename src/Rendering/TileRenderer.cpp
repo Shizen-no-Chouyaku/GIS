@@ -1,3 +1,5 @@
+// src/Rendering/TileRenderer.cpp
+
 #include "TileRenderer.h"
 #include "../Utils/Utils.h"
 #include <cmath>
@@ -44,7 +46,7 @@ void TileRenderer::setViewport(const Viewport& vp) {
 
     viewport = updatedVp;
     needsRedrawFlag = true;
-    precomputeTilePositions();
+    precomputeTilePositions(); // Automatically called within setViewport
 }
 
 bool TileRenderer::needsRedraw() const {
@@ -111,14 +113,14 @@ void TileRenderer::render(const SDL_Rect& mapArea) {
     std::lock_guard<std::mutex> lock(renderMutex);
 
     if (!needsRedrawFlag) {
-        SDL_Log("Skipping render: no redraw needed");
+    //    SDL_Log("Skipping render: no redraw needed");
         return;
     }
 
     needsRedrawFlag = false;
 
-    SDL_Log("Rendering map area: {x:%d, y:%d, w:%d, h:%d}", 
-            mapArea.x, mapArea.y, mapArea.w, mapArea.h);
+    //SDL_Log("Rendering map area: {x:%d, y:%d, w:%d, h:%d}", 
+    //        mapArea.x, mapArea.y, mapArea.w, mapArea.h);
 
     // Clear the map area only (do not touch the UI area)
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White background
@@ -161,7 +163,7 @@ void TileRenderer::render(const SDL_Rect& mapArea) {
         }
     }
 
-    SDL_Log("Tiles rendered this frame: %d", renderedTiles);
+    //SDL_Log("Tiles rendered this frame: %d", renderedTiles);
 
     // Render available tiles
     for (auto& tile : tilesToRender) {
@@ -260,7 +262,7 @@ void TileRenderer::processTileFutures() {
     }
 
     if (processedTiles > 0 || failedTiles > 0) {
-        SDL_Log("Processed tiles: %d, Failed tiles: %d", processedTiles, failedTiles);
+        //SDL_Log("Processed tiles: %d, Failed tiles: %d", processedTiles, failedTiles);
     }
 
     if (processedTiles > 0) {
@@ -275,9 +277,9 @@ void TileRenderer::loadTexture(const TileKey& key) {
 
     std::filesystem::path tilePath = tileFetcher.getTilePath(key.z, key.x, key.y);
     if (tilePath.empty()) {
-        Utils::logError("Attempted to load texture for non-cached tile z=" +
-                        std::to_string(key.z) + ", x=" + std::to_string(key.x) +
-                        ", y=" + std::to_string(key.y));
+        //Utils::logError("Attempted to load texture for non-cached tile z=" +
+        //                std::to_string(key.z) + ", x=" + std::to_string(key.x) +
+        //                ", y=" + std::to_string(key.y));
         return;
     }
 

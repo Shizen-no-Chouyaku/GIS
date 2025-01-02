@@ -1,4 +1,5 @@
-// Toolbar.h
+// src/UI/Toolbar.h
+
 #ifndef TOOLBAR_H
 #define TOOLBAR_H
 
@@ -15,6 +16,8 @@ public:
 
     void setPosition(int x, int y) override;
     void setSize(int width, int height) override;
+
+    void onWindowResize(int newWidth, int newHeight) override;
 
 private:
     SDL_Renderer* renderer;

@@ -12,10 +12,11 @@ public:
     virtual void render(SDL_Renderer* renderer) = 0;
 
     // Optional: Methods for setting position and size
-    virtual void setPosition(int x, int y) = 0;
-    virtual void setSize(int width, int height) = 0;
-
+    virtual void setPosition(int x, int y) {}
+    virtual void setSize(int width, int height) {}
     virtual bool needsRedraw() const { return false; }
+
+    virtual void onWindowResize(int newWidth, int newHeight) {}
 
 };
 

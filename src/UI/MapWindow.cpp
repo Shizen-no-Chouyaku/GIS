@@ -1,9 +1,10 @@
-// MapWindow.cpp
+// src/UI/MapWindow.cpp
+
 #include "MapWindow.h"
 
 MapWindow::MapWindow(TileRenderer& tileRenderer, InputHandler& inputHandler, SDL_Renderer* renderer)
     : tileRenderer(tileRenderer), inputHandler(inputHandler), renderer(renderer) {
-    mapArea = {0, 60, 800, 540}; // Example values
+    mapArea = {0, 60, 800, 540}; // Initial values; will be updated on window resize
 }
 
 MapWindow::~MapWindow() {}
@@ -37,4 +38,21 @@ bool MapWindow::needsRedraw() const {
 
 const SDL_Rect& MapWindow::getMapArea() const { // Modified to return a const reference
     return mapArea;
+}
+
+TileRenderer& MapWindow::getTileRenderer() {
+    return tileRenderer;
+}
+
+void MapWindow::onWindowResize(int newWidth, int newHeight) {
+    // Assuming the toolbar height is 60 pixels
+    int toolbarHeight = 60;
+    setSize(newWidth, newHeight - toolbarHeight);
+    setPosition(0, toolbarHeight);
+
+    // Update the TileRenderer's viewport
+    Viewport newViewport = tileRenderer.viewport;
+    newViewport.windowWidth = newWidth;
+    newViewport.windowHeight = newHeight - toolbarHeight;
+    tileRenderer.setViewport(newViewport);
 }

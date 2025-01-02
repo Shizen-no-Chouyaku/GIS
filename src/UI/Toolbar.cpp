@@ -1,10 +1,10 @@
-// Toolbar.cpp
+// src/UI/Toolbar.cpp
 #include "Toolbar.h"
 
 Toolbar::Toolbar(SDL_Renderer* renderer)
     : renderer(renderer) {
     // Initialize position and size
-    position = {0, 0, 800, 60}; // Example values
+    position = {0, 0, 800, 60}; // Initial values; will be updated on window resize
 }
 
 Toolbar::~Toolbar() {}
@@ -18,7 +18,7 @@ void Toolbar::update() {
 }
 
 void Toolbar::render(SDL_Renderer* renderer) {
-    // Render the toolbar
+    // Render the toolbar background
     SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255); // Light gray
     SDL_RenderFillRect(renderer, &position);
     // Render toolbar buttons/icons here
@@ -32,4 +32,11 @@ void Toolbar::setPosition(int x, int y) {
 void Toolbar::setSize(int width, int height) {
     position.w = width;
     position.h = height;
+}
+
+void Toolbar::onWindowResize(int newWidth, int newHeight) {
+    // Assuming the toolbar height is 60 pixels
+    int toolbarHeight = 60;
+    setSize(newWidth, toolbarHeight);
+    setPosition(0, 0);
 }
