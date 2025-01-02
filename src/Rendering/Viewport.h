@@ -8,6 +8,10 @@ struct Viewport {
     int zoom;
     int windowWidth;
     int windowHeight;
+
+    // Define zoom limits
+    static constexpr int MIN_ZOOM = 2;
+    static constexpr int MAX_ZOOM = 19;
 };
 
 #endif // VIEWPORT_H

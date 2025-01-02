@@ -1,3 +1,4 @@
+// src/Rendering/TileRenderer.h
 #ifndef TILERENDERER_H
 #define TILERENDERER_H
 
@@ -25,6 +26,9 @@ public:
 
     Viewport viewport;
 
+    // New method to get maximum latitude delta
+    double getMaxLatitudeDelta() const;
+
 private:
     SDL_Renderer* renderer;
     TileFetcher tileFetcher;
@@ -38,7 +42,10 @@ private:
     void precomputeTilePositions();
     void loadTexture(const TileKey& key);
     SDL_Texture* createPlaceholderTexture();
-    void evictIfNeeded();
+
+    // New helper functions
+    TileKey getParentTile(const TileKey& key) const;
+    void renderParentTile(const TileKey& childKey, const SDL_Rect& dstRect);
 };
 
 #endif // TILERENDERER_H
