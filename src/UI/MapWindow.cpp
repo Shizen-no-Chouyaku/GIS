@@ -4,7 +4,7 @@
 
 MapWindow::MapWindow(TileRenderer& tileRenderer, InputHandler& inputHandler, SDL_Renderer* renderer)
     : tileRenderer(tileRenderer), inputHandler(inputHandler), renderer(renderer) {
-    mapArea = {0, 60, 800, 540}; // Initial values; will be updated on window resize
+    mapArea = {200, 30, 1720, 1050};  // x, y, width, height
 }
 
 MapWindow::~MapWindow() {}
@@ -46,7 +46,7 @@ TileRenderer& MapWindow::getTileRenderer() {
 
 void MapWindow::onWindowResize(int newWidth, int newHeight) {
     // Assuming the toolbar height is 60 pixels
-    int toolbarHeight = 60;
+    int toolbarHeight = 30;
     setSize(newWidth, newHeight - toolbarHeight);
     setPosition(0, toolbarHeight);
 

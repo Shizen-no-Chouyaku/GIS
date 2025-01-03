@@ -14,9 +14,9 @@ TileRenderer::TileRenderer(SDL_Renderer* renderer)
 {
     viewport.centerLat = 35.6895; // Example: Tokyo coordinates
     viewport.centerLon = 139.6917;
-    viewport.zoom = 5;
-    viewport.windowWidth = 800;
-    viewport.windowHeight = 600;
+    viewport.zoom = 6;
+    viewport.windowWidth = 1920;
+    viewport.windowHeight = 1080;
 
     precomputeTilePositions();
 }

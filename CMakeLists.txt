@@ -21,6 +21,9 @@ include_directories(${SDL2_INCLUDE_DIRS})
 pkg_check_modules(SDL2_IMAGE REQUIRED SDL2_image)
 include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 
+pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
+include_directories(${SDL2_TTF_INCLUDE_DIRS})
+
 # Find CURL
 pkg_check_modules(CURL REQUIRED libcurl)
 include_directories(${CURL_INCLUDE_DIRS})
@@ -36,6 +39,7 @@ add_executable(CustomGIS ${SOURCES} ${HEADERS})
 target_link_libraries(CustomGIS 
     ${SDL2_LIBRARIES} 
     ${SDL2_IMAGE_LIBRARIES} 
+    ${SDL2_TTF_LIBRARIES}
     ${CURL_LIBRARIES}
     pthread
     # Add any other necessary libraries here

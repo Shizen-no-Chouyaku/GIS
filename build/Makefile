@@ -177,6 +177,30 @@ src/Rendering/TileRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.s
 .PHONY : src/Rendering/TileRenderer.cpp.s
 
+src/UI/Button.o: src/UI/Button.cpp.o
+.PHONY : src/UI/Button.o
+
+# target to build an object file
+src/UI/Button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o
+.PHONY : src/UI/Button.cpp.o
+
+src/UI/Button.i: src/UI/Button.cpp.i
+.PHONY : src/UI/Button.i
+
+# target to preprocess a source file
+src/UI/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.i
+.PHONY : src/UI/Button.cpp.i
+
+src/UI/Button.s: src/UI/Button.cpp.s
+.PHONY : src/UI/Button.s
+
+# target to generate assembly for a file
+src/UI/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.s
+.PHONY : src/UI/Button.cpp.s
+
 src/UI/InputHandler.o: src/UI/InputHandler.cpp.o
 .PHONY : src/UI/InputHandler.o
 
@@ -200,6 +224,30 @@ src/UI/InputHandler.s: src/UI/InputHandler.cpp.s
 src/UI/InputHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.s
 .PHONY : src/UI/InputHandler.cpp.s
+
+src/UI/LayerWindow.o: src/UI/LayerWindow.cpp.o
+.PHONY : src/UI/LayerWindow.o
+
+# target to build an object file
+src/UI/LayerWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o
+.PHONY : src/UI/LayerWindow.cpp.o
+
+src/UI/LayerWindow.i: src/UI/LayerWindow.cpp.i
+.PHONY : src/UI/LayerWindow.i
+
+# target to preprocess a source file
+src/UI/LayerWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.i
+.PHONY : src/UI/LayerWindow.cpp.i
+
+src/UI/LayerWindow.s: src/UI/LayerWindow.cpp.s
+.PHONY : src/UI/LayerWindow.s
+
+# target to generate assembly for a file
+src/UI/LayerWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.s
+.PHONY : src/UI/LayerWindow.cpp.s
 
 src/UI/MapWindow.o: src/UI/MapWindow.cpp.o
 .PHONY : src/UI/MapWindow.o
@@ -384,9 +432,15 @@ help:
 	@echo "... src/Rendering/TileRenderer.o"
 	@echo "... src/Rendering/TileRenderer.i"
 	@echo "... src/Rendering/TileRenderer.s"
+	@echo "... src/UI/Button.o"
+	@echo "... src/UI/Button.i"
+	@echo "... src/UI/Button.s"
 	@echo "... src/UI/InputHandler.o"
 	@echo "... src/UI/InputHandler.i"
 	@echo "... src/UI/InputHandler.s"
+	@echo "... src/UI/LayerWindow.o"
+	@echo "... src/UI/LayerWindow.i"
+	@echo "... src/UI/LayerWindow.s"
 	@echo "... src/UI/MapWindow.o"
 	@echo "... src/UI/MapWindow.i"
 	@echo "... src/UI/MapWindow.s"

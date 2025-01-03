@@ -4,6 +4,9 @@
 #define TOOLBAR_H
 
 #include "UIComponent.h"
+#include "Button.h" // Include the Button class
+#include <memory>
+#include <vector> // Include for managing multiple buttons
 
 class Toolbar : public UIComponent {
 public:
@@ -19,10 +22,18 @@ public:
 
     void onWindowResize(int newWidth, int newHeight) override;
 
+    // Method to add a new button dynamically
+    void addButton(const std::string& label, std::function<void()> onClick);
+
 private:
     SDL_Renderer* renderer;
     SDL_Rect position;
-    // Add toolbar-specific members here
+
+    int nextButtonX; // Tracks the X position for the next button
+
+    std::vector<std::shared_ptr<Button>> buttons; // Holds all buttons in the toolbar
+
+    TTF_Font* font; // Font used for all buttons
 };
 
 #endif // TOOLBAR_H
