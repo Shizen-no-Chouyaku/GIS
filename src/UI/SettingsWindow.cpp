@@ -12,7 +12,7 @@ static const int TAB_BUTTON_HEIGHT = 25;
 
 SettingsWindow::SettingsWindow(SDL_Renderer* renderer)
     : renderer(renderer),
-      needsRedrawFlag(true),
+      needsRedrawFlag(true), // Can be retained if used internally
       visible(false), // start hidden until we show it
       currentTab(Tab::FONT),
       font(nullptr),
@@ -101,7 +101,7 @@ void SettingsWindow::initUI() {
         TAB_BUTTON_HEIGHT,
         [this]() {
             currentTab = Tab::FONT;
-            needsRedrawFlag = true;
+            // needsRedrawFlag = true; // **Removed to prevent triggering full-screen clear**
         },
         bgColor,
         hoverColor
@@ -122,7 +122,7 @@ void SettingsWindow::initUI() {
         TAB_BUTTON_HEIGHT,
         [this]() {
             currentTab = Tab::RESOLUTION;
-            needsRedrawFlag = true;
+            // needsRedrawFlag = true; // **Removed**
         },
         bgColor,
         hoverColor
@@ -142,7 +142,13 @@ void SettingsWindow::initUI() {
         80,
         30,
         [this]() {
-            // ... existing save logic ...
+            // Update config from current selections
+            config.fontPath = availableFonts[currentFontIndex];
+            config.resolutionWidth = availableResolutions[currentResIndex].first;
+            config.resolutionHeight = availableResolutions[currentResIndex].second;
+            // Save
+            ConfigManager::saveConfig(config);
+            // needsRedrawFlag = true; // **Removed**
         },
         bgColor,
         hoverColor
@@ -162,7 +168,11 @@ void SettingsWindow::initUI() {
         80,
         30,
         [this]() {
-            // ... existing close logic ...
+            setVisible(false); // hide the settings window
+            if (onClose) {
+                onClose(); // Notify that the window is closing
+            }
+            // needsRedrawFlag = true; // **Removed**
         },
         bgColor,
         hoverColor
@@ -221,47 +231,47 @@ void SettingsWindow::update() {
 void SettingsWindow::render(SDL_Renderer* renderer) {
     if (!visible) return;
 
-    if (needsRedrawFlag) {
-        // Set clipping to the SettingsWindow's rect
-        SDL_RenderSetClipRect(renderer, &rect);
+    // **Always render the SettingsWindow when visible**
 
-        // Draw background only within rect
-        SDL_SetRenderDrawColor(renderer, 220, 220, 220, 255);
-        SDL_RenderFillRect(renderer, &rect);
+    // Set clipping to the SettingsWindow's rect to prevent drawing outside
+    SDL_RenderSetClipRect(renderer, &rect);
 
-        // Draw border
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        for (int i = 0; i < BORDER_THICKNESS; ++i) {
-            SDL_Rect borderRect = {
-                rect.x + i, rect.y + i,
-                rect.w - (2 * i), rect.h - (2 * i)
-            };
-            SDL_RenderDrawRect(renderer, &borderRect);
-        }
+    // Draw background only within rect
+    SDL_SetRenderDrawColor(renderer, 220, 220, 220, 255);
+    SDL_RenderFillRect(renderer, &rect);
 
-        // Render the title
-        if (titleTexture) {
-            SDL_RenderCopy(renderer, titleTexture, nullptr, &titleRect);
-        }
-
-        // Render tab buttons
-        for (auto& btn : tabButtons) {
-            btn->render(renderer);
-        }
-
-        // Render tab contents
-        drawTabContents(renderer);
-
-        // Render action buttons
-        for (auto& btn : actionButtons) {
-            btn->render(renderer);
-        }
-
-        // Remove clipping
-        SDL_RenderSetClipRect(renderer, nullptr);
-
-        needsRedrawFlag = false; // Reset until something changes again
+    // Draw border
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    for (int i = 0; i < BORDER_THICKNESS; ++i) {
+        SDL_Rect borderRect = {
+            rect.x + i, rect.y + i,
+            rect.w - (2 * i), rect.h - (2 * i)
+        };
+        SDL_RenderDrawRect(renderer, &borderRect);
     }
+
+    // Render the title
+    if (titleTexture) {
+        SDL_RenderCopy(renderer, titleTexture, nullptr, &titleRect);
+    }
+
+    // Render tab buttons
+    for (auto& btn : tabButtons) {
+        btn->render(renderer);
+    }
+
+    // Render tab contents
+    drawTabContents(renderer);
+
+    // Render action buttons
+    for (auto& btn : actionButtons) {
+        btn->render(renderer);
+    }
+
+    // Remove clipping
+    SDL_RenderSetClipRect(renderer, nullptr);
+
+    // **Do not set needsRedrawFlag here**
 }
 
 
@@ -319,14 +329,14 @@ void SettingsWindow::setPosition(int x, int y) {
         actionButtons[i]->setPosition(newX, newY);
     }
 
-    needsRedrawFlag = true;
+    // **Do not set needsRedrawFlag = true;**
 }
 
 void SettingsWindow::setSize(int width, int height) {
     rect.w = width;
     rect.h = height;
     // You’d also want to reposition / resize buttons, text, etc.
-    needsRedrawFlag = true;
+    // **Do not set needsRedrawFlag = true;**
 }
 
 void SettingsWindow::onWindowResize(int newWidth, int newHeight) {
@@ -338,5 +348,6 @@ void SettingsWindow::onWindowResize(int newWidth, int newHeight) {
     if (rect.y + rect.h > newHeight) {
         rect.y = (newHeight - rect.h) / 2;
     }
-    needsRedrawFlag = true;
+    // Reposition buttons based on the new window position
+    setPosition(rect.x, rect.y);
 }

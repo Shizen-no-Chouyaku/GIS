@@ -27,7 +27,9 @@ public:
 
     void onWindowResize(int newWidth, int newHeight) override;
 
-    bool needsRedraw() const override { return needsRedrawFlag; }
+    bool needsRedraw() const override {
+        // this shit is why it keps rendering a blank map!
+         return false; }
 
     bool isVisible() const { return visible; }
     void setVisible(bool v) { visible = v; }
