@@ -6,11 +6,12 @@
 #include "UIComponent.h"
 #include "Button.h" // Include the Button class
 #include <memory>
+#include "UIManager.h"
 #include <vector> // Include for managing multiple buttons
 
 class Toolbar : public UIComponent {
 public:
-    Toolbar(SDL_Renderer* renderer);
+    Toolbar(SDL_Renderer* renderer, UIManager& uiManager);
     ~Toolbar();
 
     void handleEvent(const SDL_Event& event) override;
@@ -34,6 +35,7 @@ private:
     std::vector<std::shared_ptr<Button>> buttons; // Holds all buttons in the toolbar
 
     TTF_Font* font; // Font used for all buttons
+    UIManager& uiManager;
 };
 
 #endif // TOOLBAR_H

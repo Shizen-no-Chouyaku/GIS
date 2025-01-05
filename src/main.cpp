@@ -49,18 +49,15 @@ int main(int argc, char* argv[]) {
     // Create MapWindow
     std::shared_ptr<MapWindow> mapWindow = std::make_shared<MapWindow>(tileRenderer, inputHandler, renderer);
 
-    // Create and add Toolbar
-    std::shared_ptr<Toolbar> toolbar = std::make_shared<Toolbar>(renderer);
-
     std::shared_ptr<LayerWindow> layerWindow = std::make_shared<LayerWindow>(renderer);
 
+    std::shared_ptr<Toolbar> toolbar = std::make_shared<Toolbar>(renderer, uiManager);
+    uiManager.addComponent(toolbar);
     // Add MapWindow first
     uiManager.addComponent(mapWindow);
     
     // Add Toolbar after
     uiManager.addComponent(layerWindow);
-
-    uiManager.addComponent(toolbar); // Toolbar renders on top
 
 
     // Run the main loop

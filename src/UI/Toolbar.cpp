@@ -2,88 +2,92 @@
 
 #include "Toolbar.h"
 #include "../Utils/Utils.h"
-#include <iostream> // For debugging
+#include "SettingsWindow.h"  // so we can create it
+#include <iostream>
 
-// Define padding around the text inside buttons
-const int TEXT_PADDING_X = 10; // Horizontal padding on each side
-const int TEXT_PADDING_Y = 5;  // Vertical padding (if needed)
+const int TEXT_PADDING_X = 10;
+const int TEXT_PADDING_Y = 5;
 
-Toolbar::Toolbar(SDL_Renderer* renderer)
-    : renderer(renderer), nextButtonX(0), font(nullptr) // Initialize nextButtonX to 0 for no left margin
+Toolbar::Toolbar(SDL_Renderer* renderer, UIManager& uiManager)
+    : renderer(renderer), uiManager(uiManager), nextButtonX(0), font(nullptr)
 {
-    // Initialize toolbar position and size with fixed height
-    position = {0, 0, 1920, 30}; // x, y, width, height
+    position = {0, 0, 1920, 30};
 
-    // Initialize TTF_Font
     font = TTF_OpenFont("../resources/fonts/WaukeganLdo-ax19.ttf", 16);
     if (!font) {
         Utils::logError("TTF_OpenFont Error: " + std::string(TTF_GetError()));
-        // Handle error appropriately, e.g., exit or throw exception
-        // For now, we'll proceed without buttons if font fails
+        // fallback or handle error
         return;
     }
 
-    // Add multiple buttons dynamically without margins between them
-    addButton("Settings", []() {
-        // Placeholder for opening the settings popup
-        std::cout << "Settings button clicked." << std::endl;
-    });
+    // ADD BUTTON: SETTINGS
+    addButton("Settings", [this]() {
+    // Use our member-variable renderer: this->renderer
+    auto settingsWindow = std::make_shared<SettingsWindow>(this->renderer);
 
+    // If UIManager has a method getWindow(), use it:
+    int winW = 1920;
+    int winH = 1080;
+
+    // If you gave UIManager a public getWindow() accessor:
+    if (this->uiManager.getWindow()) {
+        SDL_GetWindowSize(this->uiManager.getWindow(), &winW, &winH);
+    }
+
+    // Center the settings window in the main window:
+    settingsWindow->setPosition((winW - 600) / 2, (winH - 400) / 2);
+    settingsWindow->setVisible(true);
+
+    // Use this->uiManager to add the component
+    this->uiManager.addComponent(settingsWindow);
+});
+
+
+    // ADD BUTTON: MOO FOR ME
     addButton("Moo for me", []() {
-        // Placeholder for Edit action
-        std::cout << "Edit button clicked." << std::endl;
+        std::cout << "Moo button clicked.\n";
     });
-
-    // Add more buttons as needed
 }
 
 Toolbar::~Toolbar() {
     for (auto& button : buttons) {
-        // Buttons are managed by shared_ptr, no need for manual deletion
+        // no manual delete needed, shared_ptr
     }
     if (font) {
         TTF_CloseFont(font);
     }
-    std::cout << "Toolbar destructor called." << std::endl;
+    std::cout << "Toolbar destructor called.\n";
 }
 
 void Toolbar::addButton(const std::string& label, std::function<void()> onClick) {
-
     if (!font) {
         Utils::logError("Cannot add button without a valid font.");
         return;
     }
 
-    // Measure the text size using TTF_SizeText
     int textWidth = 0;
     int textHeight = 0;
     if (TTF_SizeText(font, label.c_str(), &textWidth, &textHeight) != 0) {
         Utils::logError("TTF_SizeText Error: " + std::string(TTF_GetError()));
-        // Handle error appropriately, e.g., set default size
-        textWidth = 80; // default width
-        textHeight = position.h; // default height
+        textWidth = 80;
+        textHeight = position.h;
     }
 
-    // Calculate button size based on text size and padding
     int buttonWidth = textWidth + 2 * TEXT_PADDING_X;
-    int buttonHeight = position.h; // Match toolbar height
+    int buttonHeight = position.h;
 
-    // Create the button
     auto button = std::make_shared<Button>(
         renderer,
-        font,                               // Pass the font to Button
+        font,
         label,
-        nextButtonX,                        // Position the button at the current X position
-        0,                                  // Y position relative to toolbar
-        buttonWidth,                        // Dynamic button width
-        buttonHeight,                       // Button height matching toolbar
-        onClick                             // Callback for button click
+        nextButtonX,
+        0,
+        buttonWidth,
+        buttonHeight,
+        onClick
     );
 
-    // Add the button to the vector
     buttons.push_back(button);
-
-    // Update nextButtonX for the next button (no margin between buttons)
     nextButtonX += buttonWidth;
 }
 

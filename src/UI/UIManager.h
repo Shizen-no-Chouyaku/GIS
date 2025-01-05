@@ -19,6 +19,7 @@ public:
     bool needsRedraw() const;
 
     void setWindow(SDL_Window* window);
+    SDL_Window* getWindow() const { return window; }
 
 private:
     SDL_Renderer* renderer;

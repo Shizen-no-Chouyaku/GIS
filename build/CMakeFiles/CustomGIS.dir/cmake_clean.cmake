@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o"
+  "CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o.d"
   "CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o"
   "CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o.d"
   "CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o"
@@ -11,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o.d"
   "CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o"
   "CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o.d"
+  "CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o"
+  "CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o.d"
   "CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o"
   "CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o.d"
   "CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o"

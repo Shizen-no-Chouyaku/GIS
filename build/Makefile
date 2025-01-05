@@ -129,6 +129,30 @@ CustomGIS/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/build
 .PHONY : CustomGIS/fast
 
+src/Config/ConfigManager.o: src/Config/ConfigManager.cpp.o
+.PHONY : src/Config/ConfigManager.o
+
+# target to build an object file
+src/Config/ConfigManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o
+.PHONY : src/Config/ConfigManager.cpp.o
+
+src/Config/ConfigManager.i: src/Config/ConfigManager.cpp.i
+.PHONY : src/Config/ConfigManager.i
+
+# target to preprocess a source file
+src/Config/ConfigManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.i
+.PHONY : src/Config/ConfigManager.cpp.i
+
+src/Config/ConfigManager.s: src/Config/ConfigManager.cpp.s
+.PHONY : src/Config/ConfigManager.s
+
+# target to generate assembly for a file
+src/Config/ConfigManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.s
+.PHONY : src/Config/ConfigManager.cpp.s
+
 src/Networking/TileFetcher.o: src/Networking/TileFetcher.cpp.o
 .PHONY : src/Networking/TileFetcher.o
 
@@ -272,6 +296,30 @@ src/UI/MapWindow.s: src/UI/MapWindow.cpp.s
 src/UI/MapWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.s
 .PHONY : src/UI/MapWindow.cpp.s
+
+src/UI/SettingsWindow.o: src/UI/SettingsWindow.cpp.o
+.PHONY : src/UI/SettingsWindow.o
+
+# target to build an object file
+src/UI/SettingsWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o
+.PHONY : src/UI/SettingsWindow.cpp.o
+
+src/UI/SettingsWindow.i: src/UI/SettingsWindow.cpp.i
+.PHONY : src/UI/SettingsWindow.i
+
+# target to preprocess a source file
+src/UI/SettingsWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.i
+.PHONY : src/UI/SettingsWindow.cpp.i
+
+src/UI/SettingsWindow.s: src/UI/SettingsWindow.cpp.s
+.PHONY : src/UI/SettingsWindow.s
+
+# target to generate assembly for a file
+src/UI/SettingsWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.s
+.PHONY : src/UI/SettingsWindow.cpp.s
 
 src/UI/Toolbar.o: src/UI/Toolbar.cpp.o
 .PHONY : src/UI/Toolbar.o
@@ -426,6 +474,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CustomGIS"
+	@echo "... src/Config/ConfigManager.o"
+	@echo "... src/Config/ConfigManager.i"
+	@echo "... src/Config/ConfigManager.s"
 	@echo "... src/Networking/TileFetcher.o"
 	@echo "... src/Networking/TileFetcher.i"
 	@echo "... src/Networking/TileFetcher.s"
@@ -444,6 +495,9 @@ help:
 	@echo "... src/UI/MapWindow.o"
 	@echo "... src/UI/MapWindow.i"
 	@echo "... src/UI/MapWindow.s"
+	@echo "... src/UI/SettingsWindow.o"
+	@echo "... src/UI/SettingsWindow.i"
+	@echo "... src/UI/SettingsWindow.s"
 	@echo "... src/UI/Toolbar.o"
 	@echo "... src/UI/Toolbar.i"
 	@echo "... src/UI/Toolbar.s"

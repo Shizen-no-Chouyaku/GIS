@@ -69,10 +69,24 @@ include CMakeFiles/CustomGIS.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/CustomGIS.dir/flags.make
 
+CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
+CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o: /home/linux/LeapCore/GIS/src/Config/ConfigManager.cpp
+CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o -MF CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o -c /home/linux/LeapCore/GIS/src/Config/ConfigManager.cpp
+
+CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/LeapCore/GIS/src/Config/ConfigManager.cpp > CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.i
+
+CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/LeapCore/GIS/src/Config/ConfigManager.cpp -o CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.s
+
 CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o: /home/linux/LeapCore/GIS/src/Networking/TileFetcher.cpp
 CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o -MF CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o -c /home/linux/LeapCore/GIS/src/Networking/TileFetcher.cpp
 
 CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o: /home/linux/LeapCore/GIS/src/Rendering/TileRenderer.cpp
 CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o -MF CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o -c /home/linux/LeapCore/GIS/src/Rendering/TileRenderer.cpp
 
 CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o: /home/linux/LeapCore/GIS/src/UI/Button.cpp
 CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o -MF CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o -c /home/linux/LeapCore/GIS/src/UI/Button.cpp
 
 CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o: /home/linux/LeapCore/GIS/src/UI/InputHandler.cpp
 CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o -MF CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o -c /home/linux/LeapCore/GIS/src/UI/InputHandler.cpp
 
 CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o: /home/linux/LeapCore/GIS/src/UI/LayerWindow.cpp
 CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o -MF CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o -c /home/linux/LeapCore/GIS/src/UI/LayerWindow.cpp
 
 CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: /home/linux/LeapCore/GIS/src/UI/MapWindow.cpp
 CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o -MF CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o -c /home/linux/LeapCore/GIS/src/UI/MapWindow.cpp
 
 CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.i: cmake_force
@@ -153,10 +167,24 @@ CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/LeapCore/GIS/src/UI/MapWindow.cpp -o CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.s
 
+CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
+CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o: /home/linux/LeapCore/GIS/src/UI/SettingsWindow.cpp
+CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o -MF CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o -c /home/linux/LeapCore/GIS/src/UI/SettingsWindow.cpp
+
+CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/LeapCore/GIS/src/UI/SettingsWindow.cpp > CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.i
+
+CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/LeapCore/GIS/src/UI/SettingsWindow.cpp -o CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.s
+
 CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: /home/linux/LeapCore/GIS/src/UI/Toolbar.cpp
 CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o -MF CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o -c /home/linux/LeapCore/GIS/src/UI/Toolbar.cpp
 
 CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.i: cmake_force
@@ -170,7 +198,7 @@ CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: /home/linux/LeapCore/GIS/src/UI/UIManager.cpp
 CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o -MF CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o -c /home/linux/LeapCore/GIS/src/UI/UIManager.cpp
 
 CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.i: cmake_force
@@ -184,7 +212,7 @@ CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: /home/linux/LeapCore/GIS/src/Utils/MainLoop.cpp
 CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o -MF CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o -c /home/linux/LeapCore/GIS/src/Utils/MainLoop.cpp
 
 CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.i: cmake_force
@@ -198,7 +226,7 @@ CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o: /home/linux/LeapCore/GIS/src/Utils/SDLUtils.cpp
 CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o -MF CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o -c /home/linux/LeapCore/GIS/src/Utils/SDLUtils.cpp
 
 CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.i: cmake_force
@@ -212,7 +240,7 @@ CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o: /home/linux/LeapCore/GIS/src/Utils/Utils.cpp
 CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o -MF CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o -c /home/linux/LeapCore/GIS/src/Utils/Utils.cpp
 
 CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.i: cmake_force
@@ -226,7 +254,7 @@ CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.s: cmake_force
 CMakeFiles/CustomGIS.dir/src/main.cpp.o: CMakeFiles/CustomGIS.dir/flags.make
 CMakeFiles/CustomGIS.dir/src/main.cpp.o: /home/linux/LeapCore/GIS/src/main.cpp
 CMakeFiles/CustomGIS.dir/src/main.cpp.o: CMakeFiles/CustomGIS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/CustomGIS.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/CustomGIS.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CustomGIS.dir/src/main.cpp.o -MF CMakeFiles/CustomGIS.dir/src/main.cpp.o.d -o CMakeFiles/CustomGIS.dir/src/main.cpp.o -c /home/linux/LeapCore/GIS/src/main.cpp
 
 CMakeFiles/CustomGIS.dir/src/main.cpp.i: cmake_force
@@ -239,12 +267,14 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.s: cmake_force
 
 # Object files for target CustomGIS
 CustomGIS_OBJECTS = \
+"CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o" \
+"CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o" \
 "CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o" \
@@ -255,12 +285,14 @@ CustomGIS_OBJECTS = \
 # External object files for target CustomGIS
 CustomGIS_EXTERNAL_OBJECTS =
 
+CustomGIS: CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o
+CustomGIS: CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o
@@ -269,7 +301,7 @@ CustomGIS: CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/src/main.cpp.o
 CustomGIS: CMakeFiles/CustomGIS.dir/build.make
 CustomGIS: CMakeFiles/CustomGIS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable CustomGIS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/LeapCore/GIS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable CustomGIS"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CustomGIS.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

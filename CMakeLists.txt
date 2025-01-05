@@ -12,6 +12,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # Find required packages using pkg-config
 find_package(PkgConfig REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 # Find SDL2
 pkg_check_modules(SDL2 REQUIRED sdl2)
@@ -42,5 +43,6 @@ target_link_libraries(CustomGIS
     ${SDL2_TTF_LIBRARIES}
     ${CURL_LIBRARIES}
     pthread
+    nlohmann_json::nlohmann_json
     # Add any other necessary libraries here
 )

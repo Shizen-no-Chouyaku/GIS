@@ -377,5 +377,6 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /home/linux/LeapCore/GIS/src/UI/Toolbar.h \
  /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
  /home/linux/LeapCore/GIS/src/UI/Button.h /usr/include/SDL2/SDL_ttf.h \
+ /home/linux/LeapCore/GIS/src/UI/UIManager.h \
  /home/linux/LeapCore/GIS/src/UI/LayerWindow.h \
  /home/linux/LeapCore/GIS/src/Utils/Utils.h /usr/include/c++/12/iostream
