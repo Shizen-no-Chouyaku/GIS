@@ -3537,6 +3537,8 @@ CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: /home/linux/LeapCore/GIS/src/UI/T
   /usr/include/c++/12/backward/auto_ptr.h \
   /usr/include/c++/12/pstl/glue_memory_defs.h \
   /usr/include/c++/12/pstl/execution_defs.h \
+  /home/linux/LeapCore/GIS/src/UI/SettingsWindow.h \
+  /home/linux/LeapCore/GIS/src/Config/ConfigManager.h \
   /home/linux/LeapCore/GIS/src/Utils/Utils.h \
   /usr/include/c++/12/iostream \
   /usr/include/c++/12/ostream \
@@ -3561,9 +3563,7 @@ CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: /home/linux/LeapCore/GIS/src/UI/T
   /usr/include/c++/12/bits/basic_ios.tcc \
   /usr/include/c++/12/bits/ostream.tcc \
   /usr/include/c++/12/istream \
-  /usr/include/c++/12/bits/istream.tcc \
-  /home/linux/LeapCore/GIS/src/UI/SettingsWindow.h \
-  /home/linux/LeapCore/GIS/src/Config/ConfigManager.h
+  /usr/include/c++/12/bits/istream.tcc
 
 CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: /home/linux/LeapCore/GIS/src/UI/UIManager.cpp \
   /usr/include/stdc-predef.h \
@@ -5345,7 +5345,90 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: /home/linux/LeapCore/GIS/src/main.cpp \
   /home/linux/LeapCore/GIS/src/UI/Button.h \
   /usr/include/SDL2/SDL_ttf.h \
   /home/linux/LeapCore/GIS/src/UI/UIManager.h \
+  /home/linux/LeapCore/GIS/src/UI/SettingsWindow.h \
+  /home/linux/LeapCore/GIS/src/Config/ConfigManager.h \
   /home/linux/LeapCore/GIS/src/UI/LayerWindow.h \
+  /home/linux/LeapCore/GIS/src/Config/ConfigManager.h \
+  /home/linux/LeapCore/GIS/src/UI/SettingsWindow.h \
+  /usr/local/include/nlohmann/json.hpp \
+  /usr/include/c++/12/algorithm \
+  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12/cstddef \
+  /usr/include/c++/12/iterator \
+  /usr/include/c++/12/bits/stream_iterator.h \
+  /usr/include/c++/12/utility \
+  /usr/include/c++/12/bits/stl_relops.h \
+  /usr/local/include/nlohmann/adl_serializer.hpp \
+  /usr/local/include/nlohmann/detail/abi_macros.hpp \
+  /usr/local/include/nlohmann/detail/conversions/from_json.hpp \
+  /usr/include/c++/12/forward_list \
+  /usr/include/c++/12/bits/forward_list.h \
+  /usr/include/c++/12/bits/forward_list.tcc \
+  /usr/include/c++/12/map \
+  /usr/include/c++/12/bits/stl_tree.h \
+  /usr/include/c++/12/bits/stl_map.h \
+  /usr/include/c++/12/bits/stl_multimap.h \
+  /usr/include/c++/12/valarray \
+  /usr/include/c++/12/bits/valarray_array.h \
+  /usr/include/c++/12/bits/valarray_array.tcc \
+  /usr/include/c++/12/bits/valarray_before.h \
+  /usr/include/c++/12/bits/slice_array.h \
+  /usr/include/c++/12/bits/valarray_after.h \
+  /usr/include/c++/12/bits/gslice.h \
+  /usr/include/c++/12/bits/gslice_array.h \
+  /usr/include/c++/12/bits/mask_array.h \
+  /usr/include/c++/12/bits/indirect_array.h \
+  /usr/local/include/nlohmann/detail/exceptions.hpp \
+  /usr/local/include/nlohmann/detail/value_t.hpp \
+  /usr/local/include/nlohmann/detail/macro_scope.hpp \
+  /usr/local/include/nlohmann/detail/meta/detected.hpp \
+  /usr/local/include/nlohmann/detail/meta/void_t.hpp \
+  /usr/local/include/nlohmann/thirdparty/hedley/hedley.hpp \
+  /usr/include/c++/12/version \
+  /usr/include/c++/12/cassert \
+  /usr/include/assert.h \
+  /usr/local/include/nlohmann/detail/string_escape.hpp \
+  /usr/local/include/nlohmann/detail/input/position_t.hpp \
+  /usr/local/include/nlohmann/detail/meta/cpp_future.hpp \
+  /usr/local/include/nlohmann/detail/meta/type_traits.hpp \
+  /usr/local/include/nlohmann/detail/iterators/iterator_traits.hpp \
+  /usr/local/include/nlohmann/detail/meta/call_std/begin.hpp \
+  /usr/local/include/nlohmann/detail/meta/call_std/end.hpp \
+  /usr/local/include/nlohmann/json_fwd.hpp \
+  /usr/local/include/nlohmann/detail/string_concat.hpp \
+  /usr/include/c++/12/cstring \
+  /usr/local/include/nlohmann/detail/meta/identity_tag.hpp \
+  /usr/local/include/nlohmann/detail/meta/std_fs.hpp \
+  /usr/local/include/nlohmann/detail/conversions/to_json.hpp \
+  /usr/include/c++/12/optional \
+  /usr/local/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+  /usr/local/include/nlohmann/detail/string_utils.hpp \
+  /usr/local/include/nlohmann/byte_container_with_subtype.hpp \
+  /usr/local/include/nlohmann/detail/hash.hpp \
+  /usr/local/include/nlohmann/detail/input/binary_reader.hpp \
+  /usr/local/include/nlohmann/detail/input/input_adapters.hpp \
+  /usr/include/c++/12/numeric \
+  /usr/include/c++/12/bits/stl_numeric.h \
+  /usr/include/c++/12/pstl/glue_numeric_defs.h \
+  /usr/local/include/nlohmann/detail/input/json_sax.hpp \
+  /usr/local/include/nlohmann/detail/input/lexer.hpp \
+  /usr/local/include/nlohmann/detail/meta/is_sax.hpp \
+  /usr/local/include/nlohmann/detail/input/parser.hpp \
+  /usr/local/include/nlohmann/detail/iterators/internal_iterator.hpp \
+  /usr/local/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+  /usr/local/include/nlohmann/detail/iterators/iter_impl.hpp \
+  /usr/local/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+  /usr/local/include/nlohmann/detail/json_custom_base_class.hpp \
+  /usr/local/include/nlohmann/detail/json_pointer.hpp \
+  /usr/local/include/nlohmann/detail/json_ref.hpp \
+  /usr/local/include/nlohmann/detail/output/binary_writer.hpp \
+  /usr/local/include/nlohmann/detail/output/output_adapters.hpp \
+  /usr/local/include/nlohmann/detail/output/serializer.hpp \
+  /usr/local/include/nlohmann/detail/conversions/to_chars.hpp \
+  /usr/local/include/nlohmann/ordered_map.hpp \
+  /usr/include/c++/12/any \
+  /usr/local/include/nlohmann/detail/macro_unscope.hpp \
+  /usr/local/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
   /home/linux/LeapCore/GIS/src/Utils/Utils.h \
   /usr/include/c++/12/iostream
 

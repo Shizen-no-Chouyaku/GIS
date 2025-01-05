@@ -282,7 +282,7 @@ CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: \
  /usr/include/c++/12/bits/basic_string.tcc /usr/local/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/c++/12/memory \
+ /home/linux/LeapCore/GIS/src/UI/UIManager.h /usr/include/c++/12/memory \
  /usr/include/c++/12/bits/stl_raw_storage_iter.h \
  /usr/include/c++/12/bits/align.h /usr/include/c++/12/bit \
  /usr/include/c++/12/bits/unique_ptr.h \
@@ -315,7 +315,8 @@ CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: \
  /usr/include/c++/12/backward/auto_ptr.h \
  /usr/include/c++/12/pstl/glue_memory_defs.h \
  /usr/include/c++/12/pstl/execution_defs.h \
- /home/linux/LeapCore/GIS/src/UI/UIManager.h \
+ /home/linux/LeapCore/GIS/src/UI/SettingsWindow.h \
+ /home/linux/LeapCore/GIS/src/UI/../Config/ConfigManager.h \
  /home/linux/LeapCore/GIS/src/UI/../Utils/Utils.h \
  /usr/include/c++/12/iostream /usr/include/c++/12/ostream \
  /usr/include/c++/12/ios /usr/include/c++/12/bits/ios_base.h \
@@ -334,6 +335,4 @@ CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o: \
  /usr/include/c++/12/bits/locale_facets.tcc \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
- /usr/include/c++/12/bits/istream.tcc \
- /home/linux/LeapCore/GIS/src/UI/SettingsWindow.h \
- /home/linux/LeapCore/GIS/src/UI/../Config/ConfigManager.h
+ /usr/include/c++/12/bits/istream.tcc

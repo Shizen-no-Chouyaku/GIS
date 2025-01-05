@@ -2,56 +2,63 @@
 
 #include "Toolbar.h"
 #include "../Utils/Utils.h"
-#include "SettingsWindow.h"  // so we can create it
+#include "SettingsWindow.h"  // Ensure this is included
 #include <iostream>
 
 const int TEXT_PADDING_X = 10;
 const int TEXT_PADDING_Y = 5;
 
 Toolbar::Toolbar(SDL_Renderer* renderer, UIManager& uiManager)
-    : renderer(renderer), uiManager(uiManager), nextButtonX(0), font(nullptr)
+    : renderer(renderer), 
+      nextButtonX(0), 
+      font(nullptr), 
+      uiManager(uiManager), 
+      settingsWindow(nullptr) // Initialize shared_ptr to nullptr
 {
     position = {0, 0, 1920, 30};
 
     font = TTF_OpenFont("../resources/fonts/WaukeganLdo-ax19.ttf", 16);
     if (!font) {
         Utils::logError("TTF_OpenFont Error: " + std::string(TTF_GetError()));
-        // fallback or handle error
+        // Handle error, possibly set a default font or exit
         return;
     }
 
     // ADD BUTTON: SETTINGS
     addButton("Settings", [this]() {
-    // Use our member-variable renderer: this->renderer
-    auto settingsWindow = std::make_shared<SettingsWindow>(this->renderer);
+        std::cout << "Settings button clicked.\n";
 
-    // If UIManager has a method getWindow(), use it:
-    int winW = 1920;
-    int winH = 1080;
+        // **Check if SettingsWindow is already open**
+        if (settingsWindow && settingsWindow->isVisible()) {
+            std::cout << "Settings window is already open.\n";
+            return; // Do not open another instance
+        }
 
-    // If you gave UIManager a public getWindow() accessor:
-    if (this->uiManager.getWindow()) {
-        SDL_GetWindowSize(this->uiManager.getWindow(), &winW, &winH);
-    }
+        // Create a SettingsWindow and add to UIManager
+        settingsWindow = std::make_shared<SettingsWindow>(this->renderer);
+        // Position it somewhere in the middle
+        int winW, winH;
+        SDL_GetRendererOutputSize(this->renderer, &winW, &winH); // Get current window size
+        settingsWindow->setPosition((winW - 600)/2, (winH - 400)/2);
+        settingsWindow->setVisible(true);
 
-    // Center the settings window in the main window:
-    settingsWindow->setPosition((winW - 600) / 2, (winH - 400) / 2);
-    settingsWindow->setVisible(true);
+        // **Set the onClose callback to reset settingsWindow**
+        settingsWindow->setOnCloseCallback([this]() {
+            settingsWindow = nullptr;
+        });
 
-    // Use this->uiManager to add the component
-    this->uiManager.addComponent(settingsWindow);
-});
-
+        this->uiManager.addComponent(settingsWindow);
+    });
 
     // ADD BUTTON: MOO FOR ME
-    addButton("Moo for me", []() {
+    addButton("Moo for me", [this]() {
         std::cout << "Moo button clicked.\n";
     });
 }
 
 Toolbar::~Toolbar() {
     for (auto& button : buttons) {
-        // no manual delete needed, shared_ptr
+        // No manual delete needed, shared_ptr handles it
     }
     if (font) {
         TTF_CloseFont(font);
@@ -122,7 +129,7 @@ void Toolbar::setPosition(int x, int y) {
     int currentX = 0; // Start from the left edge of the toolbar
     for (const auto& button : buttons) {
         button->setPosition(currentX, 0); // Y position relative to toolbar
-        currentX += button->getWidth(); // Use button's actual width
+        currentX += button->getWidth();    // Use button's actual width
     }
 
     // Update nextButtonX in case buttons are repositioned
@@ -143,7 +150,7 @@ void Toolbar::setSize(int width, int height) {
     int currentX = 0; // Start from the left edge of the toolbar
     for (const auto& button : buttons) {
         button->setPosition(currentX, 0); // Y position relative to toolbar
-        currentX += button->getWidth(); // Use button's actual width
+        currentX += button->getWidth();    // Use button's actual width
     }
 
     // Update nextButtonX in case buttons are repositioned

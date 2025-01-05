@@ -4,13 +4,16 @@
 #define TOOLBAR_H
 
 #include "UIComponent.h"
-#include "Button.h" // Include the Button class
+#include "Button.h"           // Include Button class
+#include "UIManager.h"       // Include UIManager
+#include "SettingsWindow.h"  // **Add this line**
 #include <memory>
-#include "UIManager.h"
-#include <vector> // Include for managing multiple buttons
+#include <vector>
+#include <SDL2/SDL_ttf.h>
 
 class Toolbar : public UIComponent {
 public:
+    // Constructor now accepts a reference to UIManager
     Toolbar(SDL_Renderer* renderer, UIManager& uiManager);
     ~Toolbar();
 
@@ -23,19 +26,21 @@ public:
 
     void onWindowResize(int newWidth, int newHeight) override;
 
-    // Method to add a new button dynamically
-    void addButton(const std::string& label, std::function<void()> onClick);
-
 private:
     SDL_Renderer* renderer;
     SDL_Rect position;
+    int nextButtonX;
+    std::vector<std::shared_ptr<Button>> buttons;
+    TTF_Font* font;
 
-    int nextButtonX; // Tracks the X position for the next button
+    // **Shared pointer to SettingsWindow**
+    std::shared_ptr<SettingsWindow> settingsWindow;
 
-    std::vector<std::shared_ptr<Button>> buttons; // Holds all buttons in the toolbar
-
-    TTF_Font* font; // Font used for all buttons
+    // Reference to UIManager to add/remove components
     UIManager& uiManager;
+
+    // Method to add a new button dynamically
+    void addButton(const std::string& label, std::function<void()> onClick);
 };
 
 #endif // TOOLBAR_H

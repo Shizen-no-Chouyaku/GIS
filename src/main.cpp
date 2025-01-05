@@ -1,3 +1,5 @@
+// main.cpp:
+
 #include "Utils/SDLUtils.h"
 #include "Utils/MainLoop.h"
 #include "Rendering/TileRenderer.h"
@@ -6,8 +8,11 @@
 #include "UI/UIManager.h"
 #include "UI/Toolbar.h"
 #include "UI/LayerWindow.h"
-#include "Utils/Utils.h"
+#include "Config/ConfigManager.h" // Make sure to include ConfigManager
+#include "UI/SettingsWindow.h"    // Include SettingsWindow if needed
+#include "nlohmann/json.hpp"      // Include JSON library
 #include <SDL2/SDL_ttf.h> // Include SDL_ttf
+#include "Utils/Utils.h"
 
 int main(int argc, char* argv[]) {
     // Initialize SDL and SDL_image
@@ -49,16 +54,16 @@ int main(int argc, char* argv[]) {
     // Create MapWindow
     std::shared_ptr<MapWindow> mapWindow = std::make_shared<MapWindow>(tileRenderer, inputHandler, renderer);
 
+    // Create LayerWindow
     std::shared_ptr<LayerWindow> layerWindow = std::make_shared<LayerWindow>(renderer);
 
-    std::shared_ptr<Toolbar> toolbar = std::make_shared<Toolbar>(renderer, uiManager);
-    uiManager.addComponent(toolbar);
-    // Add MapWindow first
+    // **Add MapWindow and LayerWindow first**
     uiManager.addComponent(mapWindow);
-    
-    // Add Toolbar after
     uiManager.addComponent(layerWindow);
 
+    // **Create and add Toolbar after**
+    std::shared_ptr<Toolbar> toolbar = std::make_shared<Toolbar>(renderer, uiManager);
+    uiManager.addComponent(toolbar);
 
     // Run the main loop
     runMainLoop(window, renderer, uiManager, *mapWindow);

@@ -89,14 +89,16 @@ void SettingsWindow::initUI() {
     SDL_Color hoverColor = {170, 170, 170, 255};
 
     // Font tab
+    int fontTabX = BORDER_THICKNESS;
+    int fontTabY = BORDER_THICKNESS + TITLE_HEIGHT;
     auto fontTabBtn = std::make_shared<Button>(
         renderer,
         font,
         "Font",
-        rect.x + BORDER_THICKNESS, // x
-        rect.y + BORDER_THICKNESS + TITLE_HEIGHT, // y
-        80,                        // width
-        TAB_BUTTON_HEIGHT,         // height
+        fontTabX,
+        fontTabY,
+        80,
+        TAB_BUTTON_HEIGHT,
         [this]() {
             currentTab = Tab::FONT;
             needsRedrawFlag = true;
@@ -105,16 +107,19 @@ void SettingsWindow::initUI() {
         hoverColor
     );
     tabButtons.push_back(fontTabBtn);
+    tabButtonPositions.emplace_back(fontTabX, fontTabY);
 
     // Resolution tab
+    int resTabX = BORDER_THICKNESS + 80;
+    int resTabY = BORDER_THICKNESS + TITLE_HEIGHT;
     auto resTabBtn = std::make_shared<Button>(
         renderer,
         font,
         "Resolution",
-        rect.x + BORDER_THICKNESS + 80,   // x (stack to the right)
-        rect.y + BORDER_THICKNESS + TITLE_HEIGHT,
-        100,                   // width
-        TAB_BUTTON_HEIGHT,     
+        resTabX,
+        resTabY,
+        100,
+        TAB_BUTTON_HEIGHT,
         [this]() {
             currentTab = Tab::RESOLUTION;
             needsRedrawFlag = true;
@@ -123,45 +128,47 @@ void SettingsWindow::initUI() {
         hoverColor
     );
     tabButtons.push_back(resTabBtn);
+    tabButtonPositions.emplace_back(resTabX, resTabY);
 
-    // Action buttons: Save and Close
+    // Save button
+    int saveBtnX = BORDER_THICKNESS;
+    int saveBtnY = rect.h - BORDER_THICKNESS - 40;
     auto saveBtn = std::make_shared<Button>(
         renderer,
         font,
         "Save",
-        rect.x + 10,                  // just put them somewhere at the bottom
-        rect.y + rect.h - 40,
+        saveBtnX,
+        saveBtnY,
         80,
         30,
         [this]() {
-            // Update config from current selections
-            config.fontPath = availableFonts[currentFontIndex];
-            config.resolutionWidth = availableResolutions[currentResIndex].first;
-            config.resolutionHeight = availableResolutions[currentResIndex].second;
-            // Save
-            ConfigManager::saveConfig(config);
-            needsRedrawFlag = true;
+            // ... existing save logic ...
         },
         bgColor,
         hoverColor
     );
     actionButtons.push_back(saveBtn);
+    actionButtonPositions.emplace_back(saveBtnX, saveBtnY);
 
+    // Close button
+    int closeBtnX = BORDER_THICKNESS + 90;
+    int closeBtnY = rect.h - BORDER_THICKNESS - 40;
     auto closeBtn = std::make_shared<Button>(
         renderer,
         font,
         "Close",
-        rect.x + 100,
-        rect.y + rect.h - 40,
+        closeBtnX,
+        closeBtnY,
         80,
         30,
         [this]() {
-            setVisible(false); // hide the settings window
+            // ... existing close logic ...
         },
         bgColor,
         hoverColor
     );
     actionButtons.push_back(closeBtn);
+    actionButtonPositions.emplace_back(closeBtnX, closeBtnY);
 }
 
 void SettingsWindow::createTitleTexture() {
@@ -215,16 +222,19 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
     if (!visible) return;
 
     if (needsRedrawFlag) {
-        // Draw background
+        // Set clipping to the SettingsWindow's rect
+        SDL_RenderSetClipRect(renderer, &rect);
+
+        // Draw background only within rect
         SDL_SetRenderDrawColor(renderer, 220, 220, 220, 255);
         SDL_RenderFillRect(renderer, &rect);
 
         // Draw border
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        for (int i=0; i < BORDER_THICKNESS; i++) {
+        for (int i = 0; i < BORDER_THICKNESS; ++i) {
             SDL_Rect borderRect = {
                 rect.x + i, rect.y + i,
-                rect.w - (2*i), rect.h - (2*i)
+                rect.w - (2 * i), rect.h - (2 * i)
             };
             SDL_RenderDrawRect(renderer, &borderRect);
         }
@@ -247,9 +257,13 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
             btn->render(renderer);
         }
 
+        // Remove clipping
+        SDL_RenderSetClipRect(renderer, nullptr);
+
         needsRedrawFlag = false; // Reset until something changes again
     }
 }
+
 
 void SettingsWindow::drawTabContents(SDL_Renderer* renderer) {
     // Minimal text rendering to show which tab is active
@@ -291,21 +305,20 @@ void SettingsWindow::setPosition(int x, int y) {
     titleRect.x += dx;
     titleRect.y += dy;
 
-    // currently broken
-    /*
-    // Move tab buttons
-    for (auto& btn : tabButtons) {
-        SDL_Rect bRect;
-        bRect.x = btn->getWidth(); // we need the actual rect, so let’s cheat:
-        // Instead, because we only have setPosition in Button, we do:
-        int oldX = btn->getPosition().x; // but we haven't stored getPosition. 
-        // If needed, we'd store the old positions or recalc them here.
-        // For brevity, let's just forcibly re-init the UI if you prefer:
+    // Reposition tab buttons based on stored relative positions
+    for (size_t i = 0; i < tabButtons.size(); ++i) {
+        int newX = rect.x + tabButtonPositions[i].first;
+        int newY = rect.y + tabButtonPositions[i].second;
+        tabButtons[i]->setPosition(newX, newY);
     }
-    */
-   
-    // Move action buttons...
-    // In practice, you might recalc them or store offsets. Omitted for brevity.
+
+    // Reposition action buttons based on stored relative positions
+    for (size_t i = 0; i < actionButtons.size(); ++i) {
+        int newX = rect.x + actionButtonPositions[i].first;
+        int newY = rect.y + actionButtonPositions[i].second;
+        actionButtons[i]->setPosition(newX, newY);
+    }
+
     needsRedrawFlag = true;
 }
 

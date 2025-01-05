@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <functional> // Include for std::function
 
 class SettingsWindow : public UIComponent {
 public:
@@ -30,6 +31,9 @@ public:
 
     bool isVisible() const { return visible; }
     void setVisible(bool v) { visible = v; }
+
+    // **New Method**: Set the callback to be called when the window is closed
+    void setOnCloseCallback(std::function<void()> callback) { onClose = callback; }
 
 private:
     SDL_Renderer* renderer;
@@ -67,6 +71,11 @@ private:
     // Title text
     SDL_Texture* titleTexture;
     SDL_Rect titleRect;
+
+    // Callback to notify when the window is closed
+    std::function<void()> onClose;
+    std::vector<std::pair<int, int>> tabButtonPositions;
+    std::vector<std::pair<int, int>> actionButtonPositions;
 };
 
 #endif // SETTINGS_WINDOW_H
