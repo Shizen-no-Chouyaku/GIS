@@ -1,49 +1,61 @@
 // src/UI/SettingsWindow.cpp
 
 #include "SettingsWindow.h"
-#include "../Utils/Utils.h" // if you have a logging utility
+#include "Dropdown.h" // Include Dropdown
+#include "../Utils/Utils.h"
+#include <SDL2/SDL_syswm.h>     // For platform checks (file dialogs)
 #include <iostream>
+#include <cstdio>    // popen, pclose
+#include <memory>    // shared_ptr
+#include <algorithm>
+#include <fstream>   // for reading file dialog results
 
 static const int WINDOW_WIDTH_DEFAULT = 600;
 static const int WINDOW_HEIGHT_DEFAULT = 400;
 static const int BORDER_THICKNESS = 2;
-static const int TITLE_HEIGHT = 30;
+static const int TITLEBAR_HEIGHT = 30;  // Draggable region
 static const int TAB_BUTTON_HEIGHT = 25;
+static const int TAB_BUTTON_WIDTH = 110;
 
-SettingsWindow::SettingsWindow(SDL_Renderer* renderer)
+SettingsWindow::SettingsWindow(SDL_Renderer* renderer, SDL_Window* window)
     : renderer(renderer),
-      needsRedrawFlag(true), // Can be retained if used internally
-      visible(false), // start hidden until we show it
-      currentTab(Tab::FONT),
+      window(window),
+      needsRedrawFlag(false), // Can be retained if used internally
+      visible(false),
+      currentTab(Tab::GENERAL),
       font(nullptr),
-      titleTexture(nullptr)
+      titleTexture(nullptr),
+      draggingWindow(false),
+      dragOffsetX(0),
+      dragOffsetY(0)
 {
-    // Load config from disk
-    config = ConfigManager::loadConfig();
+    // Load config
+    config = ConfigManager::loadConfig(); // from ../config/settings.json
 
-    // Setup the window rectangle (we can center it later)
+    // Setup rect
     rect.x = 100;
     rect.y = 100;
     rect.w = WINDOW_WIDTH_DEFAULT;
     rect.h = WINDOW_HEIGHT_DEFAULT;
 
-    // Attempt to open a font for drawing text
-    // We can either use the config.fontPath or a fallback if TTF_OpenFont fails
+    // Attempt to open our main font
     font = TTF_OpenFont(config.fontPath.c_str(), 16);
     if (!font) {
-        std::cerr << "SettingsWindow: Failed to open font from config ("
-                  << config.fontPath << "): " << TTF_GetError()
-                  << "\nUsing fallback.\n";
+        std::cerr << "Failed to open font " << config.fontPath
+                  << ". Using fallback.\n";
         font = TTF_OpenFont("../resources/fonts/WaukeganLdo-ax19.ttf", 16);
+        if (!font) {
+            Utils::logError("Failed to load fallback font.");
+        }
     }
 
-    // Some fake data for demonstration
+    // Initialize available fonts
     availableFonts = {
-        "resources/fonts/WaukeganLdo-ax19.ttf",
-        "resources/fonts/SomeOtherFont.ttf",
-        "resources/fonts/YetAnotherFont.ttf"
+        "../resources/fonts/WaukeganLdo-ax19.ttf",
+        "../resources/fonts/SomeOtherFont.ttf",
+        "../resources/fonts/YetAnotherFont.ttf"
     };
-    // Find which index matches our config
+    // Mark which is currently selected
     currentFontIndex = 0;
     for (size_t i=0; i<availableFonts.size(); i++){
         if (availableFonts[i] == config.fontPath) {
@@ -52,10 +64,11 @@ SettingsWindow::SettingsWindow(SDL_Renderer* renderer)
         }
     }
 
+    // Initialize resolutions
     availableResolutions = {
         {1280, 720}, {1600, 900}, {1920, 1080}, {2560, 1440}
     };
-    // Figure out which resolution is closest to our config
+    // Mark which is currently selected
     currentResIndex = 0;
     int bestDistance = 999999;
     for (size_t i=0; i<availableResolutions.size(); i++){
@@ -81,108 +94,188 @@ SettingsWindow::~SettingsWindow() {
         SDL_DestroyTexture(titleTexture);
         titleTexture = nullptr;
     }
+    std::cout << "SettingsWindow destructor.\n";
 }
 
+// Remove the conflicting needsRedraw() definition
+// bool SettingsWindow::needsRedraw() const {
+//     return needsRedrawFlag;
+// }
+
 void SettingsWindow::initUI() {
-    // Create the "Font" and "Resolution" tab buttons
+    // We'll have 2 vertical tab buttons: "General" and "Layers"
     SDL_Color bgColor = {200, 200, 200, 255};
     SDL_Color hoverColor = {170, 170, 170, 255};
 
-    // Font tab
-    int fontTabX = BORDER_THICKNESS;
-    int fontTabY = BORDER_THICKNESS + TITLE_HEIGHT;
-    auto fontTabBtn = std::make_shared<Button>(
+    // General tab button
+    auto generalTabBtn = std::make_shared<Button>(
         renderer,
         font,
-        "Font",
-        fontTabX,
-        fontTabY,
-        80,
+        "General",
+        0,                 // X will be relative
+        TITLEBAR_HEIGHT,   // below the window's top bar
+        TAB_BUTTON_WIDTH,
         TAB_BUTTON_HEIGHT,
         [this]() {
-            currentTab = Tab::FONT;
-            // needsRedrawFlag = true; // **Removed to prevent triggering full-screen clear**
+            currentTab = Tab::GENERAL;
         },
         bgColor,
         hoverColor
     );
-    tabButtons.push_back(fontTabBtn);
-    tabButtonPositions.emplace_back(fontTabX, fontTabY);
+    tabButtons.push_back(generalTabBtn);
+    tabButtonPositions.push_back({0, TITLEBAR_HEIGHT});
 
-    // Resolution tab
-    int resTabX = BORDER_THICKNESS + 80;
-    int resTabY = BORDER_THICKNESS + TITLE_HEIGHT;
-    auto resTabBtn = std::make_shared<Button>(
+    // Layers tab button
+    auto layersTabBtn = std::make_shared<Button>(
         renderer,
         font,
-        "Resolution",
-        resTabX,
-        resTabY,
+        "Layers",
+        0,
+        TITLEBAR_HEIGHT + TAB_BUTTON_HEIGHT,
+        TAB_BUTTON_WIDTH,
+        TAB_BUTTON_HEIGHT,
+        [this]() {
+            currentTab = Tab::LAYERS;
+        },
+        bgColor,
+        hoverColor
+    );
+    tabButtons.push_back(layersTabBtn);
+    tabButtonPositions.push_back({0, TITLEBAR_HEIGHT + TAB_BUTTON_HEIGHT});
+
+    // Now the actual UI inside the "General" tab:
+    // 1) Font drop-down
+    // 2) Install Font button
+    // 3) Resolution drop-down
+    // 4) Save
+    // 5) Close
+
+    SDL_Color ddBg = {220, 220, 220, 255};   // drop-down BG
+    SDL_Color ddHover = {200, 200, 200, 255};
+
+    // Create fontDropdown
+    fontDropdown = std::make_shared<Dropdown>(
+        renderer,
+        font,
+        availableFonts,
+        static_cast<int>(TAB_BUTTON_WIDTH) + 20, // X offset from the left tabs
+        TITLEBAR_HEIGHT + 20,       // Y offset from top
+        200,                        // width
+        25,                         // height
+        currentFontIndex,
+        ddBg,
+        ddHover,
+        [this](int selectedIndex) {
+            // When user selects a font from the drop-down
+            currentFontIndex = selectedIndex;
+            // Reload the font immediately
+            if (font) {
+                TTF_CloseFont(font);
+            }
+            font = TTF_OpenFont(availableFonts[currentFontIndex].c_str(), 16);
+            if (!font) {
+                Utils::logError("Failed to open selected font: " + availableFonts[currentFontIndex]);
+            }
+            // Update all UI components that use the font
+            createTitleTexture();
+            for (auto& btn : tabButtons) {
+                btn->setFont(font);
+            }
+            for (auto& btn : actionButtons) {
+                btn->setFont(font);
+            }
+            fontDropdown->setFont(font);
+            installFontBtn->setFont(font);
+            resolutionDropdown->setFont(font);
+            saveBtn->setFont(font);
+            closeBtn->setFont(font);
+        }
+    );
+
+    // Create installFontBtn
+    installFontBtn = std::make_shared<Button>(
+        renderer,
+        font,
+        "Install Font",
+        static_cast<int>(TAB_BUTTON_WIDTH) + 230,
+        TITLEBAR_HEIGHT + 20,
         100,
-        TAB_BUTTON_HEIGHT,
+        25,
         [this]() {
-            currentTab = Tab::RESOLUTION;
-            // needsRedrawFlag = true; // **Removed**
-        },
-        bgColor,
-        hoverColor
+            std::string newFontPath = openFileDialog();
+            if (!newFontPath.empty()) {
+                // Add to availableFonts if not already there
+                if (std::find(availableFonts.begin(), availableFonts.end(), newFontPath) == availableFonts.end()) {
+                    availableFonts.push_back(newFontPath);
+                    // Force the drop-down to refresh
+                    fontDropdown->setItems(availableFonts);
+                }
+            }
+        }
     );
-    tabButtons.push_back(resTabBtn);
-    tabButtonPositions.emplace_back(resTabX, resTabY);
 
-    // Save button
-    int saveBtnX = BORDER_THICKNESS;
-    int saveBtnY = rect.h - BORDER_THICKNESS - 40;
-    auto saveBtn = std::make_shared<Button>(
+    // Create resolutionDropdown
+    resolutionDropdown = std::make_shared<Dropdown>(
+        renderer,
+        font,
+        availableResToStrings(availableResolutions),
+        static_cast<int>(TAB_BUTTON_WIDTH) + 20,
+        TITLEBAR_HEIGHT + 60,
+        200,
+        25,
+        currentResIndex,
+        ddBg,
+        ddHover,
+        [this](int selectedIndex) {
+            currentResIndex = selectedIndex;
+            // Immediately scale program to this resolution
+            auto& sel = availableResolutions[currentResIndex];
+            if (window) { 
+                SDL_SetWindowSize(window, sel.first, sel.second);
+                // UIManager will handle the resize via window events
+            }
+        }
+    );
+
+    // Create saveBtn
+    saveBtn = std::make_shared<Button>(
         renderer,
         font,
         "Save",
-        saveBtnX,
-        saveBtnY,
+        static_cast<int>(TAB_BUTTON_WIDTH) + 20,
+        rect.h - 40, // near bottom
         80,
-        30,
+        25,
         [this]() {
-            // Update config from current selections
+            // Write to ../config/settings.json
             config.fontPath = availableFonts[currentFontIndex];
             config.resolutionWidth = availableResolutions[currentResIndex].first;
             config.resolutionHeight = availableResolutions[currentResIndex].second;
-            // Save
             ConfigManager::saveConfig(config);
-            // needsRedrawFlag = true; // **Removed**
-        },
-        bgColor,
-        hoverColor
+            Utils::logInfo("Settings saved.");
+        }
     );
-    actionButtons.push_back(saveBtn);
-    actionButtonPositions.emplace_back(saveBtnX, saveBtnY);
 
-    // Close button
-    int closeBtnX = BORDER_THICKNESS + 90;
-    int closeBtnY = rect.h - BORDER_THICKNESS - 40;
-    auto closeBtn = std::make_shared<Button>(
+    // Create closeBtn
+    closeBtn = std::make_shared<Button>(
         renderer,
         font,
         "Close",
-        closeBtnX,
-        closeBtnY,
+        static_cast<int>(TAB_BUTTON_WIDTH) + 110,
+        rect.h - 40,
         80,
-        30,
+        25,
         [this]() {
-            setVisible(false); // hide the settings window
+            // We want to truly remove ourselves from UIManager
             if (onClose) {
-                onClose(); // Notify that the window is closing
+                onClose(); // This calls uiManager.removeComponent(this SettingsWindow)
             }
-            // needsRedrawFlag = true; // **Removed**
-        },
-        bgColor,
-        hoverColor
+        }
     );
-    actionButtons.push_back(closeBtn);
-    actionButtonPositions.emplace_back(closeBtnX, closeBtnY);
 }
 
 void SettingsWindow::createTitleTexture() {
-    // Create a title, e.g. "Settings"
+    // Title bar text
     SDL_Color color = {0, 0, 0, 255};
     SDL_Surface* surf = TTF_RenderText_Blended(font, "Settings", color);
     if (!surf) {
@@ -190,119 +283,141 @@ void SettingsWindow::createTitleTexture() {
         return;
     }
     titleTexture = SDL_CreateTextureFromSurface(renderer, surf);
-    if (!titleTexture) {
-        std::cerr << "Failed to create SettingsWindow title texture: " << SDL_GetError() << "\n";
-        SDL_FreeSurface(surf);
-        return;
-    }
     titleRect.x = rect.x + (rect.w - surf->w) / 2;
-    titleRect.y = rect.y + 2; // small top padding
+    titleRect.y = rect.y + 5; 
     titleRect.w = surf->w;
     titleRect.h = surf->h;
-
     SDL_FreeSurface(surf);
 }
 
 void SettingsWindow::handleEvent(const SDL_Event& event) {
     if (!visible) return;
 
-    // Forward events to our tab buttons
-    for (auto& btn : tabButtons) {
-        btn->handleEvent(event);
+    // 1) Check for dragging the window
+    if (event.type == SDL_MOUSEBUTTONDOWN) {
+        int mx = event.button.x;
+        int my = event.button.y;
+        // If we clicked inside the title bar region
+        bool inTitleBar = (mx >= rect.x && mx <= rect.x + rect.w &&
+                           my >= rect.y && my <= rect.y + TITLEBAR_HEIGHT);
+        if (inTitleBar && event.button.button == SDL_BUTTON_LEFT) {
+            draggingWindow = true;
+            dragOffsetX = mx - rect.x;
+            dragOffsetY = my - rect.y;
+        }
     }
-    // Forward events to our action buttons
-    for (auto& btn : actionButtons) {
-        btn->handleEvent(event);
+    else if (event.type == SDL_MOUSEBUTTONUP) {
+        if (event.button.button == SDL_BUTTON_LEFT) {
+            draggingWindow = false;
+        }
+    }
+    else if (event.type == SDL_MOUSEMOTION && draggingWindow) {
+        int mx = event.motion.x;
+        int my = event.motion.y;
+        // Move the window
+        setPosition(mx - dragOffsetX, my - dragOffsetY);
+    }
+
+    // 2) Forward to drop-downs, buttons, etc. but only if we are in the "General" tab
+    if (currentTab == Tab::GENERAL) {
+        fontDropdown->handleEvent(event);
+        installFontBtn->handleEvent(event);
+        resolutionDropdown->handleEvent(event);
+        saveBtn->handleEvent(event);
+        closeBtn->handleEvent(event);
+    }
+    else if (currentTab == Tab::LAYERS) {
+        // We'll add actual layer settings later if needed
+    }
+
+    // 3) Forward events to tab buttons (General, Layers)
+    for (size_t i=0; i<tabButtons.size(); i++) {
+        tabButtons[i]->handleEvent(event);
     }
 }
 
 void SettingsWindow::update() {
     if (!visible) return;
 
-    // Update our buttons (hover detection, etc.)
+    // Update tab buttons
     for (auto& btn : tabButtons) {
         btn->update();
     }
-    for (auto& btn : actionButtons) {
-        btn->update();
+
+    // Update components in the current tab
+    if (currentTab == Tab::GENERAL) {
+        fontDropdown->update();
+        installFontBtn->update();
+        resolutionDropdown->update();
+        saveBtn->update();
+        closeBtn->update();
+    }
+    else if (currentTab == Tab::LAYERS) {
+        // Nothing yet
     }
 }
 
 void SettingsWindow::render(SDL_Renderer* renderer) {
     if (!visible) return;
 
-    // **Always render the SettingsWindow when visible**
-
-    // Set clipping to the SettingsWindow's rect to prevent drawing outside
+    // Clipping to our rect
     SDL_RenderSetClipRect(renderer, &rect);
 
-    // Draw background only within rect
+    // Draw background
     SDL_SetRenderDrawColor(renderer, 220, 220, 220, 255);
     SDL_RenderFillRect(renderer, &rect);
 
     // Draw border
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    for (int i = 0; i < BORDER_THICKNESS; ++i) {
-        SDL_Rect borderRect = {
-            rect.x + i, rect.y + i,
-            rect.w - (2 * i), rect.h - (2 * i)
-        };
-        SDL_RenderDrawRect(renderer, &borderRect);
+    for(int i=0; i<BORDER_THICKNESS; i++){
+        SDL_Rect br = { rect.x + i, rect.y + i, rect.w - 2*i, rect.h - 2*i };
+        SDL_RenderDrawRect(renderer, &br);
     }
 
-    // Render the title
+    // Draw a top bar
+    SDL_SetRenderDrawColor(renderer, 180, 180, 180, 255);
+    SDL_Rect titleBar = { rect.x, rect.y, rect.w, TITLEBAR_HEIGHT };
+    SDL_RenderFillRect(renderer, &titleBar);
+
+    // Render the actual "Settings" text near the top
     if (titleTexture) {
-        SDL_RenderCopy(renderer, titleTexture, nullptr, &titleRect);
+        SDL_Rect dst = titleRect;
+        SDL_RenderCopy(renderer, titleTexture, nullptr, &dst);
     }
+
+    // Render the vertical tab area
+    SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255);
+    SDL_Rect tabArea = { rect.x, rect.y + TITLEBAR_HEIGHT, TAB_BUTTON_WIDTH, rect.h - TITLEBAR_HEIGHT };
+    SDL_RenderFillRect(renderer, &tabArea);
 
     // Render tab buttons
-    for (auto& btn : tabButtons) {
+    for (size_t i=0; i<tabButtons.size(); i++) {
+        auto& btn = tabButtons[i];
         btn->render(renderer);
     }
 
-    // Render tab contents
-    drawTabContents(renderer);
-
-    // Render action buttons
-    for (auto& btn : actionButtons) {
-        btn->render(renderer);
+    // Render contents of whichever tab is active
+    if (currentTab == Tab::GENERAL) {
+        fontDropdown->render(renderer);
+        installFontBtn->render(renderer);
+        resolutionDropdown->render(renderer);
+        saveBtn->render(renderer);
+        closeBtn->render(renderer);
+    }
+    else if (currentTab == Tab::LAYERS) {
+        // For now, just text
+        SDL_Color color = {0,0,0,255};
+        SDL_Surface* surf = TTF_RenderText_Blended(font, "Layers TBD", color);
+        if (surf) {
+            SDL_Texture* tmp = SDL_CreateTextureFromSurface(renderer, surf);
+            SDL_Rect msgRect = { rect.x + TAB_BUTTON_WIDTH + 20, rect.y + TITLEBAR_HEIGHT + 20, surf->w, surf->h };
+            SDL_RenderCopy(renderer, tmp, nullptr, &msgRect);
+            SDL_DestroyTexture(tmp);
+            SDL_FreeSurface(surf);
+        }
     }
 
-    // Remove clipping
     SDL_RenderSetClipRect(renderer, nullptr);
-
-    // **Do not set needsRedrawFlag here**
-}
-
-
-void SettingsWindow::drawTabContents(SDL_Renderer* renderer) {
-    // Minimal text rendering to show which tab is active
-    // We’ll create a quick surface/texture for demonstration
-    std::string infoText;
-    if (currentTab == Tab::FONT) {
-        infoText = "Current font: " + availableFonts[currentFontIndex];
-        infoText += "\n[Use some hypothetical next/previous button? Example only]";
-    } else {
-        auto& r = availableResolutions[currentResIndex];
-        infoText = "Current resolution: " + std::to_string(r.first) + "x" + std::to_string(r.second);
-        infoText += "\n[Use some hypothetical next/previous button? Example only]";
-    }
-
-    SDL_Color color = {0, 0, 0, 255};
-    SDL_Surface* surf = TTF_RenderText_Blended_Wrapped(font, infoText.c_str(), color, rect.w - 20);
-    if (!surf) return;
-    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, surf);
-
-    // Place it somewhere below the tab buttons
-    SDL_Rect txtRect;
-    txtRect.x = rect.x + 10;
-    txtRect.y = rect.y + BORDER_THICKNESS + TITLE_HEIGHT + TAB_BUTTON_HEIGHT + 10;
-    txtRect.w = surf->w;
-    txtRect.h = surf->h;
-
-    SDL_RenderCopy(renderer, textTexture, nullptr, &txtRect);
-    SDL_FreeSurface(surf);
-    SDL_DestroyTexture(textTexture);
 }
 
 void SettingsWindow::setPosition(int x, int y) {
@@ -311,43 +426,98 @@ void SettingsWindow::setPosition(int x, int y) {
     rect.x = x;
     rect.y = y;
 
-    // Move title
+    // Move the title
     titleRect.x += dx;
     titleRect.y += dy;
 
-    // Reposition tab buttons based on stored relative positions
-    for (size_t i = 0; i < tabButtons.size(); ++i) {
+    // Move the tab buttons
+    for (size_t i=0; i<tabButtons.size(); i++){
         int newX = rect.x + tabButtonPositions[i].first;
         int newY = rect.y + tabButtonPositions[i].second;
         tabButtons[i]->setPosition(newX, newY);
     }
 
-    // Reposition action buttons based on stored relative positions
-    for (size_t i = 0; i < actionButtons.size(); ++i) {
-        int newX = rect.x + actionButtonPositions[i].first;
-        int newY = rect.y + actionButtonPositions[i].second;
-        actionButtons[i]->setPosition(newX, newY);
-    }
+    // Adjust the positions of "General" tab UI
+    int generalUIX = rect.x + TAB_BUTTON_WIDTH + 20;
+    int generalUIY = rect.y + TITLEBAR_HEIGHT + 20;
+    fontDropdown->setPosition(generalUIX, generalUIY);
+    installFontBtn->setPosition(generalUIX + 210, generalUIY);
+    resolutionDropdown->setPosition(generalUIX, generalUIY + 40);
+    saveBtn->setPosition(generalUIX, rect.y + rect.h - 40);
+    closeBtn->setPosition(generalUIX + 90, rect.y + rect.h - 40);
 
-    // **Do not set needsRedrawFlag = true;**
+    // The user wants an immediate redraw so it doesn't wait for next map update
+    needsRedrawFlag = true; // **Optional: Remove if not used internally**
 }
 
 void SettingsWindow::setSize(int width, int height) {
     rect.w = width;
     rect.h = height;
-    // You’d also want to reposition / resize buttons, text, etc.
-    // **Do not set needsRedrawFlag = true;**
+    needsRedrawFlag = true; // **Optional: Remove if not used internally**
 }
 
 void SettingsWindow::onWindowResize(int newWidth, int newHeight) {
-    // Optionally re-center or do something else. 
-    // For example, keep the same size, but ensure it’s not offscreen:
-    if (rect.x + rect.w > newWidth) {
-        rect.x = (newWidth - rect.w) / 2;
+    // Possibly clamp our rect so we don't go offscreen
+    if(rect.x + rect.w > newWidth){
+        rect.x = (newWidth - rect.w)/2;
     }
-    if (rect.y + rect.h > newHeight) {
-        rect.y = (newHeight - rect.h) / 2;
+    if(rect.y + rect.h > newHeight){
+        rect.y = (newHeight - rect.h)/2;
     }
-    // Reposition buttons based on the new window position
     setPosition(rect.x, rect.y);
+}
+
+std::vector<std::string> SettingsWindow::availableResToStrings(const std::vector<std::pair<int,int>>& ress) {
+    std::vector<std::string> out;
+    for (auto& r : ress) {
+        out.push_back(std::to_string(r.first) + " x " + std::to_string(r.second));
+    }
+    return out;
+}
+
+// Minimal cross-platform "open file" for TTF. 
+// On Linux uses "zenity --file-selection", on Windows uses "powershell [System.Windows.Forms.OpenFileDialog]" trick
+std::string SettingsWindow::openFileDialog() {
+#if defined(__linux__)
+    // We'll popen zenity, read the chosen file from stdout
+    FILE* f = popen("zenity --file-selection --file-filter='*.ttf' --title='Select a TTF font' 2>/dev/null", "r");
+    if(!f) return "";
+    char buffer[1024] = {0};
+    if(fgets(buffer, 1024, f) != nullptr) {
+        // remove trailing \n if any
+        std::string path(buffer);
+        if(!path.empty() && path.back() == '\n') {
+            path.pop_back();
+        }
+        pclose(f);
+        return path;
+    }
+    pclose(f);
+    return "";
+#elif defined(_WIN32)
+    // A quick hack using powershell + System.Windows.Forms.OpenFileDialog
+    // Real code might use COM or native calls, but let's keep it minimal
+    char tmpFile[256];
+    tmpnam(tmpFile); // create a temp filename to store result
+
+    std::string cmd = "powershell -Command \""
+      "$f=New-Object System.Windows.Forms.OpenFileDialog;"
+      "$f.Filter='TrueType fonts|*.ttf';"
+      "If($f.ShowDialog() -eq 'OK'){"
+         "Out-File -FilePath '" + std::string(tmpFile) + "' -InputObject $f.FileName"
+      "}\"";
+    system(cmd.c_str());
+
+    // read back the result
+    std::ifstream fin(tmpFile);
+    if(!fin.is_open()) return "";
+    std::string line;
+    std::getline(fin, line);
+    fin.close();
+    remove(tmpFile);
+    return line;
+#else
+    // On other OS, we can't do a system call easily. Return empty => no file chosen
+    return "";
+#endif
 }

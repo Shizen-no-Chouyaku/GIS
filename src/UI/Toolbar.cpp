@@ -5,6 +5,8 @@
 #include "SettingsWindow.h"  // Ensure this is included
 #include <iostream>
 
+// Assuming you have access to SDL_Window* via UIManager
+
 const int TEXT_PADDING_X = 10;
 const int TEXT_PADDING_Y = 5;
 
@@ -35,16 +37,22 @@ Toolbar::Toolbar(SDL_Renderer* renderer, UIManager& uiManager)
         }
 
         // Create a SettingsWindow and add to UIManager
-        settingsWindow = std::make_shared<SettingsWindow>(this->renderer);
+        settingsWindow = std::make_shared<SettingsWindow>(this->renderer, this->uiManager.getWindow());
         // Position it somewhere in the middle
         int winW, winH;
-        SDL_GetRendererOutputSize(this->renderer, &winW, &winH); // Get current window size
+        SDL_GetWindowSize(this->uiManager.getWindow(), &winW, &winH); // Get current window size
         settingsWindow->setPosition((winW - 600)/2, (winH - 400)/2);
         settingsWindow->setVisible(true);
 
         // **Set the onClose callback to reset settingsWindow**
         settingsWindow->setOnCloseCallback([this]() {
-            settingsWindow = nullptr;
+            // We want to truly close the window
+            // 1) remove from UI manager
+            // 2) set settingsWindow = nullptr
+            if (settingsWindow) {
+                this->uiManager.removeComponent(settingsWindow);
+                settingsWindow = nullptr;
+            }
         });
 
         this->uiManager.addComponent(settingsWindow);

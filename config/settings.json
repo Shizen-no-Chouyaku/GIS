@@ -1,5 +1,5 @@
 {
-    "fontPath": "resources/fonts/WaukeganLdo-ax19.ttf",
+    "fontPath": "../resources/fonts/WaukeganLdo-ax19.ttf",
     "resolutionHeight": 720,
     "resolutionWidth": 1280
 }

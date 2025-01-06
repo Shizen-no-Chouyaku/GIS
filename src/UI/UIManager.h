@@ -1,4 +1,5 @@
-// UIManager.h
+// src/UI/UIManager.h
+
 #ifndef UIMANAGER_H
 #define UIMANAGER_H
 
@@ -16,6 +17,8 @@ public:
     void render();
 
     void addComponent(std::shared_ptr<UIComponent> component);
+    void removeComponent(std::shared_ptr<UIComponent> component);
+
     bool needsRedraw() const;
 
     void setWindow(SDL_Window* window);
@@ -25,6 +28,12 @@ private:
     SDL_Renderer* renderer;
     SDL_Window* window;
     std::vector<std::shared_ptr<UIComponent>> components;
+    
+    // New vector to hold components marked for removal
+    std::vector<std::shared_ptr<UIComponent>> toBeRemoved;
+
+    // Helper method to process deferred removals
+    void processDeferredRemovals();
 };
 
 #endif // UIMANAGER_H

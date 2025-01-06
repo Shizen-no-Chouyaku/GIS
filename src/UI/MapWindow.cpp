@@ -10,7 +10,27 @@ MapWindow::MapWindow(TileRenderer& tileRenderer, InputHandler& inputHandler, SDL
 MapWindow::~MapWindow() {}
 
 void MapWindow::handleEvent(const SDL_Event& event) {
-    inputHandler.handleEvent(event);
+    // Determine if the event is related to the map area
+    bool isEventInMapArea = false;
+    int x, y;
+    
+    if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
+        x = event.button.x;
+        y = event.button.y;
+        isEventInMapArea = (x >= mapArea.x && x <= mapArea.x + mapArea.w &&
+                            y >= mapArea.y && y <= mapArea.y + mapArea.h);
+    }
+    else if (event.type == SDL_MOUSEMOTION) {
+        x = event.motion.x;
+        y = event.motion.y;
+        isEventInMapArea = (x >= mapArea.x && x <= mapArea.x + mapArea.w &&
+                            y >= mapArea.y && y <= mapArea.y + mapArea.h);
+    }
+    
+    if (isEventInMapArea) {
+        inputHandler.handleEvent(event);
+    }
+    // Else, ignore the event
 }
 
 void MapWindow::update() {

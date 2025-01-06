@@ -1,6 +1,7 @@
 // src/UI/UIManager.cpp
 
 #include "UIManager.h"
+#include <algorithm>
 
 UIManager::UIManager(SDL_Renderer* renderer)
     : renderer(renderer), window(nullptr) {}
@@ -29,6 +30,9 @@ void UIManager::handleEvent(const SDL_Event& event) {
     for (auto& component : components) {
         component->handleEvent(event);
     }
+
+    // After handling events, process any deferred removals
+    processDeferredRemovals();
 }
 
 void UIManager::update() {
@@ -47,6 +51,11 @@ void UIManager::addComponent(std::shared_ptr<UIComponent> component) {
     components.push_back(component);
 }
 
+void UIManager::removeComponent(std::shared_ptr<UIComponent> component) {
+    // Instead of removing immediately, mark for deferred removal
+    toBeRemoved.push_back(component);
+}
+
 bool UIManager::needsRedraw() const {
     for (const auto& component : components) {
         if (component->needsRedraw()) { // Assuming UIComponent has a needsRedraw method
@@ -54,4 +63,13 @@ bool UIManager::needsRedraw() const {
         }
     }
     return false;
+}
+
+void UIManager::processDeferredRemovals() {
+    if (!toBeRemoved.empty()) {
+        for (auto& comp : toBeRemoved) {
+            components.erase(std::remove(components.begin(), components.end(), comp), components.end());
+        }
+        toBeRemoved.clear();
+    }
 }

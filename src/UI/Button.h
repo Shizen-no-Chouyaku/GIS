@@ -40,6 +40,10 @@ public:
     void setBackgroundColor(SDL_Color color) { backgroundColor = color; needsRedrawFlag = true; }
     void setHoverColor(SDL_Color color) { hoverColor = color; needsRedrawFlag = true; }
 
+    // **New Methods**: Setters for font and label
+    void setFont(TTF_Font* newFont); // Already declared
+    void setLabel(const std::string& newLabel); // Already declared
+
 private:
     SDL_Renderer* renderer;
     SDL_Rect rect;

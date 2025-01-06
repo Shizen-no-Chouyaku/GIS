@@ -120,3 +120,15 @@ void Button::createTextTexture() {
 
     SDL_FreeSurface(textSurface);
 }
+
+void Button::setFont(TTF_Font* newFont) {
+    font = newFont;
+    createTextTexture();
+    needsRedrawFlag = true;
+}
+
+void Button::setLabel(const std::string& newLabel) {
+    text = newLabel;
+    createTextTexture();
+    needsRedrawFlag = true;
+}

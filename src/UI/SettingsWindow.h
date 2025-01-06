@@ -5,6 +5,7 @@
 
 #include "UIComponent.h"
 #include "Button.h"
+#include "Dropdown.h" // Include Dropdown
 #include "../Config/ConfigManager.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -15,7 +16,7 @@
 
 class SettingsWindow : public UIComponent {
 public:
-    SettingsWindow(SDL_Renderer* renderer);
+    SettingsWindow(SDL_Renderer* renderer, SDL_Window* window);
     ~SettingsWindow();
 
     void handleEvent(const SDL_Event& event) override;
@@ -27,9 +28,7 @@ public:
 
     void onWindowResize(int newWidth, int newHeight) override;
 
-    bool needsRedraw() const override {
-        // this shit is why it keps rendering a blank map!
-         return false; }
+    bool needsRedraw() const override { return false; } // **Always returns false**
 
     bool isVisible() const { return visible; }
     void setVisible(bool v) { visible = v; }
@@ -39,8 +38,9 @@ public:
 
 private:
     SDL_Renderer* renderer;
+    SDL_Window* window; // Pointer to SDL_Window
     SDL_Rect rect;             // Position and size of this window
-    bool needsRedrawFlag;
+    bool needsRedrawFlag;     // **Can be removed if not used internally**
     bool visible;
 
     // The currently loaded config from disk
@@ -54,14 +54,14 @@ private:
     std::vector<std::shared_ptr<Button>> actionButtons;
 
     // Which tab are we on?
-    enum class Tab { FONT, RESOLUTION };
+    enum class Tab { GENERAL, LAYERS };
     Tab currentTab;
 
-    // For demonstration, we’ll store some fake alternative fonts
+    // For demonstration, we’ll store some alternative fonts
     std::vector<std::string> availableFonts;
     int currentFontIndex;
 
-    // Some fake resolution options
+    // Some resolution options
     std::vector<std::pair<int,int>> availableResolutions;
     int currentResIndex;
 
@@ -78,6 +78,21 @@ private:
     std::function<void()> onClose;
     std::vector<std::pair<int, int>> tabButtonPositions;
     std::vector<std::pair<int, int>> actionButtonPositions;
+
+    // **New Member Variables**
+    std::shared_ptr<Dropdown> fontDropdown;
+    std::shared_ptr<Button> installFontBtn;
+    std::shared_ptr<Dropdown> resolutionDropdown;
+    std::shared_ptr<Button> saveBtn;
+    std::shared_ptr<Button> closeBtn;
+
+    bool draggingWindow;
+    int dragOffsetX;
+    int dragOffsetY;
+
+    // Helper methods
+    std::vector<std::string> availableResToStrings(const std::vector<std::pair<int,int>>& ress);
+    std::string openFileDialog();
 };
 
 #endif // SETTINGS_WINDOW_H

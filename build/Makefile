@@ -225,6 +225,30 @@ src/UI/Button.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.s
 .PHONY : src/UI/Button.cpp.s
 
+src/UI/Dropdown.o: src/UI/Dropdown.cpp.o
+.PHONY : src/UI/Dropdown.o
+
+# target to build an object file
+src/UI/Dropdown.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.o
+.PHONY : src/UI/Dropdown.cpp.o
+
+src/UI/Dropdown.i: src/UI/Dropdown.cpp.i
+.PHONY : src/UI/Dropdown.i
+
+# target to preprocess a source file
+src/UI/Dropdown.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.i
+.PHONY : src/UI/Dropdown.cpp.i
+
+src/UI/Dropdown.s: src/UI/Dropdown.cpp.s
+.PHONY : src/UI/Dropdown.s
+
+# target to generate assembly for a file
+src/UI/Dropdown.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.s
+.PHONY : src/UI/Dropdown.cpp.s
+
 src/UI/InputHandler.o: src/UI/InputHandler.cpp.o
 .PHONY : src/UI/InputHandler.o
 
@@ -369,6 +393,30 @@ src/UI/UIManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.s
 .PHONY : src/UI/UIManager.cpp.s
 
+src/Utils/FontManager.o: src/Utils/FontManager.cpp.o
+.PHONY : src/Utils/FontManager.o
+
+# target to build an object file
+src/Utils/FontManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.o
+.PHONY : src/Utils/FontManager.cpp.o
+
+src/Utils/FontManager.i: src/Utils/FontManager.cpp.i
+.PHONY : src/Utils/FontManager.i
+
+# target to preprocess a source file
+src/Utils/FontManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.i
+.PHONY : src/Utils/FontManager.cpp.i
+
+src/Utils/FontManager.s: src/Utils/FontManager.cpp.s
+.PHONY : src/Utils/FontManager.s
+
+# target to generate assembly for a file
+src/Utils/FontManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.s
+.PHONY : src/Utils/FontManager.cpp.s
+
 src/Utils/MainLoop.o: src/Utils/MainLoop.cpp.o
 .PHONY : src/Utils/MainLoop.o
 
@@ -486,6 +534,9 @@ help:
 	@echo "... src/UI/Button.o"
 	@echo "... src/UI/Button.i"
 	@echo "... src/UI/Button.s"
+	@echo "... src/UI/Dropdown.o"
+	@echo "... src/UI/Dropdown.i"
+	@echo "... src/UI/Dropdown.s"
 	@echo "... src/UI/InputHandler.o"
 	@echo "... src/UI/InputHandler.i"
 	@echo "... src/UI/InputHandler.s"
@@ -504,6 +555,9 @@ help:
 	@echo "... src/UI/UIManager.o"
 	@echo "... src/UI/UIManager.i"
 	@echo "... src/UI/UIManager.s"
+	@echo "... src/Utils/FontManager.o"
+	@echo "... src/Utils/FontManager.i"
+	@echo "... src/Utils/FontManager.s"
 	@echo "... src/Utils/MainLoop.o"
 	@echo "... src/Utils/MainLoop.i"
 	@echo "... src/Utils/MainLoop.s"

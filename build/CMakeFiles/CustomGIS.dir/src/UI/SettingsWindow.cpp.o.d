@@ -283,6 +283,7 @@ CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o: \
  /usr/include/c++/12/bits/basic_string.tcc /usr/local/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
+ /home/linux/LeapCore/GIS/src/UI/Dropdown.h \
  /home/linux/LeapCore/GIS/src/UI/../Config/ConfigManager.h \
  /usr/include/c++/12/memory \
  /usr/include/c++/12/bits/stl_raw_storage_iter.h \
@@ -335,4 +336,12 @@ CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o: \
  /usr/include/c++/12/bits/locale_facets.tcc \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
- /usr/include/c++/12/bits/istream.tcc
+ /usr/include/c++/12/bits/istream.tcc /usr/local/include/SDL2/SDL_syswm.h \
+ /usr/include/X11/Xlib.h /usr/include/X11/X.h \
+ /usr/include/X11/Xfuncproto.h /usr/include/X11/Xosdefs.h \
+ /usr/include/X11/Xatom.h /usr/include/c++/12/algorithm \
+ /usr/include/c++/12/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/12/fstream /usr/include/c++/12/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
+ /usr/include/c++/12/bits/fstream.tcc
