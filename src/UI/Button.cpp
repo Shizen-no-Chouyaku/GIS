@@ -24,17 +24,23 @@ Button::~Button() {
     }
 }
 
-void Button::handleEvent(const SDL_Event& event) {
+bool Button::handleEvent(const SDL_Event& event)  // changed to bool
+{
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         int mouseX = event.button.x;
         int mouseY = event.button.y;
         if (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
-            mouseY >= rect.y && mouseY <= rect.y + rect.h) {
+            mouseY >= rect.y && mouseY <= rect.y + rect.h)
+        {
             if (onClick) {
                 onClick();
             }
+            // We handled this click
+            return true; 
         }
     }
+    // If we got here, we did not actually consume the event
+    return false;
 }
 
 void Button::update() {

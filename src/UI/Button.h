@@ -23,7 +23,7 @@ public:
     ~Button();
 
     // UIComponent Overrides
-    void handleEvent(const SDL_Event& event) override;
+    bool handleEvent(const SDL_Event& event) override;
     void update() override;
     void render(SDL_Renderer* renderer) override;
     bool needsRedraw() const override { return needsRedrawFlag; }

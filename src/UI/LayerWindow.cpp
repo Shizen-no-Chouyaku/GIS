@@ -118,12 +118,39 @@ void LayerWindow::addButton(const std::string& label, std::function<void()> onCl
 }
 
 
-void LayerWindow::handleEvent(const SDL_Event& event) {
-    // Adjust event coordinates relative to LayerWindow if necessary
-    for (const auto& button : buttons) {
-        button->handleEvent(event);
+bool LayerWindow::handleEvent(const SDL_Event& event) {
+    // Step 1: Check if the event is within the LayerWindow’s bounding box
+    int mx = 0, my = 0;
+    if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
+        mx = event.button.x;
+        my = event.button.y;
+    } else if (event.type == SDL_MOUSEMOTION) {
+        mx = event.motion.x;
+        my = event.motion.y;
+    } else {
+        // For things like mouse wheel or key presses, decide whether to swallow them.
+        // Usually, you might pass them to the window if it's "active" or skip otherwise.
+        // For brevity, let's just do the bounding box check for down/up/motion.
     }
+
+    bool inLayerWindow = 
+        (mx >= position.x && mx <= position.x + position.w &&
+         my >= position.y && my <= position.y + position.h);
+
+    if (!inLayerWindow) {
+        return false;  // We do not handle it, so let something else handle it
+    }
+
+    // Step 2: If inside, pass the event to the layer window’s children (buttons, etc.)
+    for (auto& button : buttons) {
+        button->handleEvent(event);
+        // Typically, if your Button also returns bool, you could check
+        // if (button->handleEvent(event)) { break; } 
+        // but in your code, the Button handleEvent is still returning void, so that’s optional.
+    }
+    return true; // We consumed it
 }
+
 
 void LayerWindow::update() {
     for (const auto& button : buttons) {

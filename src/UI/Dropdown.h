@@ -24,7 +24,7 @@ public:
              std::function<void(int)> onSelect);
 
     // Overridden UI methods
-    void handleEvent(const SDL_Event& event) override;
+    bool handleEvent(const SDL_Event& event) override;
     void update() override;
     void render(SDL_Renderer* renderer) override;
 

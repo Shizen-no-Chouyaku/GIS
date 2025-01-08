@@ -290,50 +290,66 @@ void SettingsWindow::createTitleTexture() {
     SDL_FreeSurface(surf);
 }
 
-void SettingsWindow::handleEvent(const SDL_Event& event) {
-    if (!visible) return;
+bool SettingsWindow::handleEvent(const SDL_Event& event) {
+    if (!visible) {
+        return false; // Window is not visible; do not handle events
+    }
 
-    // 1) Check for dragging the window
+    bool handled = false;
+
+    // 1. Handle window-specific events (e.g., dragging)
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         int mx = event.button.x;
         int my = event.button.y;
-        // If we clicked inside the title bar region
-        bool inTitleBar = (mx >= rect.x && mx <= rect.x + rect.w &&
-                           my >= rect.y && my <= rect.y + TITLEBAR_HEIGHT);
-        if (inTitleBar && event.button.button == SDL_BUTTON_LEFT) {
+        // Check if the click is within the title bar for dragging
+        if (mx >= rect.x && mx <= rect.x + rect.w &&
+            my >= rect.y && my <= rect.y + TITLEBAR_HEIGHT &&
+            event.button.button == SDL_BUTTON_LEFT) {
             draggingWindow = true;
             dragOffsetX = mx - rect.x;
             dragOffsetY = my - rect.y;
+            handled = true;
         }
     }
     else if (event.type == SDL_MOUSEBUTTONUP) {
         if (event.button.button == SDL_BUTTON_LEFT) {
             draggingWindow = false;
+            handled = true;
         }
     }
-    else if (event.type == SDL_MOUSEMOTION && draggingWindow) {
-        int mx = event.motion.x;
-        int my = event.motion.y;
-        // Move the window
-        setPosition(mx - dragOffsetX, my - dragOffsetY);
+    else if (event.type == SDL_MOUSEMOTION) {
+        if (draggingWindow) {
+            int mx = event.motion.x;
+            int my = event.motion.y;
+            setPosition(mx - dragOffsetX, my - dragOffsetY);
+            handled = true;
+        }
     }
 
-    // 2) Forward to drop-downs, buttons, etc. but only if we are in the "General" tab
+    // 2. Delegate events to child components based on the current tab
     if (currentTab == Tab::GENERAL) {
-        fontDropdown->handleEvent(event);
-        installFontBtn->handleEvent(event);
-        resolutionDropdown->handleEvent(event);
-        saveBtn->handleEvent(event);
-        closeBtn->handleEvent(event);
+        if (fontDropdown->handleEvent(event)) {
+            handled = true;
+        }
+        if (installFontBtn->handleEvent(event)) {
+            handled = true;
+        }
+        if (resolutionDropdown->handleEvent(event)) {
+            handled = true;
+        }
+        if (saveBtn->handleEvent(event)) {
+            handled = true;
+        }
+        if (closeBtn->handleEvent(event)) {
+            handled = true;
+        }
     }
     else if (currentTab == Tab::LAYERS) {
-        // We'll add actual layer settings later if needed
+        // If you add layer-specific UI elements, delegate events similarly
     }
 
-    // 3) Forward events to tab buttons (General, Layers)
-    for (size_t i=0; i<tabButtons.size(); i++) {
-        tabButtons[i]->handleEvent(event);
-    }
+    // 3. Return whether the event was handled
+    return handled;
 }
 
 void SettingsWindow::update() {

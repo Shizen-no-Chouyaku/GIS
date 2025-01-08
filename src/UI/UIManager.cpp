@@ -13,25 +13,29 @@ void UIManager::setWindow(SDL_Window* window) {
 }
 
 void UIManager::handleEvent(const SDL_Event& event) {
-    // Handle window resize events
+    // Handle window-resize events first, if any
     if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED) {
         if (window) {
             int newWidth, newHeight;
             SDL_GetWindowSize(window, &newWidth, &newHeight);
-
-            // Notify all components about the window resize
-            for (auto& component : components) {
-                component->onWindowResize(newWidth, newHeight);
+            // Notify all components
+            for (auto& c : components) {
+                c->onWindowResize(newWidth, newHeight);
             }
         }
     }
 
-    // Pass the event to all UI components
-    for (auto& component : components) {
-        component->handleEvent(event);
+    // Now dispatch input from front-most to back-most by going in reverse
+    // so the topmost items see the event first.
+    for (auto it = components.rbegin(); it != components.rend(); ++it) {
+        bool handled = (*it)->handleEvent(event);
+        if (handled) {
+            // event was consumed; stop here
+            break;
+        }
     }
 
-    // After handling events, process any deferred removals
+    // Then process any removals
     processDeferredRemovals();
 }
 

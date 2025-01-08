@@ -7,7 +7,7 @@
 class UIComponent {
 public:
     virtual ~UIComponent() {}
-    virtual void handleEvent(const SDL_Event& event) = 0;
+    virtual bool handleEvent(const SDL_Event& event) = 0;
     virtual void update() = 0;
     virtual void render(SDL_Renderer* renderer) = 0;
 

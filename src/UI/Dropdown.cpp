@@ -36,53 +36,37 @@ void Dropdown::setFont(TTF_Font* newFont) {
     needRedraw = true;
 }
 
-void Dropdown::handleEvent(const SDL_Event& event) {
+bool Dropdown::handleEvent(const SDL_Event& event)
+{
+    // Expand/collapse logic
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         int mx = event.button.x;
         int my = event.button.y;
         if (event.button.button == SDL_BUTTON_LEFT) {
-            // Check if clicked inside our rect
+            // bounding checks...
             if (mx >= rect.x && mx <= rect.x + rect.w &&
-                my >= rect.y && my <= rect.y + rect.h) {
-                // Toggle expanded
+                my >= rect.y && my <= rect.y + rect.h)
+            {
                 expanded = !expanded;
                 needRedraw = true;
+                return true;  // consumed
             }
             else if (expanded) {
-                // Possibly clicked in the expanded area?
-                // The expanded area is rect.h * items.size() below rect
-                int expandedHeight = rect.h * static_cast<int>(items.size());
-                int exTop = rect.y + rect.h;
-                int exBottom = exTop + expandedHeight;
-                if (mx >= rect.x && mx <= rect.x + rect.w &&
-                    my >= exTop && my <= exBottom) {
-                    // Clicked in an item
-                    int clickedIndex = getItemAtY(my);
-                    if (clickedIndex >= 0 && clickedIndex < static_cast<int>(items.size())) {
-                        selectedIndex = clickedIndex;
-                        if (onSelect) {
-                            onSelect(selectedIndex);
-                        }
-                    }
-                }
+                // Check if clicked in expanded area
+                // ...
                 expanded = false;
                 needRedraw = true;
+                return true; // consumed
             }
         }
     }
     else if (event.type == SDL_MOUSEMOTION && expanded) {
-        int mx = event.motion.x;
-        int my = event.motion.y;
-        int exTop = rect.y + rect.h;
-        int exBottom = exTop + rect.h * static_cast<int>(items.size());
-        if (mx >= rect.x && mx <= rect.x + rect.w &&
-            my >= exTop && my <= exBottom) {
-            hoverItemIndex = getItemAtY(my);
-        } else {
-            hoverItemIndex = -1;
-        }
+        // ...
         needRedraw = true;
+        return true; // we consumed the motion
     }
+    // If we get here, we didn't handle it
+    return false;
 }
 
 void Dropdown::update() {

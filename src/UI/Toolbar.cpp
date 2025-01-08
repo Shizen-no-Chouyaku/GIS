@@ -106,10 +106,16 @@ void Toolbar::addButton(const std::string& label, std::function<void()> onClick)
     nextButtonX += buttonWidth;
 }
 
-void Toolbar::handleEvent(const SDL_Event& event) {
+bool Toolbar::handleEvent(const SDL_Event& event) {
+    // Iterate through buttons and let them handle the event
+    // If any button consumes the event, return true
     for (const auto& button : buttons) {
-        button->handleEvent(event);
+        if (button->handleEvent(event)) {
+            return true; // Event has been consumed by a button
+        }
     }
+    // If no button handled the event, do not consume it
+    return false;
 }
 
 void Toolbar::update() {

@@ -9,28 +9,29 @@ MapWindow::MapWindow(TileRenderer& tileRenderer, InputHandler& inputHandler, SDL
 
 MapWindow::~MapWindow() {}
 
-void MapWindow::handleEvent(const SDL_Event& event) {
-    // Determine if the event is related to the map area
+bool MapWindow::handleEvent(const SDL_Event& event) {
     bool isEventInMapArea = false;
-    int x, y;
-    
+    int x = 0, y = 0;
+
     if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
         x = event.button.x;
         y = event.button.y;
-        isEventInMapArea = (x >= mapArea.x && x <= mapArea.x + mapArea.w &&
-                            y >= mapArea.y && y <= mapArea.y + mapArea.h);
-    }
-    else if (event.type == SDL_MOUSEMOTION) {
+    } else if (event.type == SDL_MOUSEMOTION) {
         x = event.motion.x;
         y = event.motion.y;
-        isEventInMapArea = (x >= mapArea.x && x <= mapArea.x + mapArea.w &&
-                            y >= mapArea.y && y <= mapArea.y + mapArea.h);
+    }
+
+    // Check whether the mouse is within mapArea
+    isEventInMapArea = (x >= mapArea.x && x < mapArea.x + mapArea.w &&
+                        y >= mapArea.y && y < mapArea.y + mapArea.h);
+
+    if (!isEventInMapArea) {
+        return false; // Not in map area -> Not handled
     }
     
-    if (isEventInMapArea) {
-        inputHandler.handleEvent(event);
-    }
-    // Else, ignore the event
+    // If we're here, the event was inside the map
+    inputHandler.handleEvent(event);
+    return true; // We have handled it, so consume the event
 }
 
 void MapWindow::update() {
@@ -65,7 +66,7 @@ TileRenderer& MapWindow::getTileRenderer() {
 }
 
 void MapWindow::onWindowResize(int newWidth, int newHeight) {
-    // Assuming the toolbar height is 60 pixels
+    // Assuming the toolbar height is 30 pixels
     int toolbarHeight = 30;
     setSize(newWidth, newHeight - toolbarHeight);
     setPosition(0, toolbarHeight);
