@@ -31,6 +31,7 @@ private:
     
     // New vector to hold components marked for removal
     std::vector<std::shared_ptr<UIComponent>> toBeRemoved;
+    mutable bool internalNeedsRedraw;
 
     // Helper method to process deferred removals
     void processDeferredRemovals();

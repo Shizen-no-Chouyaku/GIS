@@ -4,7 +4,7 @@
 #include <algorithm>
 
 UIManager::UIManager(SDL_Renderer* renderer)
-    : renderer(renderer), window(nullptr) {}
+    : renderer(renderer), window(nullptr), internalNeedsRedraw(false) {}
 
 UIManager::~UIManager() {}
 
@@ -53,14 +53,19 @@ void UIManager::render() {
 
 void UIManager::addComponent(std::shared_ptr<UIComponent> component) {
     components.push_back(component);
+    internalNeedsRedraw = true; // Add this line
 }
 
 void UIManager::removeComponent(std::shared_ptr<UIComponent> component) {
     // Instead of removing immediately, mark for deferred removal
     toBeRemoved.push_back(component);
+    internalNeedsRedraw = true; // Add this line
 }
 
 bool UIManager::needsRedraw() const {
+    if (internalNeedsRedraw) {
+        return true; // Return true if components were added or removed
+    }
     // If any UI component needs a redraw, return true
     for (auto& c : components) {
         if (c->needsRedraw()) {
@@ -69,7 +74,6 @@ bool UIManager::needsRedraw() const {
     }
     return false;
 }
-
 
 void UIManager::processDeferredRemovals() {
     if (!toBeRemoved.empty()) {
