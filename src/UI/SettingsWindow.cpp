@@ -295,13 +295,31 @@ bool SettingsWindow::handleEvent(const SDL_Event& event) {
         return false; // Window is not visible; do not handle events
     }
 
+    // Determine if the event is inside the SettingsWindow
+    int mx = 0, my = 0;
+    if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
+        mx = event.button.x;
+        my = event.button.y;
+    }
+    else if (event.type == SDL_MOUSEMOTION) {
+        mx = event.motion.x;
+        my = event.motion.y;
+    }
+    else {
+        SDL_GetMouseState(&mx, &my);
+    }
+
+    bool inSettings = (mx >= rect.x && mx <= rect.x + rect.w &&
+                       my >= rect.y && my <= rect.y + rect.h);
+
+    if (!inSettings) {
+        return false; // Not within SettingsWindow; do not handle
+    }
+
     bool handled = false;
 
-    // 1. Handle window-specific events (e.g., dragging)
+    // 1. Handle window-specific events like dragging
     if (event.type == SDL_MOUSEBUTTONDOWN) {
-        int mx = event.button.x;
-        int my = event.button.y;
-        // Check if the click is within the title bar for dragging
         if (mx >= rect.x && mx <= rect.x + rect.w &&
             my >= rect.y && my <= rect.y + TITLEBAR_HEIGHT &&
             event.button.button == SDL_BUTTON_LEFT) {
@@ -319,37 +337,56 @@ bool SettingsWindow::handleEvent(const SDL_Event& event) {
     }
     else if (event.type == SDL_MOUSEMOTION) {
         if (draggingWindow) {
-            int mx = event.motion.x;
-            int my = event.motion.y;
-            setPosition(mx - dragOffsetX, my - dragOffsetY);
+            int newX = event.motion.x - dragOffsetX;
+            int newY = event.motion.y - dragOffsetY;
+            setPosition(newX, newY);
             handled = true;
         }
     }
 
     // 2. Delegate events to child components based on the current tab
     if (currentTab == Tab::GENERAL) {
+        // Font Dropdown
         if (fontDropdown->handleEvent(event)) {
             handled = true;
+            needsRedrawFlag = true;
         }
+
+        // Install Font Button
         if (installFontBtn->handleEvent(event)) {
             handled = true;
+            needsRedrawFlag = true;
         }
+
+        // Resolution Dropdown
         if (resolutionDropdown->handleEvent(event)) {
             handled = true;
+            needsRedrawFlag = true;
         }
+
+        // Save Button
         if (saveBtn->handleEvent(event)) {
             handled = true;
+            needsRedrawFlag = true;
         }
+
+        // Close Button
         if (closeBtn->handleEvent(event)) {
             handled = true;
+            needsRedrawFlag = true;
         }
     }
     else if (currentTab == Tab::LAYERS) {
-        // If you add layer-specific UI elements, delegate events similarly
+        // Handle layer-specific events if any
+        // Example:
+        // if (layerButton->handleEvent(event)) {
+        //     handled = true;
+        //     needsRedrawFlag = true;
+        // }
     }
 
-    // 3. Return whether the event was handled
-    return handled;
+    // 3. Consume the event to prevent it from reaching underlying components
+    return true;
 }
 
 void SettingsWindow::update() {
@@ -385,7 +422,7 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
 
     // Draw border
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    for(int i=0; i<BORDER_THICKNESS; i++){
+    for(int i = 0; i < BORDER_THICKNESS; i++) {
         SDL_Rect br = { rect.x + i, rect.y + i, rect.w - 2*i, rect.h - 2*i };
         SDL_RenderDrawRect(renderer, &br);
     }
@@ -395,7 +432,7 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
     SDL_Rect titleBar = { rect.x, rect.y, rect.w, TITLEBAR_HEIGHT };
     SDL_RenderFillRect(renderer, &titleBar);
 
-    // Render the actual "Settings" text near the top
+    // Render the "Settings" title
     if (titleTexture) {
         SDL_Rect dst = titleRect;
         SDL_RenderCopy(renderer, titleTexture, nullptr, &dst);
@@ -407,12 +444,12 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
     SDL_RenderFillRect(renderer, &tabArea);
 
     // Render tab buttons
-    for (size_t i=0; i<tabButtons.size(); i++) {
+    for (size_t i = 0; i < tabButtons.size(); i++) {
         auto& btn = tabButtons[i];
         btn->render(renderer);
     }
 
-    // Render contents of whichever tab is active
+    // Render contents based on the active tab
     if (currentTab == Tab::GENERAL) {
         fontDropdown->render(renderer);
         installFontBtn->render(renderer);
@@ -421,8 +458,8 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
         closeBtn->render(renderer);
     }
     else if (currentTab == Tab::LAYERS) {
-        // For now, just text
-        SDL_Color color = {0,0,0,255};
+        // Example placeholder
+        SDL_Color color = {0, 0, 0, 255};
         SDL_Surface* surf = TTF_RenderText_Blended(font, "Layers TBD", color);
         if (surf) {
             SDL_Texture* tmp = SDL_CreateTextureFromSurface(renderer, surf);
@@ -434,26 +471,28 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
     }
 
     SDL_RenderSetClipRect(renderer, nullptr);
+
+    needsRedrawFlag = false; // **Reset the flag after rendering**
 }
 
 void SettingsWindow::setPosition(int x, int y) {
-    int dx = x - rect.x;
-    int dy = y - rect.y;
     rect.x = x;
     rect.y = y;
 
-    // Move the title
-    titleRect.x += dx;
-    titleRect.y += dy;
+    // Update titleRect
+    if (titleTexture) {
+        titleRect.x = rect.x + (rect.w - titleRect.w) / 2;
+        titleRect.y = rect.y + 5; 
+    }
 
-    // Move the tab buttons
-    for (size_t i=0; i<tabButtons.size(); i++){
+    // Update tab buttons' positions
+    for (size_t i = 0; i < tabButtons.size(); i++) {
         int newX = rect.x + tabButtonPositions[i].first;
         int newY = rect.y + tabButtonPositions[i].second;
         tabButtons[i]->setPosition(newX, newY);
     }
 
-    // Adjust the positions of "General" tab UI
+    // Update "General" tab UI positions
     int generalUIX = rect.x + TAB_BUTTON_WIDTH + 20;
     int generalUIY = rect.y + TITLEBAR_HEIGHT + 20;
     fontDropdown->setPosition(generalUIX, generalUIY);
@@ -462,14 +501,14 @@ void SettingsWindow::setPosition(int x, int y) {
     saveBtn->setPosition(generalUIX, rect.y + rect.h - 40);
     closeBtn->setPosition(generalUIX + 90, rect.y + rect.h - 40);
 
-    // The user wants an immediate redraw so it doesn't wait for next map update
-    needsRedrawFlag = true; // **Optional: Remove if not used internally**
+    needsRedrawFlag = true; // **Flag the need for redraw**
 }
 
 void SettingsWindow::setSize(int width, int height) {
     rect.w = width;
     rect.h = height;
-    needsRedrawFlag = true; // **Optional: Remove if not used internally**
+    needsRedrawFlag = true; // **Flag the need for redraw**
+    // Optionally, adjust child components based on new size
 }
 
 void SettingsWindow::onWindowResize(int newWidth, int newHeight) {

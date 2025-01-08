@@ -22,6 +22,7 @@ public:
     void render(const SDL_Rect& mapArea);
 
     bool needsRedraw() const;
+    void setNeedsRedraw(bool flag = true);
     void resetRedrawFlag();
     void updateTiles();
 

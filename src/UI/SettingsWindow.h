@@ -28,7 +28,7 @@ public:
 
     void onWindowResize(int newWidth, int newHeight) override;
 
-    bool needsRedraw() const override { return false; } // **Always returns false**
+    bool needsRedraw() const override { return needsRedrawFlag; } // **Always returns false**
 
     bool isVisible() const { return visible; }
     void setVisible(bool v) { visible = v; }

@@ -61,13 +61,15 @@ void UIManager::removeComponent(std::shared_ptr<UIComponent> component) {
 }
 
 bool UIManager::needsRedraw() const {
-    for (const auto& component : components) {
-        if (component->needsRedraw()) { // Assuming UIComponent has a needsRedraw method
+    // If any UI component needs a redraw, return true
+    for (auto& c : components) {
+        if (c->needsRedraw()) {
             return true;
         }
     }
     return false;
 }
+
 
 void UIManager::processDeferredRemovals() {
     if (!toBeRemoved.empty()) {

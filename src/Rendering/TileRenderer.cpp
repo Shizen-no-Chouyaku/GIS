@@ -362,3 +362,8 @@ double TileRenderer::getMaxLatitudeDelta() const {
 
     return maxDeltaLat;
 }
+
+void TileRenderer::setNeedsRedraw(bool flag) {
+    std::lock_guard<std::mutex> lock(renderMutex);
+    needsRedrawFlag = flag;
+}
