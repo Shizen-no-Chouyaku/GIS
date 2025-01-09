@@ -1,7 +1,7 @@
 CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o: \
  /home/linux/LeapCore/GIS/src/UI/UIManager.cpp /usr/include/stdc-predef.h \
  /home/linux/LeapCore/GIS/src/UI/UIManager.h \
- /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
+ /home/linux/LeapCore/GIS/src/UI/Components/UIComponent.h \
  /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
  /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \

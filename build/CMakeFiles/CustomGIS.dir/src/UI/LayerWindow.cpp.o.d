@@ -1,7 +1,7 @@
 CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o: \
  /home/linux/LeapCore/GIS/src/UI/LayerWindow.cpp \
  /usr/include/stdc-predef.h /home/linux/LeapCore/GIS/src/UI/LayerWindow.h \
- /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
+ /home/linux/LeapCore/GIS/src/UI/Components/UIComponent.h \
  /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
  /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
@@ -227,8 +227,9 @@ CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
- /home/linux/LeapCore/GIS/src/UI/Button.h /usr/include/c++/12/functional \
- /usr/include/c++/12/bits/stl_function.h \
+ /home/linux/LeapCore/GIS/src/UI/Components/Button.h \
+ /home/linux/LeapCore/GIS/src/UI/Components/UIComponent.h \
+ /usr/include/c++/12/functional /usr/include/c++/12/bits/stl_function.h \
  /usr/include/c++/12/backward/binders.h /usr/include/c++/12/new \
  /usr/include/c++/12/bits/exception.h /usr/include/c++/12/tuple \
  /usr/include/c++/12/bits/uses_allocator.h \

@@ -3,7 +3,7 @@
 #include "MainLoop.h"
 #include "TileRenderer.h"
 #include "../UI/UIManager.h"
-#include "../UI/MapWindow.h"
+#include "../UI/Windows/MapWindow.h"
 #include "../Utils/Utils.h"
 #include <SDL2/SDL.h>
 

@@ -9,8 +9,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <filesystem>
-#include "../Networking/TileKey.h"
-#include "../Networking/TileFetcher.h"
+#include "../Networking/Tiles/TileKey.h"
+#include "../Networking/Tiles/TileFetcher.h"
 #include "Viewport.h"
 
 class TileRenderer {

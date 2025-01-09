@@ -4,12 +4,12 @@
 #include "Rendering/MainLoop.h"
 #include "Rendering/TileRenderer.h"
 #include "UI/InputHandler.h"
-#include "UI/MapWindow.h"
+#include "UI/Windows/MapWindow.h"
 #include "UI/UIManager.h"
-#include "UI/Toolbar.h"
-#include "UI/LayerWindow.h"
+#include "UI/Windows/Toolbar.h"
+#include "UI/Windows/LayerWindow.h"
 #include "Config/ConfigManager.h" // Make sure to include ConfigManager
-#include "UI/SettingsWindow.h"    // Include SettingsWindow if needed
+#include "UI//Windows/SettingsWindow.h"    // Include SettingsWindow if needed
 #include "nlohmann/json.hpp"      // Include JSON library
 #include <SDL2/SDL_ttf.h> // Include SDL_ttf
 #include "Utils/Utils.h"

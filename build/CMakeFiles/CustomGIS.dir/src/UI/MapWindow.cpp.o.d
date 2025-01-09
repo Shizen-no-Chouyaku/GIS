@@ -226,7 +226,7 @@ CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
- /home/linux/LeapCore/GIS/src/UI/UIComponent.h \
+ /home/linux/LeapCore/GIS/src/UI/Components/UIComponent.h \
  /usr/local/include/SDL2/SDL.h \
  /home/linux/LeapCore/GIS/src/UI/../Rendering/TileRenderer.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/allocator.h \

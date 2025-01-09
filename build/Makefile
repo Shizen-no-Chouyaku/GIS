@@ -177,29 +177,29 @@ src/Config/FontManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/FontManager.cpp.s
 .PHONY : src/Config/FontManager.cpp.s
 
-src/Networking/TileFetcher.o: src/Networking/TileFetcher.cpp.o
-.PHONY : src/Networking/TileFetcher.o
+src/Networking/Tiles/TileFetcher.o: src/Networking/Tiles/TileFetcher.cpp.o
+.PHONY : src/Networking/Tiles/TileFetcher.o
 
 # target to build an object file
-src/Networking/TileFetcher.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o
-.PHONY : src/Networking/TileFetcher.cpp.o
+src/Networking/Tiles/TileFetcher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Networking/Tiles/TileFetcher.cpp.o
+.PHONY : src/Networking/Tiles/TileFetcher.cpp.o
 
-src/Networking/TileFetcher.i: src/Networking/TileFetcher.cpp.i
-.PHONY : src/Networking/TileFetcher.i
+src/Networking/Tiles/TileFetcher.i: src/Networking/Tiles/TileFetcher.cpp.i
+.PHONY : src/Networking/Tiles/TileFetcher.i
 
 # target to preprocess a source file
-src/Networking/TileFetcher.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.i
-.PHONY : src/Networking/TileFetcher.cpp.i
+src/Networking/Tiles/TileFetcher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Networking/Tiles/TileFetcher.cpp.i
+.PHONY : src/Networking/Tiles/TileFetcher.cpp.i
 
-src/Networking/TileFetcher.s: src/Networking/TileFetcher.cpp.s
-.PHONY : src/Networking/TileFetcher.s
+src/Networking/Tiles/TileFetcher.s: src/Networking/Tiles/TileFetcher.cpp.s
+.PHONY : src/Networking/Tiles/TileFetcher.s
 
 # target to generate assembly for a file
-src/Networking/TileFetcher.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.s
-.PHONY : src/Networking/TileFetcher.cpp.s
+src/Networking/Tiles/TileFetcher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Networking/Tiles/TileFetcher.cpp.s
+.PHONY : src/Networking/Tiles/TileFetcher.cpp.s
 
 src/Rendering/MainLoop.o: src/Rendering/MainLoop.cpp.o
 .PHONY : src/Rendering/MainLoop.o
@@ -249,53 +249,53 @@ src/Rendering/TileRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.s
 .PHONY : src/Rendering/TileRenderer.cpp.s
 
-src/UI/Button.o: src/UI/Button.cpp.o
-.PHONY : src/UI/Button.o
+src/UI/Components/Button.o: src/UI/Components/Button.cpp.o
+.PHONY : src/UI/Components/Button.o
 
 # target to build an object file
-src/UI/Button.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o
-.PHONY : src/UI/Button.cpp.o
+src/UI/Components/Button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Components/Button.cpp.o
+.PHONY : src/UI/Components/Button.cpp.o
 
-src/UI/Button.i: src/UI/Button.cpp.i
-.PHONY : src/UI/Button.i
+src/UI/Components/Button.i: src/UI/Components/Button.cpp.i
+.PHONY : src/UI/Components/Button.i
 
 # target to preprocess a source file
-src/UI/Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.i
-.PHONY : src/UI/Button.cpp.i
+src/UI/Components/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Components/Button.cpp.i
+.PHONY : src/UI/Components/Button.cpp.i
 
-src/UI/Button.s: src/UI/Button.cpp.s
-.PHONY : src/UI/Button.s
+src/UI/Components/Button.s: src/UI/Components/Button.cpp.s
+.PHONY : src/UI/Components/Button.s
 
 # target to generate assembly for a file
-src/UI/Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.s
-.PHONY : src/UI/Button.cpp.s
+src/UI/Components/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Components/Button.cpp.s
+.PHONY : src/UI/Components/Button.cpp.s
 
-src/UI/Dropdown.o: src/UI/Dropdown.cpp.o
-.PHONY : src/UI/Dropdown.o
+src/UI/Components/Dropdown.o: src/UI/Components/Dropdown.cpp.o
+.PHONY : src/UI/Components/Dropdown.o
 
 # target to build an object file
-src/UI/Dropdown.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.o
-.PHONY : src/UI/Dropdown.cpp.o
+src/UI/Components/Dropdown.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Components/Dropdown.cpp.o
+.PHONY : src/UI/Components/Dropdown.cpp.o
 
-src/UI/Dropdown.i: src/UI/Dropdown.cpp.i
-.PHONY : src/UI/Dropdown.i
+src/UI/Components/Dropdown.i: src/UI/Components/Dropdown.cpp.i
+.PHONY : src/UI/Components/Dropdown.i
 
 # target to preprocess a source file
-src/UI/Dropdown.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.i
-.PHONY : src/UI/Dropdown.cpp.i
+src/UI/Components/Dropdown.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Components/Dropdown.cpp.i
+.PHONY : src/UI/Components/Dropdown.cpp.i
 
-src/UI/Dropdown.s: src/UI/Dropdown.cpp.s
-.PHONY : src/UI/Dropdown.s
+src/UI/Components/Dropdown.s: src/UI/Components/Dropdown.cpp.s
+.PHONY : src/UI/Components/Dropdown.s
 
 # target to generate assembly for a file
-src/UI/Dropdown.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.s
-.PHONY : src/UI/Dropdown.cpp.s
+src/UI/Components/Dropdown.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Components/Dropdown.cpp.s
+.PHONY : src/UI/Components/Dropdown.cpp.s
 
 src/UI/InputHandler.o: src/UI/InputHandler.cpp.o
 .PHONY : src/UI/InputHandler.o
@@ -321,102 +321,6 @@ src/UI/InputHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/InputHandler.cpp.s
 .PHONY : src/UI/InputHandler.cpp.s
 
-src/UI/LayerWindow.o: src/UI/LayerWindow.cpp.o
-.PHONY : src/UI/LayerWindow.o
-
-# target to build an object file
-src/UI/LayerWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.o
-.PHONY : src/UI/LayerWindow.cpp.o
-
-src/UI/LayerWindow.i: src/UI/LayerWindow.cpp.i
-.PHONY : src/UI/LayerWindow.i
-
-# target to preprocess a source file
-src/UI/LayerWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.i
-.PHONY : src/UI/LayerWindow.cpp.i
-
-src/UI/LayerWindow.s: src/UI/LayerWindow.cpp.s
-.PHONY : src/UI/LayerWindow.s
-
-# target to generate assembly for a file
-src/UI/LayerWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/LayerWindow.cpp.s
-.PHONY : src/UI/LayerWindow.cpp.s
-
-src/UI/MapWindow.o: src/UI/MapWindow.cpp.o
-.PHONY : src/UI/MapWindow.o
-
-# target to build an object file
-src/UI/MapWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.o
-.PHONY : src/UI/MapWindow.cpp.o
-
-src/UI/MapWindow.i: src/UI/MapWindow.cpp.i
-.PHONY : src/UI/MapWindow.i
-
-# target to preprocess a source file
-src/UI/MapWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.i
-.PHONY : src/UI/MapWindow.cpp.i
-
-src/UI/MapWindow.s: src/UI/MapWindow.cpp.s
-.PHONY : src/UI/MapWindow.s
-
-# target to generate assembly for a file
-src/UI/MapWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/MapWindow.cpp.s
-.PHONY : src/UI/MapWindow.cpp.s
-
-src/UI/SettingsWindow.o: src/UI/SettingsWindow.cpp.o
-.PHONY : src/UI/SettingsWindow.o
-
-# target to build an object file
-src/UI/SettingsWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o
-.PHONY : src/UI/SettingsWindow.cpp.o
-
-src/UI/SettingsWindow.i: src/UI/SettingsWindow.cpp.i
-.PHONY : src/UI/SettingsWindow.i
-
-# target to preprocess a source file
-src/UI/SettingsWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.i
-.PHONY : src/UI/SettingsWindow.cpp.i
-
-src/UI/SettingsWindow.s: src/UI/SettingsWindow.cpp.s
-.PHONY : src/UI/SettingsWindow.s
-
-# target to generate assembly for a file
-src/UI/SettingsWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.s
-.PHONY : src/UI/SettingsWindow.cpp.s
-
-src/UI/Toolbar.o: src/UI/Toolbar.cpp.o
-.PHONY : src/UI/Toolbar.o
-
-# target to build an object file
-src/UI/Toolbar.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o
-.PHONY : src/UI/Toolbar.cpp.o
-
-src/UI/Toolbar.i: src/UI/Toolbar.cpp.i
-.PHONY : src/UI/Toolbar.i
-
-# target to preprocess a source file
-src/UI/Toolbar.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.i
-.PHONY : src/UI/Toolbar.cpp.i
-
-src/UI/Toolbar.s: src/UI/Toolbar.cpp.s
-.PHONY : src/UI/Toolbar.s
-
-# target to generate assembly for a file
-src/UI/Toolbar.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.s
-.PHONY : src/UI/Toolbar.cpp.s
-
 src/UI/UIManager.o: src/UI/UIManager.cpp.o
 .PHONY : src/UI/UIManager.o
 
@@ -440,6 +344,102 @@ src/UI/UIManager.s: src/UI/UIManager.cpp.s
 src/UI/UIManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.s
 .PHONY : src/UI/UIManager.cpp.s
+
+src/UI/Windows/LayerWindow.o: src/UI/Windows/LayerWindow.cpp.o
+.PHONY : src/UI/Windows/LayerWindow.o
+
+# target to build an object file
+src/UI/Windows/LayerWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/LayerWindow.cpp.o
+.PHONY : src/UI/Windows/LayerWindow.cpp.o
+
+src/UI/Windows/LayerWindow.i: src/UI/Windows/LayerWindow.cpp.i
+.PHONY : src/UI/Windows/LayerWindow.i
+
+# target to preprocess a source file
+src/UI/Windows/LayerWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/LayerWindow.cpp.i
+.PHONY : src/UI/Windows/LayerWindow.cpp.i
+
+src/UI/Windows/LayerWindow.s: src/UI/Windows/LayerWindow.cpp.s
+.PHONY : src/UI/Windows/LayerWindow.s
+
+# target to generate assembly for a file
+src/UI/Windows/LayerWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/LayerWindow.cpp.s
+.PHONY : src/UI/Windows/LayerWindow.cpp.s
+
+src/UI/Windows/MapWindow.o: src/UI/Windows/MapWindow.cpp.o
+.PHONY : src/UI/Windows/MapWindow.o
+
+# target to build an object file
+src/UI/Windows/MapWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/MapWindow.cpp.o
+.PHONY : src/UI/Windows/MapWindow.cpp.o
+
+src/UI/Windows/MapWindow.i: src/UI/Windows/MapWindow.cpp.i
+.PHONY : src/UI/Windows/MapWindow.i
+
+# target to preprocess a source file
+src/UI/Windows/MapWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/MapWindow.cpp.i
+.PHONY : src/UI/Windows/MapWindow.cpp.i
+
+src/UI/Windows/MapWindow.s: src/UI/Windows/MapWindow.cpp.s
+.PHONY : src/UI/Windows/MapWindow.s
+
+# target to generate assembly for a file
+src/UI/Windows/MapWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/MapWindow.cpp.s
+.PHONY : src/UI/Windows/MapWindow.cpp.s
+
+src/UI/Windows/SettingsWindow.o: src/UI/Windows/SettingsWindow.cpp.o
+.PHONY : src/UI/Windows/SettingsWindow.o
+
+# target to build an object file
+src/UI/Windows/SettingsWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.o
+.PHONY : src/UI/Windows/SettingsWindow.cpp.o
+
+src/UI/Windows/SettingsWindow.i: src/UI/Windows/SettingsWindow.cpp.i
+.PHONY : src/UI/Windows/SettingsWindow.i
+
+# target to preprocess a source file
+src/UI/Windows/SettingsWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.i
+.PHONY : src/UI/Windows/SettingsWindow.cpp.i
+
+src/UI/Windows/SettingsWindow.s: src/UI/Windows/SettingsWindow.cpp.s
+.PHONY : src/UI/Windows/SettingsWindow.s
+
+# target to generate assembly for a file
+src/UI/Windows/SettingsWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.s
+.PHONY : src/UI/Windows/SettingsWindow.cpp.s
+
+src/UI/Windows/Toolbar.o: src/UI/Windows/Toolbar.cpp.o
+.PHONY : src/UI/Windows/Toolbar.o
+
+# target to build an object file
+src/UI/Windows/Toolbar.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Toolbar.cpp.o
+.PHONY : src/UI/Windows/Toolbar.cpp.o
+
+src/UI/Windows/Toolbar.i: src/UI/Windows/Toolbar.cpp.i
+.PHONY : src/UI/Windows/Toolbar.i
+
+# target to preprocess a source file
+src/UI/Windows/Toolbar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Toolbar.cpp.i
+.PHONY : src/UI/Windows/Toolbar.cpp.i
+
+src/UI/Windows/Toolbar.s: src/UI/Windows/Toolbar.cpp.s
+.PHONY : src/UI/Windows/Toolbar.s
+
+# target to generate assembly for a file
+src/UI/Windows/Toolbar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Toolbar.cpp.s
+.PHONY : src/UI/Windows/Toolbar.cpp.s
 
 src/Utils/SDLUtils.o: src/Utils/SDLUtils.cpp.o
 .PHONY : src/Utils/SDLUtils.o
@@ -528,39 +528,39 @@ help:
 	@echo "... src/Config/FontManager.o"
 	@echo "... src/Config/FontManager.i"
 	@echo "... src/Config/FontManager.s"
-	@echo "... src/Networking/TileFetcher.o"
-	@echo "... src/Networking/TileFetcher.i"
-	@echo "... src/Networking/TileFetcher.s"
+	@echo "... src/Networking/Tiles/TileFetcher.o"
+	@echo "... src/Networking/Tiles/TileFetcher.i"
+	@echo "... src/Networking/Tiles/TileFetcher.s"
 	@echo "... src/Rendering/MainLoop.o"
 	@echo "... src/Rendering/MainLoop.i"
 	@echo "... src/Rendering/MainLoop.s"
 	@echo "... src/Rendering/TileRenderer.o"
 	@echo "... src/Rendering/TileRenderer.i"
 	@echo "... src/Rendering/TileRenderer.s"
-	@echo "... src/UI/Button.o"
-	@echo "... src/UI/Button.i"
-	@echo "... src/UI/Button.s"
-	@echo "... src/UI/Dropdown.o"
-	@echo "... src/UI/Dropdown.i"
-	@echo "... src/UI/Dropdown.s"
+	@echo "... src/UI/Components/Button.o"
+	@echo "... src/UI/Components/Button.i"
+	@echo "... src/UI/Components/Button.s"
+	@echo "... src/UI/Components/Dropdown.o"
+	@echo "... src/UI/Components/Dropdown.i"
+	@echo "... src/UI/Components/Dropdown.s"
 	@echo "... src/UI/InputHandler.o"
 	@echo "... src/UI/InputHandler.i"
 	@echo "... src/UI/InputHandler.s"
-	@echo "... src/UI/LayerWindow.o"
-	@echo "... src/UI/LayerWindow.i"
-	@echo "... src/UI/LayerWindow.s"
-	@echo "... src/UI/MapWindow.o"
-	@echo "... src/UI/MapWindow.i"
-	@echo "... src/UI/MapWindow.s"
-	@echo "... src/UI/SettingsWindow.o"
-	@echo "... src/UI/SettingsWindow.i"
-	@echo "... src/UI/SettingsWindow.s"
-	@echo "... src/UI/Toolbar.o"
-	@echo "... src/UI/Toolbar.i"
-	@echo "... src/UI/Toolbar.s"
 	@echo "... src/UI/UIManager.o"
 	@echo "... src/UI/UIManager.i"
 	@echo "... src/UI/UIManager.s"
+	@echo "... src/UI/Windows/LayerWindow.o"
+	@echo "... src/UI/Windows/LayerWindow.i"
+	@echo "... src/UI/Windows/LayerWindow.s"
+	@echo "... src/UI/Windows/MapWindow.o"
+	@echo "... src/UI/Windows/MapWindow.i"
+	@echo "... src/UI/Windows/MapWindow.s"
+	@echo "... src/UI/Windows/SettingsWindow.o"
+	@echo "... src/UI/Windows/SettingsWindow.i"
+	@echo "... src/UI/Windows/SettingsWindow.s"
+	@echo "... src/UI/Windows/Toolbar.o"
+	@echo "... src/UI/Windows/Toolbar.i"
+	@echo "... src/UI/Windows/Toolbar.s"
 	@echo "... src/Utils/SDLUtils.o"
 	@echo "... src/Utils/SDLUtils.i"
 	@echo "... src/Utils/SDLUtils.s"

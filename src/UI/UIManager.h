@@ -3,7 +3,7 @@
 #ifndef UIMANAGER_H
 #define UIMANAGER_H
 
-#include "UIComponent.h"
+#include "Components/UIComponent.h"
 #include <vector>
 #include <memory>
 
