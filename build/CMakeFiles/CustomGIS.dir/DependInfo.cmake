@@ -9,7 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/linux/LeapCore/GIS/src/Config/ConfigManager.cpp" "CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.o.d"
+  "/home/linux/LeapCore/GIS/src/Config/FontManager.cpp" "CMakeFiles/CustomGIS.dir/src/Config/FontManager.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Config/FontManager.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/Networking/TileFetcher.cpp" "CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.o.d"
+  "/home/linux/LeapCore/GIS/src/Rendering/MainLoop.cpp" "CMakeFiles/CustomGIS.dir/src/Rendering/MainLoop.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Rendering/MainLoop.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/Rendering/TileRenderer.cpp" "CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Rendering/TileRenderer.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/UI/Button.cpp" "CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/UI/Button.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/UI/Dropdown.cpp" "CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/UI/Dropdown.cpp.o.d"
@@ -19,8 +21,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/linux/LeapCore/GIS/src/UI/SettingsWindow.cpp" "CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/UI/SettingsWindow.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/UI/Toolbar.cpp" "CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/UI/Toolbar.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/UI/UIManager.cpp" "CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.o.d"
-  "/home/linux/LeapCore/GIS/src/Utils/FontManager.cpp" "CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.o.d"
-  "/home/linux/LeapCore/GIS/src/Utils/MainLoop.cpp" "CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/Utils/SDLUtils.cpp" "CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Utils/SDLUtils.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/Utils/Utils.cpp" "CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/Utils/Utils.cpp.o.d"
   "/home/linux/LeapCore/GIS/src/main.cpp" "CMakeFiles/CustomGIS.dir/src/main.cpp.o" "gcc" "CMakeFiles/CustomGIS.dir/src/main.cpp.o.d"

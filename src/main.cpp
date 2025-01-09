@@ -1,7 +1,7 @@
 // main.cpp:
 
 #include "Utils/SDLUtils.h"
-#include "Utils/MainLoop.h"
+#include "Rendering/MainLoop.h"
 #include "Rendering/TileRenderer.h"
 #include "UI/InputHandler.h"
 #include "UI/MapWindow.h"

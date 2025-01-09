@@ -153,6 +153,30 @@ src/Config/ConfigManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/ConfigManager.cpp.s
 .PHONY : src/Config/ConfigManager.cpp.s
 
+src/Config/FontManager.o: src/Config/FontManager.cpp.o
+.PHONY : src/Config/FontManager.o
+
+# target to build an object file
+src/Config/FontManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/FontManager.cpp.o
+.PHONY : src/Config/FontManager.cpp.o
+
+src/Config/FontManager.i: src/Config/FontManager.cpp.i
+.PHONY : src/Config/FontManager.i
+
+# target to preprocess a source file
+src/Config/FontManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/FontManager.cpp.i
+.PHONY : src/Config/FontManager.cpp.i
+
+src/Config/FontManager.s: src/Config/FontManager.cpp.s
+.PHONY : src/Config/FontManager.s
+
+# target to generate assembly for a file
+src/Config/FontManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Config/FontManager.cpp.s
+.PHONY : src/Config/FontManager.cpp.s
+
 src/Networking/TileFetcher.o: src/Networking/TileFetcher.cpp.o
 .PHONY : src/Networking/TileFetcher.o
 
@@ -176,6 +200,30 @@ src/Networking/TileFetcher.s: src/Networking/TileFetcher.cpp.s
 src/Networking/TileFetcher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Networking/TileFetcher.cpp.s
 .PHONY : src/Networking/TileFetcher.cpp.s
+
+src/Rendering/MainLoop.o: src/Rendering/MainLoop.cpp.o
+.PHONY : src/Rendering/MainLoop.o
+
+# target to build an object file
+src/Rendering/MainLoop.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Rendering/MainLoop.cpp.o
+.PHONY : src/Rendering/MainLoop.cpp.o
+
+src/Rendering/MainLoop.i: src/Rendering/MainLoop.cpp.i
+.PHONY : src/Rendering/MainLoop.i
+
+# target to preprocess a source file
+src/Rendering/MainLoop.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Rendering/MainLoop.cpp.i
+.PHONY : src/Rendering/MainLoop.cpp.i
+
+src/Rendering/MainLoop.s: src/Rendering/MainLoop.cpp.s
+.PHONY : src/Rendering/MainLoop.s
+
+# target to generate assembly for a file
+src/Rendering/MainLoop.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Rendering/MainLoop.cpp.s
+.PHONY : src/Rendering/MainLoop.cpp.s
 
 src/Rendering/TileRenderer.o: src/Rendering/TileRenderer.cpp.o
 .PHONY : src/Rendering/TileRenderer.o
@@ -393,54 +441,6 @@ src/UI/UIManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/UIManager.cpp.s
 .PHONY : src/UI/UIManager.cpp.s
 
-src/Utils/FontManager.o: src/Utils/FontManager.cpp.o
-.PHONY : src/Utils/FontManager.o
-
-# target to build an object file
-src/Utils/FontManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.o
-.PHONY : src/Utils/FontManager.cpp.o
-
-src/Utils/FontManager.i: src/Utils/FontManager.cpp.i
-.PHONY : src/Utils/FontManager.i
-
-# target to preprocess a source file
-src/Utils/FontManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.i
-.PHONY : src/Utils/FontManager.cpp.i
-
-src/Utils/FontManager.s: src/Utils/FontManager.cpp.s
-.PHONY : src/Utils/FontManager.s
-
-# target to generate assembly for a file
-src/Utils/FontManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/FontManager.cpp.s
-.PHONY : src/Utils/FontManager.cpp.s
-
-src/Utils/MainLoop.o: src/Utils/MainLoop.cpp.o
-.PHONY : src/Utils/MainLoop.o
-
-# target to build an object file
-src/Utils/MainLoop.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.o
-.PHONY : src/Utils/MainLoop.cpp.o
-
-src/Utils/MainLoop.i: src/Utils/MainLoop.cpp.i
-.PHONY : src/Utils/MainLoop.i
-
-# target to preprocess a source file
-src/Utils/MainLoop.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.i
-.PHONY : src/Utils/MainLoop.cpp.i
-
-src/Utils/MainLoop.s: src/Utils/MainLoop.cpp.s
-.PHONY : src/Utils/MainLoop.s
-
-# target to generate assembly for a file
-src/Utils/MainLoop.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/Utils/MainLoop.cpp.s
-.PHONY : src/Utils/MainLoop.cpp.s
-
 src/Utils/SDLUtils.o: src/Utils/SDLUtils.cpp.o
 .PHONY : src/Utils/SDLUtils.o
 
@@ -525,9 +525,15 @@ help:
 	@echo "... src/Config/ConfigManager.o"
 	@echo "... src/Config/ConfigManager.i"
 	@echo "... src/Config/ConfigManager.s"
+	@echo "... src/Config/FontManager.o"
+	@echo "... src/Config/FontManager.i"
+	@echo "... src/Config/FontManager.s"
 	@echo "... src/Networking/TileFetcher.o"
 	@echo "... src/Networking/TileFetcher.i"
 	@echo "... src/Networking/TileFetcher.s"
+	@echo "... src/Rendering/MainLoop.o"
+	@echo "... src/Rendering/MainLoop.i"
+	@echo "... src/Rendering/MainLoop.s"
 	@echo "... src/Rendering/TileRenderer.o"
 	@echo "... src/Rendering/TileRenderer.i"
 	@echo "... src/Rendering/TileRenderer.s"
@@ -555,12 +561,6 @@ help:
 	@echo "... src/UI/UIManager.o"
 	@echo "... src/UI/UIManager.i"
 	@echo "... src/UI/UIManager.s"
-	@echo "... src/Utils/FontManager.o"
-	@echo "... src/Utils/FontManager.i"
-	@echo "... src/Utils/FontManager.s"
-	@echo "... src/Utils/MainLoop.o"
-	@echo "... src/Utils/MainLoop.i"
-	@echo "... src/Utils/MainLoop.s"
 	@echo "... src/Utils/SDLUtils.o"
 	@echo "... src/Utils/SDLUtils.i"
 	@echo "... src/Utils/SDLUtils.s"

@@ -344,6 +344,14 @@ bool SettingsWindow::handleEvent(const SDL_Event& event) {
         }
     }
 
+    // **Fix: Delegate events to tab buttons first**
+    for (auto& tb : tabButtons) {
+        if (tb->handleEvent(event)) {
+            handled = true;
+            needsRedrawFlag = true;
+        }
+    }
+
     // 2. Delegate events to child components based on the current tab
     if (currentTab == Tab::GENERAL) {
         // Font Dropdown
