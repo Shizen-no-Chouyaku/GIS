@@ -1,4 +1,4 @@
-// src/UI/SettingsWindow.cpp
+// src/UI/Windows/SettingsWindow.cpp
 
 #include "SettingsWindow.h"
 #include "../Components/Dropdown.h" // Include Dropdown
@@ -459,11 +459,34 @@ void SettingsWindow::render(SDL_Renderer* renderer) {
 
     // Render contents based on the active tab
     if (currentTab == Tab::GENERAL) {
-        fontDropdown->render(renderer);
+
+        // Render NON-dropdown UI elements first
         installFontBtn->render(renderer);
-        resolutionDropdown->render(renderer);
         saveBtn->render(renderer);
         closeBtn->render(renderer);
+
+        // **Layering fix**: We decide which dropdown is on top
+        bool fontExpanded       = fontDropdown->isExpanded();       // or however you check expansion
+        bool resolutionExpanded = resolutionDropdown->isExpanded();
+
+        if (fontExpanded && !resolutionExpanded) {
+            // 1) Draw the resolution dropdown in collapsed state
+            resolutionDropdown->render(renderer);
+            // 2) Then draw the *expanded* font dropdown last
+            fontDropdown->render(renderer);
+        }
+        else if (resolutionExpanded && !fontExpanded) {
+            // 1) Draw the font dropdown in collapsed state
+            fontDropdown->render(renderer);
+            // 2) Then draw the *expanded* resolution dropdown last
+            resolutionDropdown->render(renderer);
+        }
+        else {
+            // Both are collapsed (or both expanded, if that can happen in your code):
+            // Just render them in some default order
+            fontDropdown->render(renderer);
+            resolutionDropdown->render(renderer);
+        }
     }
     else if (currentTab == Tab::LAYERS) {
         // Example placeholder

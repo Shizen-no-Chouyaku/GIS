@@ -1,3 +1,5 @@
+// src/UI/Components/Dropdown.h
+
 #ifndef DROPDOWN_H
 #define DROPDOWN_H
 
@@ -19,7 +21,8 @@ public:
              int selectedIndex,
              SDL_Color bgColor,
              SDL_Color hoverColor,
-             std::function<void(int)> onSelect);
+             std::function<void(int)> onSelect,
+             const std::string& label = ""); // **Added label parameter**
 
     // Overridden UI methods
     bool handleEvent(const SDL_Event& event) override;
@@ -32,6 +35,9 @@ public:
     void setFont(TTF_Font* newFont); // **Added setFont**
 
     bool needsRedraw() const override { return needRedraw; }
+
+    // Additional Methods
+    bool isExpanded() const { return expanded; }
 
 private:
     SDL_Renderer* renderer;
@@ -52,8 +58,24 @@ private:
     // For highlight in the expanded list
     int hoverItemIndex;
 
+    // Text Wrapping and Scrolling
+    std::vector<std::vector<std::string>> wrappedItems; // Each item can have multiple lines
+    int maxDropdownWidth;
+    int maxDropdownHeight;
+    int scrollOffset; // In pixels
+
+    // Label for context
+    std::string label;
+
+    int actualDropdownWidth;
+
+    // Helper Methods
     void drawText(SDL_Renderer* renderer, const std::string& txt, int x, int y);
-    int getItemAtY(int mouseY) const;
+    void recomputeWrappedItems();
+    std::vector<std::string> wrapTextByWidth(const std::string& text, int maxWidth);
+
+    // Static member to track currently expanded dropdown
+    static Dropdown* currentlyExpandedDropdown;
 };
 
 #endif // DROPDOWN_H
