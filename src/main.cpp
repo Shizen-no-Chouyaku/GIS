@@ -9,7 +9,7 @@
 #include "UI/Windows/Toolbar.h"
 #include "UI/Windows/LayerWindow.h"
 #include "Config/ConfigManager.h" // Make sure to include ConfigManager
-#include "UI//Windows/SettingsWindow.h"    // Include SettingsWindow if needed
+#include "UI/Windows//Settings/SettingsWindow.h"    // Include SettingsWindow if needed
 #include "nlohmann/json.hpp"      // Include JSON library
 #include <SDL2/SDL_ttf.h> // Include SDL_ttf
 #include "Utils/Utils.h"

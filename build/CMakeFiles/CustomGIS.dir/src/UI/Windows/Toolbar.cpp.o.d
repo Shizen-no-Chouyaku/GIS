@@ -319,9 +319,12 @@ CMakeFiles/CustomGIS.dir/src/UI/Windows/Toolbar.cpp.o: \
  /usr/include/c++/12/backward/auto_ptr.h \
  /usr/include/c++/12/pstl/glue_memory_defs.h \
  /usr/include/c++/12/pstl/execution_defs.h \
- /home/linux/LeapCore/GIS/src/UI/Windows/SettingsWindow.h \
- /home/linux/LeapCore/GIS/src/UI/Windows/../Components/Dropdown.h \
- /home/linux/LeapCore/GIS/src/UI/Windows/../../Config/ConfigManager.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/SettingsWindow.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/../../Components/UIComponent.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/../../Components/Button.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/../../../Config/ConfigManager.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/GeneralTab.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/LayersTab.h \
  /home/linux/LeapCore/GIS/src/UI/Windows/../../Utils/Utils.h \
  /usr/include/c++/12/iostream /usr/include/c++/12/ostream \
  /usr/include/c++/12/ios /usr/include/c++/12/bits/ios_base.h \

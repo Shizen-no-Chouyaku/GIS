@@ -382,12 +382,15 @@ CMakeFiles/CustomGIS.dir/src/main.cpp.o: \
  /home/linux/LeapCore/GIS/src/UI/Windows/../Components/UIComponent.h \
  /usr/include/SDL2/SDL_ttf.h \
  /home/linux/LeapCore/GIS/src/UI/Windows/../UIManager.h \
- /home/linux/LeapCore/GIS/src/UI/Windows/SettingsWindow.h \
- /home/linux/LeapCore/GIS/src/UI/Windows/../Components/Dropdown.h \
- /home/linux/LeapCore/GIS/src/UI/Windows/../../Config/ConfigManager.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/SettingsWindow.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/../../Components/UIComponent.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/../../Components/Button.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/../../../Config/ConfigManager.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/GeneralTab.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/Settings/LayersTab.h \
  /home/linux/LeapCore/GIS/src/UI/Windows/LayerWindow.h \
  /home/linux/LeapCore/GIS/src/Config/ConfigManager.h \
- /home/linux/LeapCore/GIS/src/UI//Windows/SettingsWindow.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows//Settings/SettingsWindow.h \
  /usr/local/include/nlohmann/json.hpp /usr/include/c++/12/algorithm \
  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
  /usr/include/c++/12/cstddef /usr/include/c++/12/iterator \

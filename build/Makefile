@@ -393,29 +393,77 @@ src/UI/Windows/MapWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/MapWindow.cpp.s
 .PHONY : src/UI/Windows/MapWindow.cpp.s
 
-src/UI/Windows/SettingsWindow.o: src/UI/Windows/SettingsWindow.cpp.o
-.PHONY : src/UI/Windows/SettingsWindow.o
+src/UI/Windows/Settings/GeneralTab.o: src/UI/Windows/Settings/GeneralTab.cpp.o
+.PHONY : src/UI/Windows/Settings/GeneralTab.o
 
 # target to build an object file
-src/UI/Windows/SettingsWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.o
-.PHONY : src/UI/Windows/SettingsWindow.cpp.o
+src/UI/Windows/Settings/GeneralTab.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/GeneralTab.cpp.o
+.PHONY : src/UI/Windows/Settings/GeneralTab.cpp.o
 
-src/UI/Windows/SettingsWindow.i: src/UI/Windows/SettingsWindow.cpp.i
-.PHONY : src/UI/Windows/SettingsWindow.i
+src/UI/Windows/Settings/GeneralTab.i: src/UI/Windows/Settings/GeneralTab.cpp.i
+.PHONY : src/UI/Windows/Settings/GeneralTab.i
 
 # target to preprocess a source file
-src/UI/Windows/SettingsWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.i
-.PHONY : src/UI/Windows/SettingsWindow.cpp.i
+src/UI/Windows/Settings/GeneralTab.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/GeneralTab.cpp.i
+.PHONY : src/UI/Windows/Settings/GeneralTab.cpp.i
 
-src/UI/Windows/SettingsWindow.s: src/UI/Windows/SettingsWindow.cpp.s
-.PHONY : src/UI/Windows/SettingsWindow.s
+src/UI/Windows/Settings/GeneralTab.s: src/UI/Windows/Settings/GeneralTab.cpp.s
+.PHONY : src/UI/Windows/Settings/GeneralTab.s
 
 # target to generate assembly for a file
-src/UI/Windows/SettingsWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.s
-.PHONY : src/UI/Windows/SettingsWindow.cpp.s
+src/UI/Windows/Settings/GeneralTab.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/GeneralTab.cpp.s
+.PHONY : src/UI/Windows/Settings/GeneralTab.cpp.s
+
+src/UI/Windows/Settings/LayersTab.o: src/UI/Windows/Settings/LayersTab.cpp.o
+.PHONY : src/UI/Windows/Settings/LayersTab.o
+
+# target to build an object file
+src/UI/Windows/Settings/LayersTab.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/LayersTab.cpp.o
+.PHONY : src/UI/Windows/Settings/LayersTab.cpp.o
+
+src/UI/Windows/Settings/LayersTab.i: src/UI/Windows/Settings/LayersTab.cpp.i
+.PHONY : src/UI/Windows/Settings/LayersTab.i
+
+# target to preprocess a source file
+src/UI/Windows/Settings/LayersTab.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/LayersTab.cpp.i
+.PHONY : src/UI/Windows/Settings/LayersTab.cpp.i
+
+src/UI/Windows/Settings/LayersTab.s: src/UI/Windows/Settings/LayersTab.cpp.s
+.PHONY : src/UI/Windows/Settings/LayersTab.s
+
+# target to generate assembly for a file
+src/UI/Windows/Settings/LayersTab.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/LayersTab.cpp.s
+.PHONY : src/UI/Windows/Settings/LayersTab.cpp.s
+
+src/UI/Windows/Settings/SettingsWindow.o: src/UI/Windows/Settings/SettingsWindow.cpp.o
+.PHONY : src/UI/Windows/Settings/SettingsWindow.o
+
+# target to build an object file
+src/UI/Windows/Settings/SettingsWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/SettingsWindow.cpp.o
+.PHONY : src/UI/Windows/Settings/SettingsWindow.cpp.o
+
+src/UI/Windows/Settings/SettingsWindow.i: src/UI/Windows/Settings/SettingsWindow.cpp.i
+.PHONY : src/UI/Windows/Settings/SettingsWindow.i
+
+# target to preprocess a source file
+src/UI/Windows/Settings/SettingsWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/SettingsWindow.cpp.i
+.PHONY : src/UI/Windows/Settings/SettingsWindow.cpp.i
+
+src/UI/Windows/Settings/SettingsWindow.s: src/UI/Windows/Settings/SettingsWindow.cpp.s
+.PHONY : src/UI/Windows/Settings/SettingsWindow.s
+
+# target to generate assembly for a file
+src/UI/Windows/Settings/SettingsWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CustomGIS.dir/build.make CMakeFiles/CustomGIS.dir/src/UI/Windows/Settings/SettingsWindow.cpp.s
+.PHONY : src/UI/Windows/Settings/SettingsWindow.cpp.s
 
 src/UI/Windows/Toolbar.o: src/UI/Windows/Toolbar.cpp.o
 .PHONY : src/UI/Windows/Toolbar.o
@@ -555,9 +603,15 @@ help:
 	@echo "... src/UI/Windows/MapWindow.o"
 	@echo "... src/UI/Windows/MapWindow.i"
 	@echo "... src/UI/Windows/MapWindow.s"
-	@echo "... src/UI/Windows/SettingsWindow.o"
-	@echo "... src/UI/Windows/SettingsWindow.i"
-	@echo "... src/UI/Windows/SettingsWindow.s"
+	@echo "... src/UI/Windows/Settings/GeneralTab.o"
+	@echo "... src/UI/Windows/Settings/GeneralTab.i"
+	@echo "... src/UI/Windows/Settings/GeneralTab.s"
+	@echo "... src/UI/Windows/Settings/LayersTab.o"
+	@echo "... src/UI/Windows/Settings/LayersTab.i"
+	@echo "... src/UI/Windows/Settings/LayersTab.s"
+	@echo "... src/UI/Windows/Settings/SettingsWindow.o"
+	@echo "... src/UI/Windows/Settings/SettingsWindow.i"
+	@echo "... src/UI/Windows/Settings/SettingsWindow.s"
 	@echo "... src/UI/Windows/Toolbar.o"
 	@echo "... src/UI/Windows/Toolbar.i"
 	@echo "... src/UI/Windows/Toolbar.s"

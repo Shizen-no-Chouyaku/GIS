@@ -6,7 +6,7 @@
 #include "../Components/UIComponent.h"
 #include "../Components/Button.h"           // Include Button class
 #include "../UIManager.h"       // Include UIManager
-#include "SettingsWindow.h"  // **Add this line**
+#include "Settings/SettingsWindow.h"  // **Add this line**
 #include <memory>
 #include <vector>
 #include <SDL2/SDL_ttf.h>

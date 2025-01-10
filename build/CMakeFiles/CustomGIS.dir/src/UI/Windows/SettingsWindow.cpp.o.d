@@ -284,7 +284,6 @@ CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.o: \
  /usr/include/c++/12/bits/basic_string.tcc /usr/local/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /home/linux/LeapCore/GIS/src/UI/Windows/../Components/Dropdown.h \
  /home/linux/LeapCore/GIS/src/UI/Windows/../../Config/ConfigManager.h \
  /usr/include/c++/12/memory \
  /usr/include/c++/12/bits/stl_raw_storage_iter.h \
@@ -319,6 +318,9 @@ CMakeFiles/CustomGIS.dir/src/UI/Windows/SettingsWindow.cpp.o: \
  /usr/include/c++/12/backward/auto_ptr.h \
  /usr/include/c++/12/pstl/glue_memory_defs.h \
  /usr/include/c++/12/pstl/execution_defs.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/GeneralTab.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/LayersTab.h \
+ /home/linux/LeapCore/GIS/src/UI/Windows/../Components/Dropdown.h \
  /home/linux/LeapCore/GIS/src/UI/Windows/../../Utils/Utils.h \
  /usr/include/c++/12/iostream /usr/include/c++/12/ostream \
  /usr/include/c++/12/ios /usr/include/c++/12/bits/ios_base.h \

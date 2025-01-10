@@ -2,7 +2,7 @@
 
 #include "Toolbar.h"
 #include "../../Utils/Utils.h"
-#include "SettingsWindow.h"  // Ensure this is included
+#include "Settings/SettingsWindow.h"  // Ensure this is included
 #include <iostream>
 
 // Assuming you have access to SDL_Window* via UIManager
